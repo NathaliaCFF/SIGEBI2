@@ -1,0 +1,11 @@
+C:\Users\natha\Desktop\PROYECTO II\API\bin\Debug\net8.0\API.deps.json
+C:\Users\natha\Desktop\PROYECTO II\API\bin\Debug\net8.0\API.dll
+C:\Users\natha\Desktop\PROYECTO II\API\bin\Debug\net8.0\API.pdb
+C:\Users\natha\Desktop\PROYECTO II\API\obj\Debug\net8.0\API.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\natha\Desktop\PROYECTO II\API\obj\Debug\net8.0\API.AssemblyInfoInputs.cache
+C:\Users\natha\Desktop\PROYECTO II\API\obj\Debug\net8.0\API.AssemblyInfo.cs
+C:\Users\natha\Desktop\PROYECTO II\API\obj\Debug\net8.0\API.csproj.CoreCompileInputs.cache
+C:\Users\natha\Desktop\PROYECTO II\API\obj\Debug\net8.0\API.dll
+C:\Users\natha\Desktop\PROYECTO II\API\obj\Debug\net8.0\refint\API.dll
+C:\Users\natha\Desktop\PROYECTO II\API\obj\Debug\net8.0\API.pdb
+C:\Users\natha\Desktop\PROYECTO II\API\obj\Debug\net8.0\ref\API.dll

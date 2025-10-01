@@ -1,0 +1,15 @@
+C:\Users\natha\Desktop\PROYECTO II\Domain\bin\Debug\net8.0\Domain.deps.json
+C:\Users\natha\Desktop\PROYECTO II\Domain\bin\Debug\net8.0\Domain.dll
+C:\Users\natha\Desktop\PROYECTO II\Domain\bin\Debug\net8.0\Domain.pdb
+C:\Users\natha\Desktop\PROYECTO II\Domain\bin\Debug\net8.0\Shared.dll
+C:\Users\natha\Desktop\PROYECTO II\Domain\bin\Debug\net8.0\Shared.pdb
+C:\Users\natha\Desktop\PROYECTO II\Domain\obj\Debug\net8.0\Domain.csproj.AssemblyReference.cache
+C:\Users\natha\Desktop\PROYECTO II\Domain\obj\Debug\net8.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\natha\Desktop\PROYECTO II\Domain\obj\Debug\net8.0\Domain.AssemblyInfoInputs.cache
+C:\Users\natha\Desktop\PROYECTO II\Domain\obj\Debug\net8.0\Domain.AssemblyInfo.cs
+C:\Users\natha\Desktop\PROYECTO II\Domain\obj\Debug\net8.0\Domain.csproj.CoreCompileInputs.cache
+C:\Users\natha\Desktop\PROYECTO II\Domain\obj\Debug\net8.0\Domain.csproj.Up2Date
+C:\Users\natha\Desktop\PROYECTO II\Domain\obj\Debug\net8.0\Domain.dll
+C:\Users\natha\Desktop\PROYECTO II\Domain\obj\Debug\net8.0\refint\Domain.dll
+C:\Users\natha\Desktop\PROYECTO II\Domain\obj\Debug\net8.0\Domain.pdb
+C:\Users\natha\Desktop\PROYECTO II\Domain\obj\Debug\net8.0\ref\Domain.dll
