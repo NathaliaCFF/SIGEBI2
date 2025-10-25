@@ -20,22 +20,16 @@ namespace SIGEBI.API.Controllers
             _libroService = libroService;
         }
 
-        // ============================================================
-        // CU-01 Registrar libro
-        // ============================================================
         [HttpPost("crear")]
         public async Task<IActionResult> Crear([FromBody] LibroDTO dto)
         {
-            var libro = dto.ToEntity(); // 🔹 Usa el mapper en lugar de construir a mano
+            var libro = dto.ToEntity(); 
             var result = await _libroService.CrearAsync(libro);
             return result.Success
                 ? Ok(result.Data!.ToDTO())
                 : BadRequest(result);
         }
 
-        // ============================================================
-        // CU-02 Editar libro
-        // ============================================================
         [HttpPut("actualizar/{id:int}")]
         public async Task<IActionResult> Actualizar(int id, [FromBody] LibroDTO dto)
         {
@@ -46,22 +40,16 @@ namespace SIGEBI.API.Controllers
                 : NotFound(result);
         }
 
-        // ============================================================
-        // CU-03 Buscar libro
-        // ============================================================
         [HttpGet("buscar")]
         public async Task<IActionResult> Buscar([FromQuery] string criterio)
         {
             var result = await _libroService.BuscarAsync(criterio);
             if (!result.Success) return BadRequest(result);
 
-            var lista = result.Data!.Select(l => l.ToDTO()).ToList(); // 🔹 Usa mapper
+            var lista = result.Data!.Select(l => l.ToDTO()).ToList();
             return Ok(lista);
         }
 
-        // ============================================================
-        // CU-04 Consultar disponibilidad
-        // ============================================================
         [HttpGet("{id:int}/disponibilidad")]
         public async Task<IActionResult> ConsultarDisponibilidad(int id)
         {
@@ -69,9 +57,6 @@ namespace SIGEBI.API.Controllers
             return Ok(result);
         }
 
-        // ============================================================
-        // Desactivar libro
-        // ============================================================
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> Desactivar(int id)
         {
@@ -100,7 +85,7 @@ namespace SIGEBI.API.Controllers
             var result = await _libroService.ListarAsync();
             if (!result.Success) return BadRequest(result);
 
-            var lista = result.Data!.Select(l => l.ToDTO()).ToList(); // 🔹 Usa mapper
+            var lista = result.Data!.Select(l => l.ToDTO()).ToList();
             return Ok(lista);
         }
     }

@@ -17,9 +17,6 @@ namespace SIGEBI.API.Controllers
             _service = service;
         }
 
-        // ============================================================
-        // CU-14: Obtener configuración del sistema
-        // ============================================================
         [HttpGet]
         public async Task<IActionResult> ObtenerConfiguracion()
         {
@@ -30,9 +27,7 @@ namespace SIGEBI.API.Controllers
             return Ok(result.Data.ToDTO());
         }
 
-        // ============================================================
-        // CU-15: Actualizar duración del préstamo
-        // ============================================================
+
         [HttpPut("duracion/{dias:int}")]
         public async Task<IActionResult> ActualizarDuracionPrestamo(int dias)
         {

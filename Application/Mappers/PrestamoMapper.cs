@@ -18,9 +18,9 @@ namespace SIGEBI.Application.Mappers
                 FechaVencimiento = entity.FechaVencimiento,
                 Activo = entity.Activo,
 
-                // 🔹 Usa el mapper de DetallePrestamo
+                
                 Detalles = entity.Detalles != null
-                    ? entity.Detalles.ToDtoList() // Método de DetallePrestamoMapper
+                    ? entity.Detalles.ToDtoList() 
                     : new List<DetallePrestamoDTO>()
             };
         }
@@ -34,7 +34,7 @@ namespace SIGEBI.Application.Mappers
                 FechaVencimiento = dto.FechaVencimiento,
                 Activo = dto.Activo,
 
-                // 🔹 Convierte cada detalle de DTO a entidad
+                
                 Detalles = dto.Detalles != null
                     ? dto.Detalles.Select(d => d.ToEntity()).ToList()
                     : new List<DetallePrestamo>()

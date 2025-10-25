@@ -133,6 +133,14 @@ namespace SIGEBI.Application.Services
 
             var usuario = await _usuarioRepository.ObtenerPorEmailAsync(email);
 
+            // 🟡 TEMPORAL: mostrar el hash actual para depurar
+            Console.WriteLine("---- DEBUG LOGIN ----");
+            Console.WriteLine($"Email: {email}");
+            Console.WriteLine($"Contraseña ingresada: {password}");
+            Console.WriteLine($"Hash almacenado: {usuario.Contraseña}");
+            Console.WriteLine($"Longitud del hash: {usuario.Contraseña?.Length}");
+            Console.WriteLine("----------------------");
+
             // CU-00: Validar existencia y estado activo
             if (usuario == null || !usuario.Activo)
                 return OperationResult<AuthResponseDTO>.Fail("Credenciales inválidas o usuario inactivo.");

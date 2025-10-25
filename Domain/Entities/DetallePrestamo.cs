@@ -8,11 +8,7 @@ namespace SIGEBI.Domain.Entities
         public int PrestamoId { get; set; }
         public int LibroId { get; set; }
         public DateTime? FechaDevolucion { get; set; }
-
-       
         public bool Devuelto { get; set; } = false;
-
-        
         public Prestamo Prestamo { get; set; } = null!;
         public Libro Libro { get; set; } = null!;
     }

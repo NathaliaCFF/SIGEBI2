@@ -18,9 +18,6 @@ namespace SIGEBI.API.Controllers
             _reporteService = reporteService;
         }
 
-        // ============================================================
-        // CU-13: Reporte - Libros más prestados
-        // ============================================================
         [HttpGet("libros-mas-prestados")]
         public async Task<IActionResult> ObtenerLibrosMasPrestados()
         {
