@@ -8,6 +8,7 @@ C:\Users\natha\Desktop\PROYECTO II\Domain\obj\Debug\net8.0\Domain.GeneratedMSBui
 C:\Users\natha\Desktop\PROYECTO II\Domain\obj\Debug\net8.0\Domain.AssemblyInfoInputs.cache
 C:\Users\natha\Desktop\PROYECTO II\Domain\obj\Debug\net8.0\Domain.AssemblyInfo.cs
 C:\Users\natha\Desktop\PROYECTO II\Domain\obj\Debug\net8.0\Domain.csproj.CoreCompileInputs.cache
+C:\Users\natha\Desktop\PROYECTO II\Domain\obj\Debug\net8.0\Domain.sourcelink.json
 C:\Users\natha\Desktop\PROYECTO II\Domain\obj\Debug\net8.0\Domain.csproj.Up2Date
 C:\Users\natha\Desktop\PROYECTO II\Domain\obj\Debug\net8.0\Domain.dll
 C:\Users\natha\Desktop\PROYECTO II\Domain\obj\Debug\net8.0\refint\Domain.dll

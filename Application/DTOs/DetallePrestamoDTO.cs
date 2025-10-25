@@ -1,12 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using SIGEBI.Application.DTOs;
+using SIGEBI.Domain.Entities;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Application.DTOs
+namespace SIGEBI.Application.DTOs
 {
-    internal class DetallePrestamoDTO
+    public class DetallePrestamoDTO
     {
+        public int Id { get; set; }
+        public int PrestamoId { get; set; }
+        public int LibroId { get; set; }
+        public string TituloLibro { get; set; } = string.Empty;
+        public DateTime? FechaDevolucion { get; set; }
+        public bool Devuelto { get; set; }
     }
 }

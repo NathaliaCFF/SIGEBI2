@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+	<RunConfiguration>
+		<!-- Nivel de detalle del registro de resultados -->
+		<ResultsDirectory>TestResults</ResultsDirectory>
+		<TargetPlatform>x64</TargetPlatform>
+		<TargetFrameworkVersion>net8.0</TargetFrameworkVersion>
+		<MaxCpuCount>1</MaxCpuCount>
+		<TestSessionTimeout>60000</TestSessionTimeout>
+		<!-- 👇 Esto activa el modo diagnóstico -->
+		<CollectSourceInformation>true</CollectSourceInformation>
+		<LogVerbosity>Detailed</LogVerbosity>
+	</RunConfiguration>
+	<LoggerRunSettings>
+		<Loggers>
+			<Logger friendlyName="trx" enabled="True" />
+			<Logger friendlyName="console" enabled="True" />
+		</Loggers>
+	</LoggerRunSettings>
+</RunSettings>
+

@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SIGEBI.Domain.Entities;
+using Application.DTOs;
 
-namespace Application.Interfaces
+namespace SIGEBI.Application.Interfaces
 {
-    internal interface IAuthService
+    public interface IAuthService
     {
+        AuthResponseDTO GenerarToken(Usuario usuario);
     }
 }

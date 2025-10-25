@@ -1,12 +1,12 @@
-﻿using System;
+﻿using SIGEBI.Domain.Entities;
+using SIGEBI.Shared.Base;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Application.Interfaces
 {
-    internal interface IReporteService
+    public interface IReporteService
     {
+        Task<ServiceResult<IEnumerable<Reporte>>> ObtenerLibrosMasPrestadosAsync();
     }
 }

@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="fd3e3234-940d-4ed3-ba0a-a1b114811bf8" name="natha@MYCOMPUTER 2025-10-09 20:27:09" runUser="MYCOMPUTER\natha" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2025-10-09T20:27:09.7599856-04:00" queuing="2025-10-09T20:27:09.7599856-04:00" start="2025-10-09T20:27:07.0037947-04:00" finish="2025-10-09T20:27:11.3291421-04:00" />
+  <TestSettings name="default" id="ccb5fce0-d117-45fb-80cb-8cf2ce0b8307">
+    <Deployment runDeploymentRoot="natha_MYCOMPUTER_2025-10-09_20_27_09" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="82376a32-e1ff-44f7-9c4b-f129ed5f97d8" testId="c7114356-7df2-9da0-c4ef-82cfd3ee0779" testName="CrearUsuario_DeberiaGuardarCorrectamente" computerName="MYCOMPUTER" duration="00:00:02.8108020" startTime="2025-10-09T20:27:08.2087841-04:00" endTime="2025-10-09T20:27:11.0198811-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="82376a32-e1ff-44f7-9c4b-f129ed5f97d8" />
+    <UnitTestResult executionId="b0dc99e8-1ed6-45f3-8027-05d150bd18dc" testId="80809000-ad3e-9518-968f-7d6850b255ba" testName="ActivarUsuario_DeberiaCambiarEstado" computerName="MYCOMPUTER" duration="00:00:02.8315643" startTime="2025-10-09T20:27:08.2081864-04:00" endTime="2025-10-09T20:27:11.0403271-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b0dc99e8-1ed6-45f3-8027-05d150bd18dc" />
+    <UnitTestResult executionId="7f0ed7fc-c3e0-4b70-8b9a-e7aa4f46e806" testId="45bbe590-e7fa-a738-6832-4cfd0d74d08b" testName="BuscarLibro_DeberiaRetornarCoincidencias" computerName="MYCOMPUTER" duration="00:00:02.8218469" startTime="2025-10-09T20:27:08.1042899-04:00" endTime="2025-10-09T20:27:11.0272718-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7f0ed7fc-c3e0-4b70-8b9a-e7aa4f46e806" />
+    <UnitTestResult executionId="9fa5e366-0816-4350-9151-814ac14d5b37" testId="3a16017c-c8ea-3bf1-d29e-cbfb5aaae83a" testName="ObtenerPrestamosActivosPorUsuario_DeberiaRetornarLista" computerName="MYCOMPUTER" duration="00:00:02.9951841" startTime="2025-10-09T20:27:08.1050033-04:00" endTime="2025-10-09T20:27:11.2005880-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9fa5e366-0816-4350-9151-814ac14d5b37">
+      <Output>
+        <ErrorInfo>
+          <Message>Excepción método de prueba Tests.PrestamoServiceTests.ObtenerPrestamosActivosPorUsuario_DeberiaRetornarLista:&#xD;
+Microsoft.Data.SqlClient.SqlException: El nombre de columna 'Activo' no es válido.&#xD;
+El nombre de columna 'FechaCreacion' no es válido.&#xD;
+El nombre de columna 'FechaModificacion' no es válido.</Message>
+          <StackTrace>    at Microsoft.Data.SqlClient.SqlCommand.&lt;&gt;c.&lt;ExecuteDbDataReaderAsync&gt;b__211_0(Task`1 result)&#xD;
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()&#xD;
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)&#xD;
+--- End of stack trace from previous location ---&#xD;
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)&#xD;
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task&amp; currentTaskSlot, Thread threadPoolThread)&#xD;
+--- End of stack trace from previous location ---&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()&#xD;
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)&#xD;
+   at SIGEBI.Persistence.Repositories.PrestamoRepository.ObtenerPorUsuarioAsync(Int32 usuarioId) in C:\Users\natha\Desktop\PROYECTO II\Persistence\Repositories\PrestamoRepository.cs:line 19&#xD;
+   at SIGEBI.Application.Services.PrestamoService.ObtenerPrestamosActivosPorUsuarioAsync(Int32 usuarioId) in C:\Users\natha\Desktop\PROYECTO II\Application\Services\PrestamoService.cs:line 141&#xD;
+   at Tests.PrestamoServiceTests.ObtenerPrestamosActivosPorUsuario_DeberiaRetornarLista() in C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\PrestamoServiceTests.cs:line 169&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="2e30f86c-7704-4f82-bf39-137bc0e7c906" testId="7d52a1f8-3a44-d1c8-4163-e0633e897ad2" testName="EstaDisponible_DeberiaRetornarTruePorDefecto" computerName="MYCOMPUTER" duration="00:00:02.8089011" startTime="2025-10-09T20:27:08.1045515-04:00" endTime="2025-10-09T20:27:11.0144370-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2e30f86c-7704-4f82-bf39-137bc0e7c906" />
+    <UnitTestResult executionId="914e58bb-4425-4566-8279-701f02036e8a" testId="f072455d-d1c7-b3df-601d-0e137fd171ae" testName="ActualizarUsuario_DeberiaModificarDatos" computerName="MYCOMPUTER" duration="00:00:02.8146863" startTime="2025-10-09T20:27:08.2082221-04:00" endTime="2025-10-09T20:27:11.0234234-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="914e58bb-4425-4566-8279-701f02036e8a" />
+    <UnitTestResult executionId="5548752e-dad5-4664-a67e-7550bc7c1335" testId="592fafa7-e46b-fc80-bd9b-2b8aea086276" testName="CrearLibro_DeberiaAgregarLibro" computerName="MYCOMPUTER" duration="00:00:02.6253605" startTime="2025-10-09T20:27:08.1043360-04:00" endTime="2025-10-09T20:27:10.8309058-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5548752e-dad5-4664-a67e-7550bc7c1335" />
+    <UnitTestResult executionId="fdd695b0-c439-4ba9-adf6-fc3a0394e51a" testId="c63944cf-742c-8f06-2dba-ad74ec80fcb2" testName="CambiarDisponibilidad_DeberiaActualizarEstado" computerName="MYCOMPUTER" duration="00:00:02.8092247" startTime="2025-10-09T20:27:08.1042176-04:00" endTime="2025-10-09T20:27:11.0146743-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fdd695b0-c439-4ba9-adf6-fc3a0394e51a" />
+    <UnitTestResult executionId="0c393b59-9f55-46b5-a970-7461a2bf1a4d" testId="9ce84978-507e-9212-92e2-c7c3c7e2d4eb" testName="DesactivarUsuario_DeberiaCambiarEstado" computerName="MYCOMPUTER" duration="00:00:02.8118648" startTime="2025-10-09T20:27:08.2090904-04:00" endTime="2025-10-09T20:27:11.0214579-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0c393b59-9f55-46b5-a970-7461a2bf1a4d" />
+    <UnitTestResult executionId="23a34e6b-a2ea-46ae-a431-72f707c1ed22" testId="bf93dc6a-d071-3c56-1f3c-796e1d62f918" testName="ObtenerUsuarios_DeberiaRetornarLista" computerName="MYCOMPUTER" duration="00:00:02.1139535" startTime="2025-10-09T20:27:08.8990695-04:00" endTime="2025-10-09T20:27:11.0134508-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="23a34e6b-a2ea-46ae-a431-72f707c1ed22" />
+    <UnitTestResult executionId="53312394-a1d4-49d9-9487-538c30bb8701" testId="0f87dc05-79c9-73c1-3fa6-130ec8e0701e" testName="ObtenerPrestamosVencidos_DeberiaRetornarPrestamosConFechaVencida" computerName="MYCOMPUTER" duration="00:00:02.9951898" startTime="2025-10-09T20:27:08.1054841-04:00" endTime="2025-10-09T20:27:11.2026244-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="53312394-a1d4-49d9-9487-538c30bb8701">
+      <Output>
+        <ErrorInfo>
+          <Message>Excepción método de prueba Tests.PrestamoServiceTests.ObtenerPrestamosVencidos_DeberiaRetornarPrestamosConFechaVencida:&#xD;
+Microsoft.Data.SqlClient.SqlException: El nombre de columna 'Activo' no es válido.&#xD;
+El nombre de columna 'FechaCreacion' no es válido.&#xD;
+El nombre de columna 'FechaModificacion' no es válido.</Message>
+          <StackTrace>    at Microsoft.Data.SqlClient.SqlCommand.&lt;&gt;c.&lt;ExecuteDbDataReaderAsync&gt;b__211_0(Task`1 result)&#xD;
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()&#xD;
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)&#xD;
+--- End of stack trace from previous location ---&#xD;
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)&#xD;
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task&amp; currentTaskSlot, Thread threadPoolThread)&#xD;
+--- End of stack trace from previous location ---&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()&#xD;
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)&#xD;
+   at SIGEBI.Persistence.Repositories.PrestamoRepository.ObtenerPrestamosVencidosAsync() in C:\Users\natha\Desktop\PROYECTO II\Persistence\Repositories\PrestamoRepository.cs:line 29&#xD;
+   at SIGEBI.Application.Services.PrestamoService.ObtenerPrestamosVencidosAsync() in C:\Users\natha\Desktop\PROYECTO II\Application\Services\PrestamoService.cs:line 153&#xD;
+   at Tests.PrestamoServiceTests.ObtenerPrestamosVencidos_DeberiaRetornarPrestamosConFechaVencida() in C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\PrestamoServiceTests.cs:line 216&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="a49d04f3-c4f5-4937-9730-e0e2ec9333a4" testId="162c552b-224d-3eae-9009-bfb446c1baf1" testName="EliminarUsuario_DeberiaEliminarCorrectamente" computerName="MYCOMPUTER" duration="00:00:02.7833379" startTime="2025-10-09T20:27:08.2409475-04:00" endTime="2025-10-09T20:27:11.0249948-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a49d04f3-c4f5-4937-9730-e0e2ec9333a4" />
+    <UnitTestResult executionId="a2d679de-fd37-40b6-b377-fecc221915a2" testId="198e8709-fae6-e5af-47ec-940a71201de4" testName="ActualizarLibro_DeberiaModificarCampos" computerName="MYCOMPUTER" duration="00:00:02.7837100" startTime="2025-10-09T20:27:08.1042557-04:00" endTime="2025-10-09T20:27:10.9891288-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a2d679de-fd37-40b6-b377-fecc221915a2" />
+    <UnitTestResult executionId="a22b9b31-49d2-44d0-98f0-1cfffccda213" testId="866774c8-1d71-53ee-66e6-d59f9be5aeb2" testName="RegistrarDevolucion_DeberiaActualizarLibroYMarcarPrestamoCerrado" computerName="MYCOMPUTER" duration="00:00:02.9780205" startTime="2025-10-09T20:27:08.1058203-04:00" endTime="2025-10-09T20:27:11.1841465-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a22b9b31-49d2-44d0-98f0-1cfffccda213">
+      <Output>
+        <ErrorInfo>
+          <Message>Excepción método de prueba Tests.PrestamoServiceTests.RegistrarDevolucion_DeberiaActualizarLibroYMarcarPrestamoCerrado:&#xD;
+System.ArgumentNullException: Value cannot be null. (Parameter 'source')</Message>
+          <StackTrace>    at System.Linq.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)&#xD;
+   at System.Linq.Enumerable.TryGetNonEnumeratedCount[TSource](IEnumerable`1 source, Int32&amp; count)&#xD;
+   at System.Linq.Enumerable.Any[TSource](IEnumerable`1 source)&#xD;
+   at SIGEBI.Application.Services.PrestamoService.RegistrarDevolucionAsync(Int32 prestamoId, List`1 librosIds) in C:\Users\natha\Desktop\PROYECTO II\Application\Services\PrestamoService.cs:line 126&#xD;
+   at Tests.PrestamoServiceTests.RegistrarDevolucion_DeberiaActualizarLibroYMarcarPrestamoCerrado() in C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\PrestamoServiceTests.cs:line 125&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="e0157df2-1851-4c78-ab78-329067047525" testId="5b95f6e0-6eba-402b-5f87-95cad14ce473" testName="EliminarLibro_DeberiaDesactivarEntidad" computerName="MYCOMPUTER" duration="00:00:02.7852297" startTime="2025-10-09T20:27:08.1043633-04:00" endTime="2025-10-09T20:27:10.9907372-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e0157df2-1851-4c78-ab78-329067047525" />
+    <UnitTestResult executionId="cce76e11-c915-42e7-8029-6368248e2271" testId="95f0d1c0-bd2e-e7ca-f2b0-3d365b7c63cb" testName="RegistrarPrestamo_DeberiaCrearPrestamoYDetalles" computerName="MYCOMPUTER" duration="00:00:02.8868606" startTime="2025-10-09T20:27:08.2080459-04:00" endTime="2025-10-09T20:27:11.0955077-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cce76e11-c915-42e7-8029-6368248e2271" />
+    <UnitTestResult executionId="c58cbc38-beca-4479-bba5-c216888f1061" testId="4c5989ee-2eef-abd7-3d39-af27603ace72" testName="TestMethod1" computerName="MYCOMPUTER" duration="00:00:00.0077258" startTime="2025-10-09T20:27:08.2081204-04:00" endTime="2025-10-09T20:27:08.2245158-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c58cbc38-beca-4479-bba5-c216888f1061" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="ObtenerPrestamosActivosPorUsuario_DeberiaRetornarLista" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="3a16017c-c8ea-3bf1-d29e-cbfb5aaae83a">
+      <Execution id="9fa5e366-0816-4350-9151-814ac14d5b37" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.PrestamoServiceTests" name="ObtenerPrestamosActivosPorUsuario_DeberiaRetornarLista" />
+    </UnitTest>
+    <UnitTest name="CambiarDisponibilidad_DeberiaActualizarEstado" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="c63944cf-742c-8f06-2dba-ad74ec80fcb2">
+      <Execution id="fdd695b0-c439-4ba9-adf6-fc3a0394e51a" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.LibroRepositoryTests" name="CambiarDisponibilidad_DeberiaActualizarEstado" />
+    </UnitTest>
+    <UnitTest name="ActualizarUsuario_DeberiaModificarDatos" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="f072455d-d1c7-b3df-601d-0e137fd171ae">
+      <Execution id="914e58bb-4425-4566-8279-701f02036e8a" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.UsuarioRepositoryTests" name="ActualizarUsuario_DeberiaModificarDatos" />
+    </UnitTest>
+    <UnitTest name="ActivarUsuario_DeberiaCambiarEstado" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="80809000-ad3e-9518-968f-7d6850b255ba">
+      <Execution id="b0dc99e8-1ed6-45f3-8027-05d150bd18dc" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.UsuarioRepositoryTests" name="ActivarUsuario_DeberiaCambiarEstado" />
+    </UnitTest>
+    <UnitTest name="EliminarLibro_DeberiaDesactivarEntidad" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="5b95f6e0-6eba-402b-5f87-95cad14ce473">
+      <Execution id="e0157df2-1851-4c78-ab78-329067047525" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.LibroRepositoryTests" name="EliminarLibro_DeberiaDesactivarEntidad" />
+    </UnitTest>
+    <UnitTest name="RegistrarPrestamo_DeberiaCrearPrestamoYDetalles" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="95f0d1c0-bd2e-e7ca-f2b0-3d365b7c63cb">
+      <Execution id="cce76e11-c915-42e7-8029-6368248e2271" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.PrestamoServiceTests" name="RegistrarPrestamo_DeberiaCrearPrestamoYDetalles" />
+    </UnitTest>
+    <UnitTest name="ObtenerPrestamosVencidos_DeberiaRetornarPrestamosConFechaVencida" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="0f87dc05-79c9-73c1-3fa6-130ec8e0701e">
+      <Execution id="53312394-a1d4-49d9-9487-538c30bb8701" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.PrestamoServiceTests" name="ObtenerPrestamosVencidos_DeberiaRetornarPrestamosConFechaVencida" />
+    </UnitTest>
+    <UnitTest name="RegistrarDevolucion_DeberiaActualizarLibroYMarcarPrestamoCerrado" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="866774c8-1d71-53ee-66e6-d59f9be5aeb2">
+      <Execution id="a22b9b31-49d2-44d0-98f0-1cfffccda213" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.PrestamoServiceTests" name="RegistrarDevolucion_DeberiaActualizarLibroYMarcarPrestamoCerrado" />
+    </UnitTest>
+    <UnitTest name="DesactivarUsuario_DeberiaCambiarEstado" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="9ce84978-507e-9212-92e2-c7c3c7e2d4eb">
+      <Execution id="0c393b59-9f55-46b5-a970-7461a2bf1a4d" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.UsuarioRepositoryTests" name="DesactivarUsuario_DeberiaCambiarEstado" />
+    </UnitTest>
+    <UnitTest name="TestMethod1" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="4c5989ee-2eef-abd7-3d39-af27603ace72">
+      <Execution id="c58cbc38-beca-4479-bba5-c216888f1061" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.Test1" name="TestMethod1" />
+    </UnitTest>
+    <UnitTest name="BuscarLibro_DeberiaRetornarCoincidencias" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="45bbe590-e7fa-a738-6832-4cfd0d74d08b">
+      <Execution id="7f0ed7fc-c3e0-4b70-8b9a-e7aa4f46e806" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.LibroRepositoryTests" name="BuscarLibro_DeberiaRetornarCoincidencias" />
+    </UnitTest>
+    <UnitTest name="EstaDisponible_DeberiaRetornarTruePorDefecto" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="7d52a1f8-3a44-d1c8-4163-e0633e897ad2">
+      <Execution id="2e30f86c-7704-4f82-bf39-137bc0e7c906" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.LibroRepositoryTests" name="EstaDisponible_DeberiaRetornarTruePorDefecto" />
+    </UnitTest>
+    <UnitTest name="ObtenerUsuarios_DeberiaRetornarLista" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="bf93dc6a-d071-3c56-1f3c-796e1d62f918">
+      <Execution id="23a34e6b-a2ea-46ae-a431-72f707c1ed22" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.UsuarioRepositoryTests" name="ObtenerUsuarios_DeberiaRetornarLista" />
+    </UnitTest>
+    <UnitTest name="ActualizarLibro_DeberiaModificarCampos" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="198e8709-fae6-e5af-47ec-940a71201de4">
+      <Execution id="a2d679de-fd37-40b6-b377-fecc221915a2" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.LibroRepositoryTests" name="ActualizarLibro_DeberiaModificarCampos" />
+    </UnitTest>
+    <UnitTest name="CrearUsuario_DeberiaGuardarCorrectamente" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="c7114356-7df2-9da0-c4ef-82cfd3ee0779">
+      <Execution id="82376a32-e1ff-44f7-9c4b-f129ed5f97d8" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.UsuarioRepositoryTests" name="CrearUsuario_DeberiaGuardarCorrectamente" />
+    </UnitTest>
+    <UnitTest name="EliminarUsuario_DeberiaEliminarCorrectamente" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="162c552b-224d-3eae-9009-bfb446c1baf1">
+      <Execution id="a49d04f3-c4f5-4937-9730-e0e2ec9333a4" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.UsuarioRepositoryTests" name="EliminarUsuario_DeberiaEliminarCorrectamente" />
+    </UnitTest>
+    <UnitTest name="CrearLibro_DeberiaAgregarLibro" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="592fafa7-e46b-fc80-bd9b-2b8aea086276">
+      <Execution id="5548752e-dad5-4664-a67e-7550bc7c1335" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.LibroRepositoryTests" name="CrearLibro_DeberiaAgregarLibro" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="c7114356-7df2-9da0-c4ef-82cfd3ee0779" executionId="82376a32-e1ff-44f7-9c4b-f129ed5f97d8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="80809000-ad3e-9518-968f-7d6850b255ba" executionId="b0dc99e8-1ed6-45f3-8027-05d150bd18dc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="45bbe590-e7fa-a738-6832-4cfd0d74d08b" executionId="7f0ed7fc-c3e0-4b70-8b9a-e7aa4f46e806" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3a16017c-c8ea-3bf1-d29e-cbfb5aaae83a" executionId="9fa5e366-0816-4350-9151-814ac14d5b37" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7d52a1f8-3a44-d1c8-4163-e0633e897ad2" executionId="2e30f86c-7704-4f82-bf39-137bc0e7c906" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f072455d-d1c7-b3df-601d-0e137fd171ae" executionId="914e58bb-4425-4566-8279-701f02036e8a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="592fafa7-e46b-fc80-bd9b-2b8aea086276" executionId="5548752e-dad5-4664-a67e-7550bc7c1335" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c63944cf-742c-8f06-2dba-ad74ec80fcb2" executionId="fdd695b0-c439-4ba9-adf6-fc3a0394e51a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9ce84978-507e-9212-92e2-c7c3c7e2d4eb" executionId="0c393b59-9f55-46b5-a970-7461a2bf1a4d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bf93dc6a-d071-3c56-1f3c-796e1d62f918" executionId="23a34e6b-a2ea-46ae-a431-72f707c1ed22" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0f87dc05-79c9-73c1-3fa6-130ec8e0701e" executionId="53312394-a1d4-49d9-9487-538c30bb8701" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="162c552b-224d-3eae-9009-bfb446c1baf1" executionId="a49d04f3-c4f5-4937-9730-e0e2ec9333a4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="198e8709-fae6-e5af-47ec-940a71201de4" executionId="a2d679de-fd37-40b6-b377-fecc221915a2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="866774c8-1d71-53ee-66e6-d59f9be5aeb2" executionId="a22b9b31-49d2-44d0-98f0-1cfffccda213" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5b95f6e0-6eba-402b-5f87-95cad14ce473" executionId="e0157df2-1851-4c78-ab78-329067047525" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="95f0d1c0-bd2e-e7ca-f2b0-3d365b7c63cb" executionId="cce76e11-c915-42e7-8029-6368248e2271" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4c5989ee-2eef-abd7-3d39-af27603ace72" executionId="c58cbc38-beca-4479-bba5-c216888f1061" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Resultados sin formato de lista" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="Todos los resultados cargados" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Failed">
+    <Counters total="17" executed="17" passed="14" failed="3" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>Probar paralelización habilitada para C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll (Trabajos: 16, Ámbito: MethodLevel)&#xD;
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>

@@ -10,7 +10,6 @@ namespace SIGEBI.Domain.Entities
         public string Contraseña { get; set; } = string.Empty;
         public string Rol { get; set; } = "Usuario";
 
-        // 👇 Relación uno a muchos
         public ICollection<Prestamo> Prestamos { get; set; } = new List<Prestamo>();
     }
 }

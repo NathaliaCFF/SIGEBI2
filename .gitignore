@@ -1,0 +1,23 @@
+# Archivos de Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Archivos de compilación
+bin/
+obj/
+
+# Archivos temporales
+*.cache
+*.pdb
+*.db
+*.log
+*.vsidx
+*.tmp
+*.dll
+*.exe
+
+# Configuración local
+*.vscode/

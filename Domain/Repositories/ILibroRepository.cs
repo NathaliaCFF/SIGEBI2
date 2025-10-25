@@ -10,5 +10,6 @@ namespace SIGEBI.Domain.Repository
         Task<IEnumerable<Libro>> BuscarPorTituloOAutorAsync(string criterio);
         Task<bool> ExisteISBNAsync(string isbn);
         Task<bool> EstaDisponibleAsync(int libroId);
+        Task<bool> CambiarDisponibilidadAsync(int id, bool disponible);
     }
 }

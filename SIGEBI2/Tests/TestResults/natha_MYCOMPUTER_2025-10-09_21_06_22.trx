@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="6bf55889-5e75-4a6b-9215-f99616dee275" name="natha@MYCOMPUTER 2025-10-09 21:06:22" runUser="MYCOMPUTER\natha" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2025-10-09T21:06:22.6340054-04:00" queuing="2025-10-09T21:06:22.6340054-04:00" start="2025-10-09T21:06:19.7452784-04:00" finish="2025-10-09T21:06:23.8932023-04:00" />
+  <TestSettings name="default" id="b4751daa-ffe5-49d1-a647-fa31ca42fb07">
+    <Deployment runDeploymentRoot="natha_MYCOMPUTER_2025-10-09_21_06_22" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="4009d239-d5dd-44f9-a00d-cc4fff1da1f1" testId="0f87dc05-79c9-73c1-3fa6-130ec8e0701e" testName="ObtenerPrestamosVencidos_DeberiaRetornarPrestamosConFechaVencida" computerName="MYCOMPUTER" duration="00:00:02.9947554" startTime="2025-10-09T21:06:20.6863992-04:00" endTime="2025-10-09T21:06:23.7665438-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4009d239-d5dd-44f9-a00d-cc4fff1da1f1" />
+    <UnitTestResult executionId="710aeb04-c915-44cb-ad3f-7de9c0abd8e9" testId="9ce84978-507e-9212-92e2-c7c3c7e2d4eb" testName="DesactivarUsuario_DeberiaCambiarEstado" computerName="MYCOMPUTER" duration="00:00:02.1030854" startTime="2025-10-09T21:06:21.5864244-04:00" endTime="2025-10-09T21:06:23.6899097-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="710aeb04-c915-44cb-ad3f-7de9c0abd8e9" />
+    <UnitTestResult executionId="06a15530-fbc1-4ff9-b27c-d62eacfc6179" testId="c63944cf-742c-8f06-2dba-ad74ec80fcb2" testName="CambiarDisponibilidad_DeberiaActualizarEstado" computerName="MYCOMPUTER" duration="00:00:02.9155709" startTime="2025-10-09T21:06:20.6864808-04:00" endTime="2025-10-09T21:06:23.6874050-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="06a15530-fbc1-4ff9-b27c-d62eacfc6179" />
+    <UnitTestResult executionId="b0f8fb33-adad-48f9-ad7d-bc40190a0773" testId="4c5989ee-2eef-abd7-3d39-af27603ace72" testName="TestMethod1" computerName="MYCOMPUTER" duration="00:00:00.0092899" startTime="2025-10-09T21:06:20.7593703-04:00" endTime="2025-10-09T21:06:20.7880920-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b0f8fb33-adad-48f9-ad7d-bc40190a0773" />
+    <UnitTestResult executionId="a7a83ed9-d779-45d6-a6e2-7c6f85ea81fd" testId="95f0d1c0-bd2e-e7ca-f2b0-3d365b7c63cb" testName="RegistrarPrestamo_DeberiaCrearPrestamoYDetalles" computerName="MYCOMPUTER" duration="00:00:02.9212943" startTime="2025-10-09T21:06:20.6864411-04:00" endTime="2025-10-09T21:06:23.6931368-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a7a83ed9-d779-45d6-a6e2-7c6f85ea81fd" />
+    <UnitTestResult executionId="d33fb2f2-544d-4013-895b-b286c02d220e" testId="45bbe590-e7fa-a738-6832-4cfd0d74d08b" testName="BuscarLibro_DeberiaRetornarCoincidencias" computerName="MYCOMPUTER" duration="00:00:02.9156197" startTime="2025-10-09T21:06:20.6864182-04:00" endTime="2025-10-09T21:06:23.6873890-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d33fb2f2-544d-4013-895b-b286c02d220e" />
+    <UnitTestResult executionId="e346d260-70b9-417e-a6c7-47a06cffa294" testId="60f942d1-df6b-b1a6-a648-3f2e32796cce" testName="ObtenerPorPrestamo_DeberiaRetornarDetallesCorrectos" computerName="MYCOMPUTER" duration="00:00:02.9190627" startTime="2025-10-09T21:06:20.6862806-04:00" endTime="2025-10-09T21:06:23.6909403-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e346d260-70b9-417e-a6c7-47a06cffa294" />
+    <UnitTestResult executionId="2680b551-fb9d-4ca5-8125-320dfa622796" testId="a5452635-fa8d-0740-c656-54a7e1a7ae8a" testName="RegistrarDevolucion_DeberiaActualizarDetalleComoDevuelto" computerName="MYCOMPUTER" duration="00:00:02.9138203" startTime="2025-10-09T21:06:20.7592710-04:00" endTime="2025-10-09T21:06:23.6858640-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2680b551-fb9d-4ca5-8125-320dfa622796" />
+    <UnitTestResult executionId="cd1ba119-4e72-48d3-82f7-c9e4ccfc4503" testId="866774c8-1d71-53ee-66e6-d59f9be5aeb2" testName="RegistrarDevolucion_DeberiaActualizarLibroYMarcarPrestamoCerrado" computerName="MYCOMPUTER" duration="00:00:02.9893501" startTime="2025-10-09T21:06:20.6863430-04:00" endTime="2025-10-09T21:06:23.7612468-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cd1ba119-4e72-48d3-82f7-c9e4ccfc4503" />
+    <UnitTestResult executionId="543df391-2392-4700-a75f-be8ab6eeae71" testId="5b95f6e0-6eba-402b-5f87-95cad14ce473" testName="EliminarLibro_DeberiaDesactivarEntidad" computerName="MYCOMPUTER" duration="00:00:02.8547616" startTime="2025-10-09T21:06:20.6864358-04:00" endTime="2025-10-09T21:06:23.6265777-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="543df391-2392-4700-a75f-be8ab6eeae71" />
+    <UnitTestResult executionId="0b04df59-c831-4d84-8635-7d89cd05d8aa" testId="80809000-ad3e-9518-968f-7d6850b255ba" testName="ActivarUsuario_DeberiaCambiarEstado" computerName="MYCOMPUTER" duration="00:00:02.9185696" startTime="2025-10-09T21:06:20.7593815-04:00" endTime="2025-10-09T21:06:23.6905452-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0b04df59-c831-4d84-8635-7d89cd05d8aa" />
+    <UnitTestResult executionId="a64fd238-e024-432c-a189-bbb29c574036" testId="c7114356-7df2-9da0-c4ef-82cfd3ee0779" testName="CrearUsuario_DeberiaGuardarCorrectamente" computerName="MYCOMPUTER" duration="00:00:02.8856749" startTime="2025-10-09T21:06:20.8030233-04:00" endTime="2025-10-09T21:06:23.6891361-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a64fd238-e024-432c-a189-bbb29c574036" />
+    <UnitTestResult executionId="09f74062-68fd-4bc3-96ce-733db46951b6" testId="bf93dc6a-d071-3c56-1f3c-796e1d62f918" testName="ObtenerUsuarios_DeberiaRetornarLista" computerName="MYCOMPUTER" duration="00:00:00.0674528" startTime="2025-10-09T21:06:23.6266908-04:00" endTime="2025-10-09T21:06:23.6944030-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="09f74062-68fd-4bc3-96ce-733db46951b6" />
+    <UnitTestResult executionId="c50a7827-14ef-400c-9a37-48280756e3f7" testId="f072455d-d1c7-b3df-601d-0e137fd171ae" testName="ActualizarUsuario_DeberiaModificarDatos" computerName="MYCOMPUTER" duration="00:00:02.9177097" startTime="2025-10-09T21:06:20.6865039-04:00" endTime="2025-10-09T21:06:23.6897061-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c50a7827-14ef-400c-9a37-48280756e3f7" />
+    <UnitTestResult executionId="382b1e54-a474-49de-9394-3b5f22bac70d" testId="592fafa7-e46b-fc80-bd9b-2b8aea086276" testName="CrearLibro_DeberiaAgregarLibro" computerName="MYCOMPUTER" duration="00:00:02.7385087" startTime="2025-10-09T21:06:20.7593227-04:00" endTime="2025-10-09T21:06:23.5106559-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="382b1e54-a474-49de-9394-3b5f22bac70d" />
+    <UnitTestResult executionId="a6d290ff-841b-41c8-8b95-eb4cf9733f76" testId="162c552b-224d-3eae-9009-bfb446c1baf1" testName="EliminarUsuario_DeberiaEliminarCorrectamente" computerName="MYCOMPUTER" duration="00:00:00.1862585" startTime="2025-10-09T21:06:23.5114955-04:00" endTime="2025-10-09T21:06:23.6981458-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a6d290ff-841b-41c8-8b95-eb4cf9733f76" />
+    <UnitTestResult executionId="230b3524-fba5-4b59-993f-0025eaaa7ced" testId="198e8709-fae6-e5af-47ec-940a71201de4" testName="ActualizarLibro_DeberiaModificarCampos" computerName="MYCOMPUTER" duration="00:00:02.8856602" startTime="2025-10-09T21:06:20.7592463-04:00" endTime="2025-10-09T21:06:23.6576064-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="230b3524-fba5-4b59-993f-0025eaaa7ced" />
+    <UnitTestResult executionId="27440f79-28aa-4f1e-bc8d-642852342d43" testId="3a16017c-c8ea-3bf1-d29e-cbfb5aaae83a" testName="ObtenerPrestamosActivosPorUsuario_DeberiaRetornarLista" computerName="MYCOMPUTER" duration="00:00:02.9955302" startTime="2025-10-09T21:06:20.7591957-04:00" endTime="2025-10-09T21:06:23.7694558-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="27440f79-28aa-4f1e-bc8d-642852342d43" />
+    <UnitTestResult executionId="8cd06615-1042-45fa-8175-08b7976494ba" testId="7d52a1f8-3a44-d1c8-4163-e0633e897ad2" testName="EstaDisponible_DeberiaRetornarTruePorDefecto" computerName="MYCOMPUTER" duration="00:00:02.9154174" startTime="2025-10-09T21:06:20.6863167-04:00" endTime="2025-10-09T21:06:23.6873757-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8cd06615-1042-45fa-8175-08b7976494ba" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="ObtenerPrestamosActivosPorUsuario_DeberiaRetornarLista" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="3a16017c-c8ea-3bf1-d29e-cbfb5aaae83a">
+      <Execution id="27440f79-28aa-4f1e-bc8d-642852342d43" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.PrestamoServiceTests" name="ObtenerPrestamosActivosPorUsuario_DeberiaRetornarLista" />
+    </UnitTest>
+    <UnitTest name="CambiarDisponibilidad_DeberiaActualizarEstado" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="c63944cf-742c-8f06-2dba-ad74ec80fcb2">
+      <Execution id="06a15530-fbc1-4ff9-b27c-d62eacfc6179" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.LibroRepositoryTests" name="CambiarDisponibilidad_DeberiaActualizarEstado" />
+    </UnitTest>
+    <UnitTest name="RegistrarDevolucion_DeberiaActualizarDetalleComoDevuelto" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="a5452635-fa8d-0740-c656-54a7e1a7ae8a">
+      <Execution id="2680b551-fb9d-4ca5-8125-320dfa622796" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.DetallePrestamoRepositoryTests" name="RegistrarDevolucion_DeberiaActualizarDetalleComoDevuelto" />
+    </UnitTest>
+    <UnitTest name="ActualizarUsuario_DeberiaModificarDatos" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="f072455d-d1c7-b3df-601d-0e137fd171ae">
+      <Execution id="c50a7827-14ef-400c-9a37-48280756e3f7" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.UsuarioRepositoryTests" name="ActualizarUsuario_DeberiaModificarDatos" />
+    </UnitTest>
+    <UnitTest name="ActivarUsuario_DeberiaCambiarEstado" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="80809000-ad3e-9518-968f-7d6850b255ba">
+      <Execution id="0b04df59-c831-4d84-8635-7d89cd05d8aa" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.UsuarioRepositoryTests" name="ActivarUsuario_DeberiaCambiarEstado" />
+    </UnitTest>
+    <UnitTest name="EliminarLibro_DeberiaDesactivarEntidad" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="5b95f6e0-6eba-402b-5f87-95cad14ce473">
+      <Execution id="543df391-2392-4700-a75f-be8ab6eeae71" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.LibroRepositoryTests" name="EliminarLibro_DeberiaDesactivarEntidad" />
+    </UnitTest>
+    <UnitTest name="RegistrarPrestamo_DeberiaCrearPrestamoYDetalles" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="95f0d1c0-bd2e-e7ca-f2b0-3d365b7c63cb">
+      <Execution id="a7a83ed9-d779-45d6-a6e2-7c6f85ea81fd" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.PrestamoServiceTests" name="RegistrarPrestamo_DeberiaCrearPrestamoYDetalles" />
+    </UnitTest>
+    <UnitTest name="ObtenerPrestamosVencidos_DeberiaRetornarPrestamosConFechaVencida" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="0f87dc05-79c9-73c1-3fa6-130ec8e0701e">
+      <Execution id="4009d239-d5dd-44f9-a00d-cc4fff1da1f1" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.PrestamoServiceTests" name="ObtenerPrestamosVencidos_DeberiaRetornarPrestamosConFechaVencida" />
+    </UnitTest>
+    <UnitTest name="RegistrarDevolucion_DeberiaActualizarLibroYMarcarPrestamoCerrado" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="866774c8-1d71-53ee-66e6-d59f9be5aeb2">
+      <Execution id="cd1ba119-4e72-48d3-82f7-c9e4ccfc4503" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.PrestamoServiceTests" name="RegistrarDevolucion_DeberiaActualizarLibroYMarcarPrestamoCerrado" />
+    </UnitTest>
+    <UnitTest name="DesactivarUsuario_DeberiaCambiarEstado" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="9ce84978-507e-9212-92e2-c7c3c7e2d4eb">
+      <Execution id="710aeb04-c915-44cb-ad3f-7de9c0abd8e9" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.UsuarioRepositoryTests" name="DesactivarUsuario_DeberiaCambiarEstado" />
+    </UnitTest>
+    <UnitTest name="TestMethod1" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="4c5989ee-2eef-abd7-3d39-af27603ace72">
+      <Execution id="b0f8fb33-adad-48f9-ad7d-bc40190a0773" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.Test1" name="TestMethod1" />
+    </UnitTest>
+    <UnitTest name="BuscarLibro_DeberiaRetornarCoincidencias" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="45bbe590-e7fa-a738-6832-4cfd0d74d08b">
+      <Execution id="d33fb2f2-544d-4013-895b-b286c02d220e" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.LibroRepositoryTests" name="BuscarLibro_DeberiaRetornarCoincidencias" />
+    </UnitTest>
+    <UnitTest name="ObtenerPorPrestamo_DeberiaRetornarDetallesCorrectos" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="60f942d1-df6b-b1a6-a648-3f2e32796cce">
+      <Execution id="e346d260-70b9-417e-a6c7-47a06cffa294" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.DetallePrestamoRepositoryTests" name="ObtenerPorPrestamo_DeberiaRetornarDetallesCorrectos" />
+    </UnitTest>
+    <UnitTest name="EstaDisponible_DeberiaRetornarTruePorDefecto" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="7d52a1f8-3a44-d1c8-4163-e0633e897ad2">
+      <Execution id="8cd06615-1042-45fa-8175-08b7976494ba" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.LibroRepositoryTests" name="EstaDisponible_DeberiaRetornarTruePorDefecto" />
+    </UnitTest>
+    <UnitTest name="ObtenerUsuarios_DeberiaRetornarLista" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="bf93dc6a-d071-3c56-1f3c-796e1d62f918">
+      <Execution id="09f74062-68fd-4bc3-96ce-733db46951b6" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.UsuarioRepositoryTests" name="ObtenerUsuarios_DeberiaRetornarLista" />
+    </UnitTest>
+    <UnitTest name="ActualizarLibro_DeberiaModificarCampos" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="198e8709-fae6-e5af-47ec-940a71201de4">
+      <Execution id="230b3524-fba5-4b59-993f-0025eaaa7ced" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.LibroRepositoryTests" name="ActualizarLibro_DeberiaModificarCampos" />
+    </UnitTest>
+    <UnitTest name="CrearUsuario_DeberiaGuardarCorrectamente" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="c7114356-7df2-9da0-c4ef-82cfd3ee0779">
+      <Execution id="a64fd238-e024-432c-a189-bbb29c574036" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.UsuarioRepositoryTests" name="CrearUsuario_DeberiaGuardarCorrectamente" />
+    </UnitTest>
+    <UnitTest name="EliminarUsuario_DeberiaEliminarCorrectamente" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="162c552b-224d-3eae-9009-bfb446c1baf1">
+      <Execution id="a6d290ff-841b-41c8-8b95-eb4cf9733f76" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.UsuarioRepositoryTests" name="EliminarUsuario_DeberiaEliminarCorrectamente" />
+    </UnitTest>
+    <UnitTest name="CrearLibro_DeberiaAgregarLibro" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="592fafa7-e46b-fc80-bd9b-2b8aea086276">
+      <Execution id="382b1e54-a474-49de-9394-3b5f22bac70d" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.LibroRepositoryTests" name="CrearLibro_DeberiaAgregarLibro" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="0f87dc05-79c9-73c1-3fa6-130ec8e0701e" executionId="4009d239-d5dd-44f9-a00d-cc4fff1da1f1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9ce84978-507e-9212-92e2-c7c3c7e2d4eb" executionId="710aeb04-c915-44cb-ad3f-7de9c0abd8e9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c63944cf-742c-8f06-2dba-ad74ec80fcb2" executionId="06a15530-fbc1-4ff9-b27c-d62eacfc6179" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4c5989ee-2eef-abd7-3d39-af27603ace72" executionId="b0f8fb33-adad-48f9-ad7d-bc40190a0773" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="95f0d1c0-bd2e-e7ca-f2b0-3d365b7c63cb" executionId="a7a83ed9-d779-45d6-a6e2-7c6f85ea81fd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="45bbe590-e7fa-a738-6832-4cfd0d74d08b" executionId="d33fb2f2-544d-4013-895b-b286c02d220e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="60f942d1-df6b-b1a6-a648-3f2e32796cce" executionId="e346d260-70b9-417e-a6c7-47a06cffa294" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a5452635-fa8d-0740-c656-54a7e1a7ae8a" executionId="2680b551-fb9d-4ca5-8125-320dfa622796" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="866774c8-1d71-53ee-66e6-d59f9be5aeb2" executionId="cd1ba119-4e72-48d3-82f7-c9e4ccfc4503" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5b95f6e0-6eba-402b-5f87-95cad14ce473" executionId="543df391-2392-4700-a75f-be8ab6eeae71" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="80809000-ad3e-9518-968f-7d6850b255ba" executionId="0b04df59-c831-4d84-8635-7d89cd05d8aa" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c7114356-7df2-9da0-c4ef-82cfd3ee0779" executionId="a64fd238-e024-432c-a189-bbb29c574036" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bf93dc6a-d071-3c56-1f3c-796e1d62f918" executionId="09f74062-68fd-4bc3-96ce-733db46951b6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f072455d-d1c7-b3df-601d-0e137fd171ae" executionId="c50a7827-14ef-400c-9a37-48280756e3f7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="592fafa7-e46b-fc80-bd9b-2b8aea086276" executionId="382b1e54-a474-49de-9394-3b5f22bac70d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="162c552b-224d-3eae-9009-bfb446c1baf1" executionId="a6d290ff-841b-41c8-8b95-eb4cf9733f76" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="198e8709-fae6-e5af-47ec-940a71201de4" executionId="230b3524-fba5-4b59-993f-0025eaaa7ced" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3a16017c-c8ea-3bf1-d29e-cbfb5aaae83a" executionId="27440f79-28aa-4f1e-bc8d-642852342d43" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7d52a1f8-3a44-d1c8-4163-e0633e897ad2" executionId="8cd06615-1042-45fa-8175-08b7976494ba" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Resultados sin formato de lista" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="Todos los resultados cargados" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="19" executed="19" passed="19" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>Probar paralelización habilitada para C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll (Trabajos: 16, Ámbito: MethodLevel)&#xD;
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>

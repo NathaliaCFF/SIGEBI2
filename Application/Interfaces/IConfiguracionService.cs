@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using SIGEBI.Shared.Base;
+using SIGEBI.Domain.Entities;
 using System.Threading.Tasks;
 
-namespace Application.Interfaces
+namespace SIGEBI.Application.Interfaces
 {
-    internal interface IConfiguracionService
+    public interface IConfiguracionService
     {
+        Task<ServiceResult<Configuration>> ObtenerConfiguracionAsync();
+        Task<ServiceResult> ActualizarDuracionPrestamoDiasAsync(int dias);
     }
 }

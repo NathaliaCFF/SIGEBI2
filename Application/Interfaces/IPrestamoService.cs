@@ -1,12 +1,15 @@
-﻿using System;
+﻿using SIGEBI.Domain.Entities;
+using SIGEBI.Shared.Base;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Interfaces
+namespace SIGEBI.Application.Interfaces
 {
-    internal interface IPrestamoService
+    public interface IPrestamoService
     {
+        Task<ServiceResult<Prestamo>> RegistrarPrestamoAsync(int usuarioId, List<int> librosIds);
+        Task<ServiceResult> RegistrarDevolucionAsync(int prestamoId, List<int> librosIds);
+        Task<ServiceResult<IEnumerable<Prestamo>>> ObtenerPrestamosActivosPorUsuarioAsync(int usuarioId);
+        Task<ServiceResult<IEnumerable<Prestamo>>> ObtenerPrestamosVencidosAsync();
     }
 }

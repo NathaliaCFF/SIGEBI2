@@ -8,6 +8,15 @@ using System.Threading.Tasks;
 
 namespace SIGEBI.Persistence.Repositories
 {
+    // ============================================================================
+    // REPOSITORIO: ReporteRepository
+    // MÓDULO: Reportes
+    // DESCRIPCIÓN: Implementa la lógica de acceso a datos necesaria para generar
+    // reportes estadísticos del sistema, como la frecuencia de préstamos de libros.
+    // CASOS DE USO RELACIONADOS:
+    //   - CU-13: Generar reporte de libros más prestados
+    // CAPA: Persistencia
+    // ============================================================================
     public class ReporteRepository : IReporteRepository
     {
         private readonly AppDbContext _context;
@@ -17,6 +26,12 @@ namespace SIGEBI.Persistence.Repositories
             _context = context;
         }
 
+        // ============================================================================
+        // CASO DE USO: CU-13 - Generar reporte de libros más prestados
+        // DESCRIPCIÓN: Calcula los libros con mayor cantidad de préstamos a partir de
+        // los registros en la tabla DetallePrestamo. Devuelve una lista ordenada en
+        // orden descendente según la cantidad de préstamos realizados.
+        // ============================================================================
         public async Task<IEnumerable<Reporte>> LibrosMasPrestadosAsync()
         {
             return await _context.DetallePrestamos
@@ -27,6 +42,7 @@ namespace SIGEBI.Persistence.Repositories
                     Titulo = g.Key.Titulo,
                     CantidadPrestamos = g.Count()
                 })
+                // CU-13: Ordenar por número de préstamos (mayor a menor)
                 .OrderByDescending(r => r.CantidadPrestamos)
                 .ToListAsync();
         }

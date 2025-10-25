@@ -8,7 +8,7 @@ namespace SIGEBI.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<Reporte> builder)
         {
-            // Esta entidad no se mapea a tabla porque es de solo consulta.
+            
             builder.HasNoKey();
         }
     }

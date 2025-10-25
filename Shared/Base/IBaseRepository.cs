@@ -1,8 +1,7 @@
-﻿using SIGEBI.Shared; // Para OperationResult<T>
-using System;
+﻿
 using System.Linq.Expressions;
 using System.Collections.Generic;
-using System.Threading.Tasks;
+using Shared;
 
 namespace SIGEBI.Shared.Base
 {
@@ -13,6 +12,6 @@ namespace SIGEBI.Shared.Base
         Task<OperationResult<IEnumerable<T>>> FindAsync(Expression<Func<T, bool>> predicate);
         Task<OperationResult<T>> AddAsync(T entity);
         Task<OperationResult<T>> UpdateAsync(T entity);
-        Task<OperationResult<bool>> DeleteAsync(int id);
+        Task<OperationResult> DeleteAsync(int id);
     }
 }

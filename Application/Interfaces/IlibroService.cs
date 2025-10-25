@@ -1,12 +1,25 @@
-﻿using System;
+﻿using SIGEBI.Domain.Entities;
+using SIGEBI.Shared.Base;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Interfaces
+namespace SIGEBI.Application.Interfaces
 {
-    internal class IlibroService
+    public interface ILibroService
     {
+        Task<ServiceResult<Libro>> CrearAsync(Libro libro);
+
+        Task<ServiceResult<Libro>> ActualizarAsync(int id, Libro libro);
+
+        Task<ServiceResult<IEnumerable<Libro>>> BuscarAsync(string criterio);
+
+        Task<ServiceResult<bool>> EstaDisponibleAsync(int id);
+
+        Task<ServiceResult> CambiarDisponibilidadAsync(int id, bool disponible);
+
+        Task<ServiceResult> DesactivarAsync(int id);
+
+        Task<ServiceResult<Libro>> ObtenerPorIdAsync(int id);
+        Task<ServiceResult<IEnumerable<Libro>>> ListarAsync();
     }
 }

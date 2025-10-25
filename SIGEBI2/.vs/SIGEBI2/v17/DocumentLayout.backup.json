@@ -3,7 +3,77 @@
   "WorkspaceRootPath": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{FEF03276-9E02-48BE-B4D7-50E3F430BEEE}|..\\Persistence\\Persistence.csproj|c:\\users\\natha\\desktop\\proyecto ii\\persistence\\repositories\\usuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEF03276-9E02-48BE-B4D7-50E3F430BEEE}|..\\Persistence\\Persistence.csproj|c:\\users\\natha\\desktop\\proyecto ii\\persistence\\repositories\\reporterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEF03276-9E02-48BE-B4D7-50E3F430BEEE}|..\\Persistence\\Persistence.csproj|c:\\users\\natha\\desktop\\proyecto ii\\persistence\\repositories\\prestamorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEF03276-9E02-48BE-B4D7-50E3F430BEEE}|..\\Persistence\\Persistence.csproj|c:\\users\\natha\\desktop\\proyecto ii\\persistence\\repositories\\librorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEF03276-9E02-48BE-B4D7-50E3F430BEEE}|..\\Persistence\\Persistence.csproj|c:\\users\\natha\\desktop\\proyecto ii\\persistence\\repositories\\detalleprestamorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEF03276-9E02-48BE-B4D7-50E3F430BEEE}|..\\Persistence\\Persistence.csproj|c:\\users\\natha\\desktop\\proyecto ii\\persistence\\repositories\\configurationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEF03276-9E02-48BE-B4D7-50E3F430BEEE}|..\\Persistence\\Persistence.csproj|c:\\users\\natha\\desktop\\proyecto ii\\persistence\\configurations\\prestamoconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{FEF03276-9E02-48BE-B4D7-50E3F430BEEE}|..\\Persistence\\Persistence.csproj|c:\\users\\natha\\desktop\\proyecto ii\\persistence\\base\\baserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6488438F-14CE-4C88-ACE2-39C9C0D93A3E}|..\\Application\\Application.csproj|c:\\users\\natha\\desktop\\proyecto ii\\application\\services\\usuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6488438F-14CE-4C88-ACE2-39C9C0D93A3E}|..\\Application\\Application.csproj|c:\\users\\natha\\desktop\\proyecto ii\\application\\services\\reporteservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6488438F-14CE-4C88-ACE2-39C9C0D93A3E}|..\\Application\\Application.csproj|c:\\users\\natha\\desktop\\proyecto ii\\application\\services\\prestamoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6488438F-14CE-4C88-ACE2-39C9C0D93A3E}|..\\Application\\Application.csproj|c:\\users\\natha\\desktop\\proyecto ii\\application\\services\\libroservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6488438F-14CE-4C88-ACE2-39C9C0D93A3E}|..\\Application\\Application.csproj|c:\\users\\natha\\desktop\\proyecto ii\\application\\services\\configurationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6488438F-14CE-4C88-ACE2-39C9C0D93A3E}|..\\Application\\Application.csproj|c:\\users\\natha\\desktop\\proyecto ii\\application\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6488438F-14CE-4C88-ACE2-39C9C0D93A3E}|..\\Application\\Application.csproj|c:\\users\\natha\\desktop\\proyecto ii\\application\\mappers\\usuariomapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6488438F-14CE-4C88-ACE2-39C9C0D93A3E}|..\\Application\\Application.csproj|c:\\users\\natha\\desktop\\proyecto ii\\application\\mappers\\prestamomapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6488438F-14CE-4C88-ACE2-39C9C0D93A3E}|..\\Application\\Application.csproj|c:\\users\\natha\\desktop\\proyecto ii\\application\\interfaces\\iusuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6488438F-14CE-4C88-ACE2-39C9C0D93A3E}|..\\Application\\Application.csproj|c:\\users\\natha\\desktop\\proyecto ii\\application\\dtos\\detalleprestamodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9D95B9B3-55CB-4C74-A40C-7E6060F7E344}|API\\API.csproj|c:\\users\\natha\\desktop\\proyecto ii\\sigebi2\\api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{9D95B9B3-55CB-4C74-A40C-7E6060F7E344}|API\\API.csproj|solutionrelative:api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9D95B9B3-55CB-4C74-A40C-7E6060F7E344}|API\\API.csproj|c:\\users\\natha\\desktop\\proyecto ii\\sigebi2\\api\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9D95B9B3-55CB-4C74-A40C-7E6060F7E344}|API\\API.csproj|solutionrelative:api\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B40D0693-E3B3-44DC-9149-053951FC0793}|Tests\\Tests.csproj|c:\\users\\natha\\desktop\\proyecto ii\\sigebi2\\tests\\detalleprestamorepositorytests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B40D0693-E3B3-44DC-9149-053951FC0793}|Tests\\Tests.csproj|solutionrelative:tests\\detalleprestamorepositorytests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B40D0693-E3B3-44DC-9149-053951FC0793}|Tests\\Tests.csproj|c:\\users\\natha\\desktop\\proyecto ii\\sigebi2\\tests\\usuariorepositorytests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B40D0693-E3B3-44DC-9149-053951FC0793}|Tests\\Tests.csproj|solutionrelative:tests\\usuariorepositorytests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{788768C8-74C8-4841-B8CA-F07D045C406A}|..\\Infraestructure\\Infraestructure.csproj|c:\\users\\natha\\desktop\\proyecto ii\\infraestructure\\services\\loggerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -15,6 +85,253 @@
           "DockedWidth": 200,
           "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "LibroRepository.cs",
+              "DocumentMoniker": "C:\\Users\\natha\\Desktop\\PROYECTO II\\Persistence\\Repositories\\LibroRepository.cs",
+              "RelativeDocumentMoniker": "..\\Persistence\\Repositories\\LibroRepository.cs",
+              "ToolTip": "C:\\Users\\natha\\Desktop\\PROYECTO II\\Persistence\\Repositories\\LibroRepository.cs",
+              "RelativeToolTip": "..\\Persistence\\Repositories\\LibroRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T13:39:02.552Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PrestamoRepository.cs",
+              "DocumentMoniker": "C:\\Users\\natha\\Desktop\\PROYECTO II\\Persistence\\Repositories\\PrestamoRepository.cs",
+              "RelativeDocumentMoniker": "..\\Persistence\\Repositories\\PrestamoRepository.cs",
+              "ToolTip": "C:\\Users\\natha\\Desktop\\PROYECTO II\\Persistence\\Repositories\\PrestamoRepository.cs",
+              "RelativeToolTip": "..\\Persistence\\Repositories\\PrestamoRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T13:46:53.294Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ReporteRepository.cs",
+              "DocumentMoniker": "C:\\Users\\natha\\Desktop\\PROYECTO II\\Persistence\\Repositories\\ReporteRepository.cs",
+              "RelativeDocumentMoniker": "..\\Persistence\\Repositories\\ReporteRepository.cs",
+              "ToolTip": "C:\\Users\\natha\\Desktop\\PROYECTO II\\Persistence\\Repositories\\ReporteRepository.cs",
+              "RelativeToolTip": "..\\Persistence\\Repositories\\ReporteRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T13:51:56.549Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UsuarioRepository.cs",
+              "DocumentMoniker": "C:\\Users\\natha\\Desktop\\PROYECTO II\\Persistence\\Repositories\\UsuarioRepository.cs",
+              "RelativeDocumentMoniker": "..\\Persistence\\Repositories\\UsuarioRepository.cs",
+              "ToolTip": "C:\\Users\\natha\\Desktop\\PROYECTO II\\Persistence\\Repositories\\UsuarioRepository.cs",
+              "RelativeToolTip": "..\\Persistence\\Repositories\\UsuarioRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T13:30:29.861Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DetallePrestamoRepository.cs",
+              "DocumentMoniker": "C:\\Users\\natha\\Desktop\\PROYECTO II\\Persistence\\Repositories\\DetallePrestamoRepository.cs",
+              "RelativeDocumentMoniker": "..\\Persistence\\Repositories\\DetallePrestamoRepository.cs",
+              "ToolTip": "C:\\Users\\natha\\Desktop\\PROYECTO II\\Persistence\\Repositories\\DetallePrestamoRepository.cs",
+              "RelativeToolTip": "..\\Persistence\\Repositories\\DetallePrestamoRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T13:48:26.328Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ConfigurationRepository.cs",
+              "DocumentMoniker": "C:\\Users\\natha\\Desktop\\PROYECTO II\\Persistence\\Repositories\\ConfigurationRepository.cs",
+              "RelativeDocumentMoniker": "..\\Persistence\\Repositories\\ConfigurationRepository.cs",
+              "ToolTip": "C:\\Users\\natha\\Desktop\\PROYECTO II\\Persistence\\Repositories\\ConfigurationRepository.cs",
+              "RelativeToolTip": "..\\Persistence\\Repositories\\ConfigurationRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T13:53:29.036Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PrestamoConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\natha\\Desktop\\PROYECTO II\\Persistence\\Configurations\\PrestamoConfiguration.cs",
+              "RelativeDocumentMoniker": "..\\Persistence\\Configurations\\PrestamoConfiguration.cs",
+              "ToolTip": "C:\\Users\\natha\\Desktop\\PROYECTO II\\Persistence\\Configurations\\PrestamoConfiguration.cs",
+              "RelativeToolTip": "..\\Persistence\\Configurations\\PrestamoConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T15:44:09.206Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ReporteService.cs",
+              "DocumentMoniker": "C:\\Users\\natha\\Desktop\\PROYECTO II\\Application\\Services\\ReporteService.cs",
+              "RelativeDocumentMoniker": "..\\Application\\Services\\ReporteService.cs",
+              "ToolTip": "C:\\Users\\natha\\Desktop\\PROYECTO II\\Application\\Services\\ReporteService.cs",
+              "RelativeToolTip": "..\\Application\\Services\\ReporteService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T13:52:37.632Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "PrestamoService.cs",
+              "DocumentMoniker": "C:\\Users\\natha\\Desktop\\PROYECTO II\\Application\\Services\\PrestamoService.cs",
+              "RelativeDocumentMoniker": "..\\Application\\Services\\PrestamoService.cs",
+              "ToolTip": "C:\\Users\\natha\\Desktop\\PROYECTO II\\Application\\Services\\PrestamoService.cs",
+              "RelativeToolTip": "..\\Application\\Services\\PrestamoService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T13:49:52.114Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "LibroService.cs",
+              "DocumentMoniker": "C:\\Users\\natha\\Desktop\\PROYECTO II\\Application\\Services\\LibroService.cs",
+              "RelativeDocumentMoniker": "..\\Application\\Services\\LibroService.cs",
+              "ToolTip": "C:\\Users\\natha\\Desktop\\PROYECTO II\\Application\\Services\\LibroService.cs",
+              "RelativeToolTip": "..\\Application\\Services\\LibroService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T13:41:44.108Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UsuarioService.cs",
+              "DocumentMoniker": "C:\\Users\\natha\\Desktop\\PROYECTO II\\Application\\Services\\UsuarioService.cs",
+              "RelativeDocumentMoniker": "..\\Application\\Services\\UsuarioService.cs",
+              "ToolTip": "C:\\Users\\natha\\Desktop\\PROYECTO II\\Application\\Services\\UsuarioService.cs",
+              "RelativeToolTip": "..\\Application\\Services\\UsuarioService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T13:34:22.661Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "BaseRepository.cs",
+              "DocumentMoniker": "C:\\Users\\natha\\Desktop\\PROYECTO II\\Persistence\\Base\\BaseRepository.cs",
+              "RelativeDocumentMoniker": "..\\Persistence\\Base\\BaseRepository.cs",
+              "ToolTip": "C:\\Users\\natha\\Desktop\\PROYECTO II\\Persistence\\Base\\BaseRepository.cs",
+              "RelativeToolTip": "..\\Persistence\\Base\\BaseRepository.cs",
+              "ViewState": "AgIAAH4AAAAAAAAAAAAAAKAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T13:56:32.474Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ConfigurationService.cs",
+              "DocumentMoniker": "C:\\Users\\natha\\Desktop\\PROYECTO II\\Application\\Services\\ConfigurationService.cs",
+              "RelativeDocumentMoniker": "..\\Application\\Services\\ConfigurationService.cs",
+              "ToolTip": "C:\\Users\\natha\\Desktop\\PROYECTO II\\Application\\Services\\ConfigurationService.cs",
+              "RelativeToolTip": "..\\Application\\Services\\ConfigurationService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T13:54:05.917Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "C:\\Users\\natha\\Desktop\\PROYECTO II\\Application\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "..\\Application\\Services\\AuthService.cs",
+              "ToolTip": "C:\\Users\\natha\\Desktop\\PROYECTO II\\Application\\Services\\AuthService.cs",
+              "RelativeToolTip": "..\\Application\\Services\\AuthService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T13:59:48.094Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "UsuarioMapper.cs",
+              "DocumentMoniker": "C:\\Users\\natha\\Desktop\\PROYECTO II\\Application\\Mappers\\UsuarioMapper.cs",
+              "RelativeDocumentMoniker": "..\\Application\\Mappers\\UsuarioMapper.cs",
+              "ToolTip": "C:\\Users\\natha\\Desktop\\PROYECTO II\\Application\\Mappers\\UsuarioMapper.cs",
+              "RelativeToolTip": "..\\Application\\Mappers\\UsuarioMapper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T15:10:07.761Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "PrestamoMapper.cs",
+              "DocumentMoniker": "C:\\Users\\natha\\Desktop\\PROYECTO II\\Application\\Mappers\\PrestamoMapper.cs",
+              "RelativeDocumentMoniker": "..\\Application\\Mappers\\PrestamoMapper.cs",
+              "ToolTip": "C:\\Users\\natha\\Desktop\\PROYECTO II\\Application\\Mappers\\PrestamoMapper.cs",
+              "RelativeToolTip": "..\\Application\\Mappers\\PrestamoMapper.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAAADEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T15:09:15.945Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "DetallePrestamoDTO.cs",
+              "DocumentMoniker": "C:\\Users\\natha\\Desktop\\PROYECTO II\\Application\\DTOs\\DetallePrestamoDTO.cs",
+              "RelativeDocumentMoniker": "..\\Application\\DTOs\\DetallePrestamoDTO.cs",
+              "ToolTip": "C:\\Users\\natha\\Desktop\\PROYECTO II\\Application\\DTOs\\DetallePrestamoDTO.cs",
+              "RelativeToolTip": "..\\Application\\DTOs\\DetallePrestamoDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T14:40:17.228Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\API\\appsettings.json",
+              "RelativeDocumentMoniker": "API\\appsettings.json",
+              "ToolTip": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\API\\appsettings.json",
+              "RelativeToolTip": "API\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-10-25T14:29:22.021Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "DetallePrestamoRepositoryTests.cs",
+              "DocumentMoniker": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\Tests\\DetallePrestamoRepositoryTests.cs",
+              "RelativeDocumentMoniker": "Tests\\DetallePrestamoRepositoryTests.cs",
+              "ToolTip": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\Tests\\DetallePrestamoRepositoryTests.cs",
+              "RelativeToolTip": "Tests\\DetallePrestamoRepositoryTests.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T14:24:40.491Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
@@ -29,15 +346,54 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "BaseRepository.cs",
-              "DocumentMoniker": "C:\\Users\\natha\\Desktop\\PROYECTO II\\Persistence\\Base\\BaseRepository.cs",
-              "RelativeDocumentMoniker": "..\\Persistence\\Base\\BaseRepository.cs",
-              "ToolTip": "C:\\Users\\natha\\Desktop\\PROYECTO II\\Persistence\\Base\\BaseRepository.cs",
-              "RelativeToolTip": "..\\Persistence\\Base\\BaseRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAaAAAAAAAAAA==",
+              "DocumentIndex": 16,
+              "Title": "IUsuarioService.cs",
+              "DocumentMoniker": "C:\\Users\\natha\\Desktop\\PROYECTO II\\Application\\Interfaces\\IUsuarioService.cs",
+              "RelativeDocumentMoniker": "..\\Application\\Interfaces\\IUsuarioService.cs",
+              "ToolTip": "C:\\Users\\natha\\Desktop\\PROYECTO II\\Application\\Interfaces\\IUsuarioService.cs",
+              "RelativeToolTip": "..\\Application\\Interfaces\\IUsuarioService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-01T01:00:06.287Z",
+              "WhenOpened": "2025-10-25T13:36:10.411Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "UsuarioController.cs",
+              "DocumentMoniker": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\API\\Controllers\\UsuarioController.cs",
+              "RelativeDocumentMoniker": "API\\Controllers\\UsuarioController.cs",
+              "ToolTip": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\API\\Controllers\\UsuarioController.cs",
+              "RelativeToolTip": "API\\Controllers\\UsuarioController.cs",
+              "ViewState": "AgIAADwAAAAAAAAAAAAuwF8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T12:29:36.12Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "UsuarioRepositoryTests.cs",
+              "DocumentMoniker": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\Tests\\UsuarioRepositoryTests.cs",
+              "RelativeDocumentMoniker": "Tests\\UsuarioRepositoryTests.cs",
+              "ToolTip": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\Tests\\UsuarioRepositoryTests.cs",
+              "RelativeToolTip": "Tests\\UsuarioRepositoryTests.cs",
+              "ViewState": "AgIAALMAAAAAAAAAAAAAACgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T12:32:57.603Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "LoggerService.cs",
+              "DocumentMoniker": "C:\\Users\\natha\\Desktop\\PROYECTO II\\Infraestructure\\Services\\LoggerService.cs",
+              "RelativeDocumentMoniker": "..\\Infraestructure\\Services\\LoggerService.cs",
+              "ToolTip": "C:\\Users\\natha\\Desktop\\PROYECTO II\\Infraestructure\\Services\\LoggerService.cs",
+              "RelativeToolTip": "..\\Infraestructure\\Services\\LoggerService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T14:09:00.385Z",
               "EditorCaption": ""
             }
           ]

@@ -10,3 +10,4 @@ namespace Infraestructure.Services
     {
     }
 }
+//Posible mejora a futuro, no se ha implementado.

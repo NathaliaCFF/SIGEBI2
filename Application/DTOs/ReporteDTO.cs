@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Application.DTOs
+﻿namespace SIGEBI.Application.DTOs
 {
-    internal class ReporteDTO
+    public class ReporteDTO
     {
+        public int LibroId { get; set; }
+        public string Titulo { get; set; } = string.Empty;
+        public int CantidadPrestamos { get; set; }
     }
 }

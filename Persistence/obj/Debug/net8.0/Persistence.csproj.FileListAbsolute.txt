@@ -11,6 +11,7 @@ C:\Users\natha\Desktop\PROYECTO II\Persistence\obj\Debug\net8.0\Persistence.Gene
 C:\Users\natha\Desktop\PROYECTO II\Persistence\obj\Debug\net8.0\Persistence.AssemblyInfoInputs.cache
 C:\Users\natha\Desktop\PROYECTO II\Persistence\obj\Debug\net8.0\Persistence.AssemblyInfo.cs
 C:\Users\natha\Desktop\PROYECTO II\Persistence\obj\Debug\net8.0\Persistence.csproj.CoreCompileInputs.cache
+C:\Users\natha\Desktop\PROYECTO II\Persistence\obj\Debug\net8.0\Persistence.sourcelink.json
 C:\Users\natha\Desktop\PROYECTO II\Persistence\obj\Debug\net8.0\Persiste.61C28332.Up2Date
 C:\Users\natha\Desktop\PROYECTO II\Persistence\obj\Debug\net8.0\Persistence.dll
 C:\Users\natha\Desktop\PROYECTO II\Persistence\obj\Debug\net8.0\refint\Persistence.dll

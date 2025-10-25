@@ -8,7 +8,7 @@ namespace SIGEBI.Domain.Entities
         public string Autor { get; set; } = string.Empty;
         public string ISBN { get; set; } = string.Empty;
         public string Editorial { get; set; } = string.Empty;
-        public int Año { get; set; }
+        public int AnioPublicacion { get; set; }
         public string Categoria { get; set; } = string.Empty;
         public bool Disponible { get; set; }
     }

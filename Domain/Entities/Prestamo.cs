@@ -10,9 +10,7 @@ namespace SIGEBI.Domain.Entities
         public DateTime FechaPrestamo { get; set; } = DateTime.Now;
         public DateTime FechaVencimiento { get; set; }
 
-        // Relaciones
         public Usuario Usuario { get; set; } = null!;
         public ICollection<DetallePrestamo> Detalles { get; set; } = new List<DetallePrestamo>();
     }
 }
-
