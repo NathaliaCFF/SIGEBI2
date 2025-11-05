@@ -1,0 +1,17 @@
+C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\UI2\bin\Debug\net8.0-windows\UI2.exe
+C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\UI2\bin\Debug\net8.0-windows\UI2.deps.json
+C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\UI2\bin\Debug\net8.0-windows\UI2.runtimeconfig.json
+C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\UI2\bin\Debug\net8.0-windows\UI2.dll
+C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\UI2\bin\Debug\net8.0-windows\UI2.pdb
+C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\UI2\obj\Debug\net8.0-windows\UI2.Form1.resources
+C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\UI2\obj\Debug\net8.0-windows\UI2.csproj.GenerateResource.cache
+C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\UI2\obj\Debug\net8.0-windows\UI2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\UI2\obj\Debug\net8.0-windows\UI2.AssemblyInfoInputs.cache
+C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\UI2\obj\Debug\net8.0-windows\UI2.AssemblyInfo.cs
+C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\UI2\obj\Debug\net8.0-windows\UI2.csproj.CoreCompileInputs.cache
+C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\UI2\obj\Debug\net8.0-windows\UI2.sourcelink.json
+C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\UI2\obj\Debug\net8.0-windows\UI2.dll
+C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\UI2\obj\Debug\net8.0-windows\refint\UI2.dll
+C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\UI2\obj\Debug\net8.0-windows\UI2.pdb
+C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\UI2\obj\Debug\net8.0-windows\UI2.genruntimeconfig.cache
+C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\UI2\obj\Debug\net8.0-windows\ref\UI2.dll

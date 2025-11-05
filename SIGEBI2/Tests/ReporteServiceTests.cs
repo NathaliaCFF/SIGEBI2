@@ -5,18 +5,29 @@ using SIGEBI.Persistence.Context;
 using SIGEBI.Persistence.Repositories;
 using Application.Services;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace Tests
 {
+    /// <summary>
+    /// PRUEBAS UNITARIAS: ReporteServiceTests
+    /// CAPA: Aplicación
+    /// MÓDULO: Reportes
+    /// DESCRIPCIÓN:
+    /// Valida la generación del reporte de libros más prestados (CU-13),
+    /// verificando el orden, conteo y manejo de escenarios sin datos.
+    /// </summary>
     [TestClass]
     public class ReporteServiceTests
     {
         private AppDbContext? _context;
         private ReporteService? _service;
 
+        /// <summary>
+        /// Configuración inicial antes de cada prueba:
+        /// limpia todas las tablas relacionadas con préstamos y reinicia sus identidades.
+        /// </summary>
         [TestInitialize]
         public void Setup()
         {
@@ -26,7 +37,7 @@ namespace Tests
 
             _context = new AppDbContext(options);
 
-            // Limpiar tablas relacionadas
+            // Limpieza y reinicio de identidad
             _context.Database.ExecuteSqlRaw("DELETE FROM DetallePrestamos;");
             _context.Database.ExecuteSqlRaw("DELETE FROM Prestamos;");
             _context.Database.ExecuteSqlRaw("DELETE FROM Libros;");
@@ -40,11 +51,14 @@ namespace Tests
             _service = new ReporteService(repo);
         }
 
-        // CU-15: Generar reporte de libros más prestados
+        // ============================================================
+        // CU-13: Generar reporte de libros más prestados
+        // ============================================================
         [TestMethod]
-        public async Task ObtenerLibrosMasPrestados_DeberiaRetornarListaDeLibrosOrdenada()
+        public async Task ObtenerLibrosMasPrestados_CuandoExistenPrestamos_DeberiaRetornarListaOrdenada()
         {
-            // Crear usuario
+            // ---------- Arrange ----------
+            // Crear usuario base
             var usuario = new Usuario
             {
                 Nombre = "Usuario Reporte",
@@ -57,12 +71,28 @@ namespace Tests
             _context.SaveChanges();
 
             // Crear libros
-            var libro1 = new Libro { Titulo = "Libro A", Autor = "Autor A", ISBN = "978" + Guid.NewGuid().ToString("N").Substring(0, 10), Disponible = true, Activo = true, AnioPublicacion = 2020 };
-            var libro2 = new Libro { Titulo = "Libro B", Autor = "Autor B", ISBN = "978" + Guid.NewGuid().ToString("N").Substring(0, 10), Disponible = true, Activo = true, AnioPublicacion = 2021 };
-            _context.Libros.AddRange(libro1, libro2);
+            var libroA = new Libro
+            {
+                Titulo = "Libro A",
+                Autor = "Autor A",
+                ISBN = "978" + Guid.NewGuid().ToString("N").Substring(0, 10),
+                AnioPublicacion = 2020,
+                Disponible = true,
+                Activo = true
+            };
+            var libroB = new Libro
+            {
+                Titulo = "Libro B",
+                Autor = "Autor B",
+                ISBN = "978" + Guid.NewGuid().ToString("N").Substring(0, 10),
+                AnioPublicacion = 2021,
+                Disponible = true,
+                Activo = true
+            };
+            _context.Libros.AddRange(libroA, libroB);
             _context.SaveChanges();
 
-            // Crear préstamos con más detalles para Libro A
+            // Registrar tres préstamos para Libro A
             for (int i = 0; i < 3; i++)
             {
                 var prestamo = new Prestamo
@@ -78,7 +108,7 @@ namespace Tests
                 var detalle = new DetallePrestamo
                 {
                     PrestamoId = prestamo.Id,
-                    LibroId = libro1.Id,
+                    LibroId = libroA.Id,
                     Devuelto = false,
                     Activo = true,
                     FechaCreacion = DateTime.Now
@@ -86,7 +116,7 @@ namespace Tests
                 _context.DetallePrestamos.Add(detalle);
             }
 
-            // Un solo préstamo para Libro B
+            // Un préstamo para Libro B
             var prestamoB = new Prestamo
             {
                 UsuarioId = usuario.Id,
@@ -100,7 +130,7 @@ namespace Tests
             var detalleB = new DetallePrestamo
             {
                 PrestamoId = prestamoB.Id,
-                LibroId = libro2.Id,
+                LibroId = libroB.Id,
                 Devuelto = false,
                 Activo = true,
                 FechaCreacion = DateTime.Now
@@ -108,22 +138,30 @@ namespace Tests
             _context.DetallePrestamos.Add(detalleB);
             _context.SaveChanges();
 
-            // Ejecutar el reporte
+            // ---------- Act ----------
             var result = await _service!.ObtenerLibrosMasPrestadosAsync();
 
-            Assert.IsTrue(result.Success, "El reporte no se generó correctamente.");
-            Assert.IsTrue(result.Data!.Any(), "La lista de libros está vacía.");
+            // ---------- Assert ----------
+            Assert.IsTrue(result.Success, $"El reporte no se generó correctamente: {result.Message}");
+            Assert.IsNotNull(result.Data, "El resultado devuelto es nulo.");
+            Assert.IsTrue(result.Data!.Any(), "La lista de libros más prestados está vacía.");
 
             var top = result.Data!.First();
-            Assert.AreEqual("Libro A", top.Titulo, "El libro más prestado no es el esperado.");
-            Assert.AreEqual(3, top.CantidadPrestamos, "La cantidad de préstamos no es correcta.");
+            Assert.AreEqual("Libro A", top.Titulo, "El libro más prestado no coincide con el esperado.");
+            Assert.AreEqual(3, top.CantidadPrestamos, "El número de préstamos reportado no es correcto.");
         }
 
+        // ============================================================
+        // CU-13: Escenario sin datos — reporte vacío
+        // ============================================================
         [TestMethod]
-        public async Task ObtenerLibrosMasPrestados_DeberiaRetornarFailSiNoHayDatos()
+        public async Task ObtenerLibrosMasPrestados_CuandoNoExistenPrestamos_DeberiaRetornarFail()
         {
+            // ---------- Act ----------
             var result = await _service!.ObtenerLibrosMasPrestadosAsync();
-            Assert.IsFalse(result.Success);
+
+            // ---------- Assert ----------
+            Assert.IsFalse(result.Success, "El método debería devolver Fail cuando no hay préstamos.");
             Assert.AreEqual("No hay préstamos registrados para generar el reporte.", result.Message);
         }
     }

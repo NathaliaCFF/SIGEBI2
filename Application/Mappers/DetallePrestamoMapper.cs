@@ -7,7 +7,7 @@ namespace SIGEBI.Application.Mappers
 {
     public static class DetallePrestamoMapper
     {
-        // 🔹 Convierte de entidad a DTO
+        // Convierte de entidad a DTO
         public static DetallePrestamoDTO ToDTO(this DetallePrestamo entity)
         {
             return new DetallePrestamoDTO
@@ -21,7 +21,7 @@ namespace SIGEBI.Application.Mappers
             };
         }
 
-        // 🔹 Convierte de DTO a entidad (útil si en el futuro se reciben detalles desde la API)
+        // Convierte de DTO a entidad (útil si en el futuro se reciben detalles desde la API)
         public static DetallePrestamo ToEntity(this DetallePrestamoDTO dto)
         {
             return new DetallePrestamo
@@ -34,7 +34,7 @@ namespace SIGEBI.Application.Mappers
             };
         }
 
-        // 🔹 Convierte una colección completa de entidades a DTOs
+        // Convierte una colección completa de entidades a DTOs
         public static List<DetallePrestamoDTO> ToDtoList(this IEnumerable<DetallePrestamo> entities)
         {
             return entities.Select(e => e.ToDTO()).ToList();

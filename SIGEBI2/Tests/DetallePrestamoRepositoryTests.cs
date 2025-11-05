@@ -10,12 +10,25 @@ using System.Threading.Tasks;
 
 namespace Tests
 {
+    /// <summary>
+    /// PRUEBAS UNITARIAS: DetallePrestamoRepositoryTests
+    /// CAPA: Persistencia
+    /// MÓDULO: Préstamos y Devoluciones
+    /// DESCRIPCIÓN:
+    /// Valida las operaciones principales del repositorio de DetallePrestamo:
+    /// - Obtener detalles por préstamo (CU-10, CU-11)
+    /// - Registrar devolución (CU-10)
+    /// </summary>
     [TestClass]
     public class DetallePrestamoRepositoryTests
     {
         private AppDbContext? _context;
         private DetallePrestamoRepository? _repository;
 
+        /// <summary>
+        /// Configuración inicial antes de cada prueba.
+        /// Se limpia la base de datos y se reinician las identidades.
+        /// </summary>
         [TestInitialize]
         public void Setup()
         {
@@ -25,13 +38,13 @@ namespace Tests
 
             _context = new AppDbContext(options);
 
-            // Limpiar tablas relacionadas antes de iniciar
+            // Limpieza completa (orden de FK)
             _context.Database.ExecuteSqlRaw("DELETE FROM DetallePrestamos;");
             _context.Database.ExecuteSqlRaw("DELETE FROM Prestamos;");
             _context.Database.ExecuteSqlRaw("DELETE FROM Libros;");
             _context.Database.ExecuteSqlRaw("DELETE FROM Usuarios;");
 
-            // Reiniciar identidad
+            // Reinicio de contadores IDENTITY
             _context.Database.ExecuteSqlRaw("DBCC CHECKIDENT ('Usuarios', RESEED, 0);");
             _context.Database.ExecuteSqlRaw("DBCC CHECKIDENT ('Libros', RESEED, 0);");
             _context.Database.ExecuteSqlRaw("DBCC CHECKIDENT ('Prestamos', RESEED, 0);");
@@ -41,12 +54,12 @@ namespace Tests
         }
 
         // ============================================================
-        // Test 1: ObtenerPorPrestamoAsync()
+        // TEST 1 — CU-10 / CU-11: Obtener detalles de préstamo
         // ============================================================
         [TestMethod]
-        public async Task ObtenerPorPrestamo_DeberiaRetornarDetallesCorrectos()
+        public async Task ObtenerPorPrestamo_CuandoExistePrestamo_DeberiaRetornarDetallesCorrectos()
         {
-            // Crear datos base
+            // Arrange — Crear datos base
             var usuario = new Usuario
             {
                 Nombre = "Usuario de prueba",
@@ -93,22 +106,22 @@ namespace Tests
             _context.DetallePrestamos.Add(detalle);
             _context.SaveChanges();
 
-            // Ejecutar método del repositorio
+            // Act — Ejecutar método del repositorio
             var result = await _repository!.ObtenerPorPrestamoAsync(prestamo.Id);
 
-            // Validaciones
-            Assert.IsNotNull(result, "No se devolvió ningún resultado.");
-            Assert.IsTrue(result.Any(), "La lista de detalles está vacía.");
-            Assert.AreEqual(prestamo.Id, result.First().PrestamoId, "El detalle no pertenece al préstamo correcto.");
+            // Assert — Validar resultados
+            Assert.IsNotNull(result, "El método devolvió un resultado nulo.");
+            Assert.IsTrue(result.Any(), "No se devolvieron registros de detalle.");
+            Assert.AreEqual(prestamo.Id, result.First().PrestamoId, "El detalle no pertenece al préstamo esperado.");
         }
 
         // ============================================================
-        // Test 2: RegistrarDevolucionAsync()
+        // TEST 2 — CU-10: Registrar devolución
         // ============================================================
         [TestMethod]
-        public async Task RegistrarDevolucion_DeberiaActualizarDetalleComoDevuelto()
+        public async Task RegistrarDevolucion_CuandoDetalleExistente_DeberiaMarcarComoDevuelto()
         {
-            // Crear datos base
+            // Arrange — Crear datos base
             var usuario = new Usuario
             {
                 Nombre = "Usuario devolución",
@@ -155,14 +168,14 @@ namespace Tests
             _context.DetallePrestamos.Add(detalle);
             _context.SaveChanges();
 
-            // Ejecutar método del repositorio
+            // Act — Registrar devolución en el repositorio
             await _repository!.RegistrarDevolucionAsync(detalle.Id);
 
-            // Verificar cambios
+            // Assert — Validar que el registro fue actualizado
             var actualizado = await _context.DetallePrestamos.FindAsync(detalle.Id);
-            Assert.IsNotNull(actualizado, "No se encontró el detalle actualizado.");
-            Assert.IsTrue(actualizado!.Devuelto, "El campo 'Devuelto' no fue actualizado.");
-            Assert.IsNotNull(actualizado.FechaDevolucion, "No se asignó la fecha de devolución.");
+            Assert.IsNotNull(actualizado, "No se encontró el detalle tras la devolución.");
+            Assert.IsTrue(actualizado!.Devuelto, "El campo 'Devuelto' no fue marcado como verdadero.");
+            Assert.IsNotNull(actualizado.FechaDevolucion, "No se asignó la fecha de devolución correctamente.");
         }
     }
 }

@@ -1,0 +1,756 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="d56d0d5a-8bf1-475d-909e-37b61c0fe417" name="natha@MYCOMPUTER 2025-11-04 20:10:42" runUser="MYCOMPUTER\natha" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2025-11-04T20:10:42.3279217-04:00" queuing="2025-11-04T20:10:42.3279217-04:00" start="2025-11-04T20:10:39.4169426-04:00" finish="2025-11-04T20:10:46.6499615-04:00" />
+  <TestSettings name="default" id="90851869-7f4f-453f-ab48-21d2192a288e">
+    <Deployment runDeploymentRoot="natha_MYCOMPUTER_2025-11-04_20_10_42" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="6696cdbe-5653-4702-8b3a-a727fa61407c" testId="eb0e14fb-52cb-e158-276b-af4b0d6069d1" testName="ObtenerPorPrestamo_CuandoExistePrestamo_DeberiaRetornarDetallesCorrectos" computerName="MYCOMPUTER" duration="00:00:01.7451674" startTime="2025-11-04T20:10:40.1736573-04:00" endTime="2025-11-04T20:10:41.9794148-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6696cdbe-5653-4702-8b3a-a727fa61407c">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de inicialización Tests.DetallePrestamoRepositoryTests.Setup devolvió una excepción. Microsoft.Data.SqlClient.SqlException: No se puede continuar la ejecución porque la sesión está en estado de eliminación.&#xD;
+A severe error occurred on the current command.  The results, if any, should be discarded..</Message>
+          <StackTrace>    at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean&amp; dataReady)&#xD;
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean isAsync, Int32 timeout, Boolean asyncWrite)&#xD;
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean&amp; usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)&#xD;
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQuery(RelationalCommandParameterObject parameterObject)&#xD;
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.ExecuteSqlRaw(DatabaseFacade databaseFacade, String sql, IEnumerable`1 parameters)&#xD;
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.ExecuteSqlRaw(DatabaseFacade databaseFacade, String sql, Object[] parameters)&#xD;
+   at Tests.DetallePrestamoRepositoryTests.Setup() in C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\DetallePrestamoRepositoryTests.cs:line 50&#xD;
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)&#xD;
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="8a1bc49a-5b80-4c2f-9b49-c29193840ca9" testId="2ec13354-dd5a-a43f-f317-0913a1db3842" testName="EliminarUsuario_CuandoExiste_DeberiaDesactivarCorrectamente" computerName="MYCOMPUTER" duration="00:00:03.0860809" startTime="2025-11-04T20:10:42.3251128-04:00" endTime="2025-11-04T20:10:45.4115326-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8a1bc49a-5b80-4c2f-9b49-c29193840ca9">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de inicialización Tests.UsuarioRepositoryTests.Setup devolvió una excepción. Microsoft.Data.SqlClient.SqlException: La base de datos 'SIGEBI_Test' ya existe. Elija un nombre diferente para la base de datos..</Message>
+          <StackTrace>    at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean&amp; dataReady)&#xD;
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean isAsync, Int32 timeout, Boolean asyncWrite)&#xD;
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean&amp; usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)&#xD;
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQuery(RelationalCommandParameterObject parameterObject)&#xD;
+   at Microsoft.EntityFrameworkCore.Migrations.MigrationCommand.ExecuteNonQuery(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)&#xD;
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.Execute(IReadOnlyList`1 migrationCommands, IRelationalConnection connection, MigrationExecutionState executionState, Boolean beginTransaction, Boolean commitTransaction, Nullable`1 isolationLevel)&#xD;
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.&lt;&gt;c.&lt;ExecuteNonQuery&gt;b__3_1(DbContext _, ValueTuple`6 s)&#xD;
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)&#xD;
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.ExecuteNonQuery(IReadOnlyList`1 migrationCommands, IRelationalConnection connection, MigrationExecutionState executionState, Boolean commitTransaction, Nullable`1 isolationLevel)&#xD;
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.Create()&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabaseCreator.EnsureCreated()&#xD;
+   at Microsoft.EntityFrameworkCore.Infrastructure.DatabaseFacade.EnsureCreated()&#xD;
+   at Tests.UsuarioRepositoryTests.Setup() in C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\UsuarioRepositoryTests.cs:line 53&#xD;
+   at InvokeStub_UsuarioRepositoryTests.Setup(Object, Object, IntPtr*)&#xD;
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="78f58f92-1281-4cbe-9f92-70905c260a85" testId="d400c81a-ba07-c123-583e-471c35077dca" testName="ObtenerUsuarios_CuandoExistenRegistros_DeberiaRetornarLista" computerName="MYCOMPUTER" duration="00:00:03.0860116" startTime="2025-11-04T20:10:42.3251613-04:00" endTime="2025-11-04T20:10:45.4114875-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="78f58f92-1281-4cbe-9f92-70905c260a85">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de inicialización Tests.UsuarioRepositoryTests.Setup devolvió una excepción. Microsoft.Data.SqlClient.SqlException: La base de datos 'SIGEBI_Test' ya existe. Elija un nombre diferente para la base de datos..</Message>
+          <StackTrace>    at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean&amp; dataReady)&#xD;
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean isAsync, Int32 timeout, Boolean asyncWrite)&#xD;
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean&amp; usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)&#xD;
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQuery(RelationalCommandParameterObject parameterObject)&#xD;
+   at Microsoft.EntityFrameworkCore.Migrations.MigrationCommand.ExecuteNonQuery(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)&#xD;
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.Execute(IReadOnlyList`1 migrationCommands, IRelationalConnection connection, MigrationExecutionState executionState, Boolean beginTransaction, Boolean commitTransaction, Nullable`1 isolationLevel)&#xD;
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.&lt;&gt;c.&lt;ExecuteNonQuery&gt;b__3_1(DbContext _, ValueTuple`6 s)&#xD;
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)&#xD;
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.ExecuteNonQuery(IReadOnlyList`1 migrationCommands, IRelationalConnection connection, MigrationExecutionState executionState, Boolean commitTransaction, Nullable`1 isolationLevel)&#xD;
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.Create()&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabaseCreator.EnsureCreated()&#xD;
+   at Microsoft.EntityFrameworkCore.Infrastructure.DatabaseFacade.EnsureCreated()&#xD;
+   at Tests.UsuarioRepositoryTests.Setup() in C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\UsuarioRepositoryTests.cs:line 53&#xD;
+   at InvokeStub_UsuarioRepositoryTests.Setup(Object, Object, IntPtr*)&#xD;
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="4feac390-3642-4e51-b18b-fb8a277a5198" testId="6bdbc0fc-2b9c-c66a-e759-3d331883aabb" testName="ActualizarDuracionPrestamoDias_CuandoValorInvalido_DeberiaFallar" computerName="MYCOMPUTER" duration="00:00:02.0776606" startTime="2025-11-04T20:10:40.1735633-04:00" endTime="2025-11-04T20:10:42.3050607-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4feac390-3642-4e51-b18b-fb8a277a5198">
+      <Output>
+        <ErrorInfo>
+          <Message>Excepción método de prueba Tests.ConfiguracionServiceTests.ActualizarDuracionPrestamoDias_CuandoValorInvalido_DeberiaFallar:&#xD;
+Microsoft.Data.SqlClient.SqlException: Error de inicio de sesión del usuario 'MyComputer\natha'.</Message>
+          <StackTrace>    at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal&amp; connection)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal&amp; connection)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal&amp; connection)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)&#xD;
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)&#xD;
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)&#xD;
+   at Microsoft.Data.SqlClient.SqlConnection.Open()&#xD;
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)&#xD;
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)&#xD;
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)&#xD;
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)&#xD;
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.&lt;&gt;c.&lt;SaveChanges&gt;b__112_0(DbContext _, ValueTuple`2 t)&#xD;
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)&#xD;
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)&#xD;
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)&#xD;
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()&#xD;
+   at Tests.ConfiguracionServiceTests.ActualizarDuracionPrestamoDias_CuandoValorInvalido_DeberiaFallar() in C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\ConfiguracionServiceTests.cs:line 77&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="fb606112-9013-4369-b572-7a819c7cc639" testId="7b8021a3-aa61-655c-6515-aa3edafe7fe2" testName="ActualizarUsuario_CuandoExiste_DeberiaModificarDatos" computerName="MYCOMPUTER" duration="00:00:03.2537886" startTime="2025-11-04T20:10:41.9926946-04:00" endTime="2025-11-04T20:10:45.2468321-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fb606112-9013-4369-b572-7a819c7cc639">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de inicialización Tests.UsuarioRepositoryTests.Setup devolvió una excepción. Microsoft.Data.SqlClient.SqlException: La base de datos 'SIGEBI_Test' ya existe. Elija un nombre diferente para la base de datos..</Message>
+          <StackTrace>    at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean&amp; dataReady)&#xD;
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean isAsync, Int32 timeout, Boolean asyncWrite)&#xD;
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean&amp; usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)&#xD;
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQuery(RelationalCommandParameterObject parameterObject)&#xD;
+   at Microsoft.EntityFrameworkCore.Migrations.MigrationCommand.ExecuteNonQuery(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)&#xD;
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.Execute(IReadOnlyList`1 migrationCommands, IRelationalConnection connection, MigrationExecutionState executionState, Boolean beginTransaction, Boolean commitTransaction, Nullable`1 isolationLevel)&#xD;
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.&lt;&gt;c.&lt;ExecuteNonQuery&gt;b__3_1(DbContext _, ValueTuple`6 s)&#xD;
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)&#xD;
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.ExecuteNonQuery(IReadOnlyList`1 migrationCommands, IRelationalConnection connection, MigrationExecutionState executionState, Boolean commitTransaction, Nullable`1 isolationLevel)&#xD;
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.Create()&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabaseCreator.EnsureCreated()&#xD;
+   at Microsoft.EntityFrameworkCore.Infrastructure.DatabaseFacade.EnsureCreated()&#xD;
+   at Tests.UsuarioRepositoryTests.Setup() in C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\UsuarioRepositoryTests.cs:line 53&#xD;
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)&#xD;
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="31b89148-1f97-44cd-97cd-162e44a7c514" testId="09405597-7121-f8cb-0dcd-20dc70f7c4b8" testName="EliminarLibro_CuandoExiste_DeberiaDesactivarEntidad" computerName="MYCOMPUTER" duration="00:00:04.8534731" startTime="2025-11-04T20:10:40.2128141-04:00" endTime="2025-11-04T20:10:45.0810664-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="31b89148-1f97-44cd-97cd-162e44a7c514">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de inicialización Tests.LibroRepositoryTests.Setup devolvió una excepción. Microsoft.Data.SqlClient.SqlException: No se puede quitar el base de datos 'SIGEBI_Test' porque no existe o el usuario no tiene permiso..</Message>
+          <StackTrace>    at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean&amp; dataReady)&#xD;
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean isAsync, Int32 timeout, Boolean asyncWrite)&#xD;
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean&amp; usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)&#xD;
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQuery(RelationalCommandParameterObject parameterObject)&#xD;
+   at Microsoft.EntityFrameworkCore.Migrations.MigrationCommand.ExecuteNonQuery(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)&#xD;
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.Execute(IReadOnlyList`1 migrationCommands, IRelationalConnection connection, MigrationExecutionState executionState, Boolean beginTransaction, Boolean commitTransaction, Nullable`1 isolationLevel)&#xD;
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.&lt;&gt;c.&lt;ExecuteNonQuery&gt;b__3_1(DbContext _, ValueTuple`6 s)&#xD;
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)&#xD;
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.ExecuteNonQuery(IReadOnlyList`1 migrationCommands, IRelationalConnection connection, MigrationExecutionState executionState, Boolean commitTransaction, Nullable`1 isolationLevel)&#xD;
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.Delete()&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabaseCreator.EnsureDeleted()&#xD;
+   at Microsoft.EntityFrameworkCore.Infrastructure.DatabaseFacade.EnsureDeleted()&#xD;
+   at Tests.LibroRepositoryTests.Setup() in C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\LibroRepositoryTests.cs:line 39&#xD;
+   at InvokeStub_LibroRepositoryTests.Setup(Object, Object, IntPtr*)&#xD;
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="b7a9eca8-cac1-452b-b7d6-ae3062852ef7" testId="70c3f7cc-c780-6267-129e-c8e5972ee9f5" testName="ObtenerPrestamosActivosPorUsuario_CuandoExisten_DeberiaRetornarLista" computerName="MYCOMPUTER" duration="00:00:01.7452334" startTime="2025-11-04T20:10:40.2129174-04:00" endTime="2025-11-04T20:10:41.9794164-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b7a9eca8-cac1-452b-b7d6-ae3062852ef7">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de inicialización Tests.PrestamoServiceTests.Setup devolvió una excepción. Microsoft.Data.SqlClient.SqlException: No se puede continuar la ejecución porque la sesión está en estado de eliminación.&#xD;
+A severe error occurred on the current command.  The results, if any, should be discarded.&#xD;
+Comprobación de información de identidad: valor de identidad actual 'NULL'.&#xD;
+Ejecución de DBCC completada. Si hay mensajes de error, consulte al administrador del sistema..</Message>
+          <StackTrace>    at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean&amp; dataReady)&#xD;
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean isAsync, Int32 timeout, Boolean asyncWrite)&#xD;
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean&amp; usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)&#xD;
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQuery(RelationalCommandParameterObject parameterObject)&#xD;
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.ExecuteSqlRaw(DatabaseFacade databaseFacade, String sql, IEnumerable`1 parameters)&#xD;
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.ExecuteSqlRaw(DatabaseFacade databaseFacade, String sql, Object[] parameters)&#xD;
+   at Tests.PrestamoServiceTests.Setup() in C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\PrestamoServiceTests.cs:line 53&#xD;
+   at InvokeStub_PrestamoServiceTests.Setup(Object, Object, IntPtr*)&#xD;
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="0b3f68d5-1361-4e23-96ac-0359c6ccf034" testId="dae7012b-5194-5f78-ee8a-f5c65506513d" testName="ObtenerPrestamosVencidos_CuandoExisten_DeberiaRetornarPrestamosConFechaVencida" computerName="MYCOMPUTER" duration="00:00:02.0777803" startTime="2025-11-04T20:10:40.2129770-04:00" endTime="2025-11-04T20:10:42.3053345-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0b3f68d5-1361-4e23-96ac-0359c6ccf034">
+      <Output>
+        <ErrorInfo>
+          <Message>Excepción método de prueba Tests.PrestamoServiceTests.ObtenerPrestamosVencidos_CuandoExisten_DeberiaRetornarPrestamosConFechaVencida:&#xD;
+Microsoft.Data.SqlClient.SqlException: Error de inicio de sesión del usuario 'MyComputer\natha'.</Message>
+          <StackTrace>    at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal&amp; connection)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal&amp; connection)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal&amp; connection)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)&#xD;
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)&#xD;
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)&#xD;
+   at Microsoft.Data.SqlClient.SqlConnection.Open()&#xD;
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)&#xD;
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)&#xD;
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)&#xD;
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)&#xD;
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.&lt;&gt;c.&lt;SaveChanges&gt;b__112_0(DbContext _, ValueTuple`2 t)&#xD;
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)&#xD;
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)&#xD;
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)&#xD;
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()&#xD;
+   at Tests.PrestamoServiceTests.ObtenerPrestamosVencidos_CuandoExisten_DeberiaRetornarPrestamosConFechaVencida() in C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\PrestamoServiceTests.cs:line 204&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="45a18783-f563-4179-9a7a-f09e3dbe4e74" testId="349a93cc-5b6f-086b-da47-8cfbdc04515d" testName="ActivarUsuario_CuandoInactivo_DeberiaCambiarEstado" computerName="MYCOMPUTER" duration="00:00:03.2536628" startTime="2025-11-04T20:10:41.9926840-04:00" endTime="2025-11-04T20:10:45.2468187-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="45a18783-f563-4179-9a7a-f09e3dbe4e74">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de inicialización Tests.UsuarioRepositoryTests.Setup devolvió una excepción. Microsoft.Data.SqlClient.SqlException: La base de datos 'SIGEBI_Test' ya existe. Elija un nombre diferente para la base de datos..</Message>
+          <StackTrace>    at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean&amp; dataReady)&#xD;
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean isAsync, Int32 timeout, Boolean asyncWrite)&#xD;
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean&amp; usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)&#xD;
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQuery(RelationalCommandParameterObject parameterObject)&#xD;
+   at Microsoft.EntityFrameworkCore.Migrations.MigrationCommand.ExecuteNonQuery(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)&#xD;
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.Execute(IReadOnlyList`1 migrationCommands, IRelationalConnection connection, MigrationExecutionState executionState, Boolean beginTransaction, Boolean commitTransaction, Nullable`1 isolationLevel)&#xD;
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.&lt;&gt;c.&lt;ExecuteNonQuery&gt;b__3_1(DbContext _, ValueTuple`6 s)&#xD;
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)&#xD;
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.ExecuteNonQuery(IReadOnlyList`1 migrationCommands, IRelationalConnection connection, MigrationExecutionState executionState, Boolean commitTransaction, Nullable`1 isolationLevel)&#xD;
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.Create()&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabaseCreator.EnsureCreated()&#xD;
+   at Microsoft.EntityFrameworkCore.Infrastructure.DatabaseFacade.EnsureCreated()&#xD;
+   at Tests.UsuarioRepositoryTests.Setup() in C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\UsuarioRepositoryTests.cs:line 53&#xD;
+   at InvokeStub_UsuarioRepositoryTests.Setup(Object, Object, IntPtr*)&#xD;
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="78c0c67d-340a-40fc-96fc-361dde7e5fea" testId="c2cb83ee-50fa-52d9-fbf0-8bca7b90115f" testName="ActualizarDuracionPrestamoDias_CuandoValorValido_DeberiaActualizarCorrectamente" computerName="MYCOMPUTER" duration="00:00:02.0778971" startTime="2025-11-04T20:10:40.1736030-04:00" endTime="2025-11-04T20:10:42.3053395-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="78c0c67d-340a-40fc-96fc-361dde7e5fea">
+      <Output>
+        <ErrorInfo>
+          <Message>Excepción método de prueba Tests.ConfiguracionServiceTests.ActualizarDuracionPrestamoDias_CuandoValorValido_DeberiaActualizarCorrectamente:&#xD;
+Microsoft.Data.SqlClient.SqlException: Error de inicio de sesión del usuario 'MyComputer\natha'.</Message>
+          <StackTrace>    at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean&amp; dataReady)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)&#xD;
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal&amp; connection)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal&amp; connection)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal&amp; connection)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)&#xD;
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)&#xD;
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)&#xD;
+   at Microsoft.Data.SqlClient.SqlConnection.Open()&#xD;
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)&#xD;
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)&#xD;
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)&#xD;
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)&#xD;
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.&lt;&gt;c.&lt;SaveChanges&gt;b__112_0(DbContext _, ValueTuple`2 t)&#xD;
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)&#xD;
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)&#xD;
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)&#xD;
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()&#xD;
+   at Tests.ConfiguracionServiceTests.ActualizarDuracionPrestamoDias_CuandoValorValido_DeberiaActualizarCorrectamente() in C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\ConfiguracionServiceTests.cs:line 56&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="ac3fadec-0949-47fb-b749-d3f1aba9b93c" testId="1be18bb9-e86e-e203-bf97-cbe2a35d82b6" testName="RegistrarDevolucion_CuandoLibroPrestado_DeberiaActualizarDisponibilidadYMarcarCerrado" computerName="MYCOMPUTER" duration="00:00:01.7451774" startTime="2025-11-04T20:10:40.2130326-04:00" endTime="2025-11-04T20:10:41.9794188-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ac3fadec-0949-47fb-b749-d3f1aba9b93c">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de inicialización Tests.PrestamoServiceTests.Setup devolvió una excepción. Microsoft.Data.SqlClient.SqlException: No se puede continuar la ejecución porque la sesión está en estado de eliminación.&#xD;
+A severe error occurred on the current command.  The results, if any, should be discarded.&#xD;
+Comprobación de información de identidad: valor de identidad actual 'NULL'.&#xD;
+Ejecución de DBCC completada. Si hay mensajes de error, consulte al administrador del sistema..</Message>
+          <StackTrace>    at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean&amp; dataReady)&#xD;
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean isAsync, Int32 timeout, Boolean asyncWrite)&#xD;
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean&amp; usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)&#xD;
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQuery(RelationalCommandParameterObject parameterObject)&#xD;
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.ExecuteSqlRaw(DatabaseFacade databaseFacade, String sql, IEnumerable`1 parameters)&#xD;
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.ExecuteSqlRaw(DatabaseFacade databaseFacade, String sql, Object[] parameters)&#xD;
+   at Tests.PrestamoServiceTests.Setup() in C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\PrestamoServiceTests.cs:line 54&#xD;
+   at InvokeStub_PrestamoServiceTests.Setup(Object, Object, IntPtr*)&#xD;
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="2fca3b26-1242-4f8b-b2cc-f34fa0c7d260" testId="d48902c5-cca8-4efe-fb9a-86eeab005c63" testName="CambiarDisponibilidad_CuandoLibroActivo_DeberiaActualizarEstado" computerName="MYCOMPUTER" duration="00:00:06.3036527" startTime="2025-11-04T20:10:40.1737935-04:00" endTime="2025-11-04T20:10:46.5334757-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2fca3b26-1242-4f8b-b2cc-f34fa0c7d260" />
+    <UnitTestResult executionId="35c04107-10b6-48e3-bfe7-6dd6466dda38" testId="851917b9-5052-c156-f084-87ccdd71751c" testName="DesactivarUsuario_CuandoActivo_DeberiaCambiarEstado" computerName="MYCOMPUTER" duration="00:00:03.0864699" startTime="2025-11-04T20:10:42.3249810-04:00" endTime="2025-11-04T20:10:45.4117021-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="35c04107-10b6-48e3-bfe7-6dd6466dda38">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de inicialización Tests.UsuarioRepositoryTests.Setup devolvió una excepción. Microsoft.Data.SqlClient.SqlException: La base de datos 'SIGEBI_Test' ya existe. Elija un nombre diferente para la base de datos..</Message>
+          <StackTrace>    at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean&amp; dataReady)&#xD;
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean isAsync, Int32 timeout, Boolean asyncWrite)&#xD;
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean&amp; usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)&#xD;
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQuery(RelationalCommandParameterObject parameterObject)&#xD;
+   at Microsoft.EntityFrameworkCore.Migrations.MigrationCommand.ExecuteNonQuery(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)&#xD;
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.Execute(IReadOnlyList`1 migrationCommands, IRelationalConnection connection, MigrationExecutionState executionState, Boolean beginTransaction, Boolean commitTransaction, Nullable`1 isolationLevel)&#xD;
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.&lt;&gt;c.&lt;ExecuteNonQuery&gt;b__3_1(DbContext _, ValueTuple`6 s)&#xD;
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)&#xD;
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.ExecuteNonQuery(IReadOnlyList`1 migrationCommands, IRelationalConnection connection, MigrationExecutionState executionState, Boolean commitTransaction, Nullable`1 isolationLevel)&#xD;
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.Create()&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabaseCreator.EnsureCreated()&#xD;
+   at Microsoft.EntityFrameworkCore.Infrastructure.DatabaseFacade.EnsureCreated()&#xD;
+   at Tests.UsuarioRepositoryTests.Setup() in C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\UsuarioRepositoryTests.cs:line 53&#xD;
+   at InvokeStub_UsuarioRepositoryTests.Setup(Object, Object, IntPtr*)&#xD;
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="c7b370d7-3ab4-4ee7-87f0-e62fd85440fa" testId="dcf30a96-d6cd-55eb-620f-02ae4f912f46" testName="ActualizarLibro_CuandoExiste_DeberiaModificarCampos" computerName="MYCOMPUTER" duration="00:00:04.8534027" startTime="2025-11-04T20:10:40.1737500-04:00" endTime="2025-11-04T20:10:45.0811766-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c7b370d7-3ab4-4ee7-87f0-e62fd85440fa">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de inicialización Tests.LibroRepositoryTests.Setup devolvió una excepción. Microsoft.Data.SqlClient.SqlException: No se puede quitar el base de datos 'SIGEBI_Test' porque no existe o el usuario no tiene permiso..</Message>
+          <StackTrace>    at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean&amp; dataReady)&#xD;
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean isAsync, Int32 timeout, Boolean asyncWrite)&#xD;
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean&amp; usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)&#xD;
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQuery(RelationalCommandParameterObject parameterObject)&#xD;
+   at Microsoft.EntityFrameworkCore.Migrations.MigrationCommand.ExecuteNonQuery(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)&#xD;
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.Execute(IReadOnlyList`1 migrationCommands, IRelationalConnection connection, MigrationExecutionState executionState, Boolean beginTransaction, Boolean commitTransaction, Nullable`1 isolationLevel)&#xD;
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.&lt;&gt;c.&lt;ExecuteNonQuery&gt;b__3_1(DbContext _, ValueTuple`6 s)&#xD;
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)&#xD;
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.ExecuteNonQuery(IReadOnlyList`1 migrationCommands, IRelationalConnection connection, MigrationExecutionState executionState, Boolean commitTransaction, Nullable`1 isolationLevel)&#xD;
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.Delete()&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabaseCreator.EnsureDeleted()&#xD;
+   at Microsoft.EntityFrameworkCore.Infrastructure.DatabaseFacade.EnsureDeleted()&#xD;
+   at Tests.LibroRepositoryTests.Setup() in C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\LibroRepositoryTests.cs:line 39&#xD;
+   at InvokeStub_LibroRepositoryTests.Setup(Object, Object, IntPtr*)&#xD;
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="10e0db4e-17fb-4975-ad73-085b20144903" testId="a5cdc2ad-b7c8-66ca-dae5-f2ad3e598f24" testName="CrearLibro_CuandoDatosValidos_DeberiaAgregarLibro" computerName="MYCOMPUTER" duration="00:00:04.8534542" startTime="2025-11-04T20:10:40.1735198-04:00" endTime="2025-11-04T20:10:45.0810663-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="10e0db4e-17fb-4975-ad73-085b20144903">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de inicialización Tests.LibroRepositoryTests.Setup devolvió una excepción. Microsoft.Data.SqlClient.SqlException: No se puede quitar el base de datos 'SIGEBI_Test' porque no existe o el usuario no tiene permiso..</Message>
+          <StackTrace>    at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean&amp; dataReady)&#xD;
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean isAsync, Int32 timeout, Boolean asyncWrite)&#xD;
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean&amp; usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)&#xD;
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQuery(RelationalCommandParameterObject parameterObject)&#xD;
+   at Microsoft.EntityFrameworkCore.Migrations.MigrationCommand.ExecuteNonQuery(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)&#xD;
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.Execute(IReadOnlyList`1 migrationCommands, IRelationalConnection connection, MigrationExecutionState executionState, Boolean beginTransaction, Boolean commitTransaction, Nullable`1 isolationLevel)&#xD;
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.&lt;&gt;c.&lt;ExecuteNonQuery&gt;b__3_1(DbContext _, ValueTuple`6 s)&#xD;
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)&#xD;
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.ExecuteNonQuery(IReadOnlyList`1 migrationCommands, IRelationalConnection connection, MigrationExecutionState executionState, Boolean commitTransaction, Nullable`1 isolationLevel)&#xD;
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.Delete()&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabaseCreator.EnsureDeleted()&#xD;
+   at Microsoft.EntityFrameworkCore.Infrastructure.DatabaseFacade.EnsureDeleted()&#xD;
+   at Tests.LibroRepositoryTests.Setup() in C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\LibroRepositoryTests.cs:line 39&#xD;
+   at InvokeStub_LibroRepositoryTests.Setup(Object, Object, IntPtr*)&#xD;
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="b10d3c6a-8724-4269-9cbf-f140d2bf954d" testId="366cb8e1-2545-6865-f252-4a6dd2bfeeba" testName="EstaDisponible_CuandoLibroNuevo_DeberiaRetornarTrue" computerName="MYCOMPUTER" duration="00:00:04.8534653" startTime="2025-11-04T20:10:40.2128640-04:00" endTime="2025-11-04T20:10:45.0811566-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b10d3c6a-8724-4269-9cbf-f140d2bf954d">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de inicialización Tests.LibroRepositoryTests.Setup devolvió una excepción. Microsoft.Data.SqlClient.SqlException: No se puede quitar el base de datos 'SIGEBI_Test' porque no existe o el usuario no tiene permiso..</Message>
+          <StackTrace>    at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean&amp; dataReady)&#xD;
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean isAsync, Int32 timeout, Boolean asyncWrite)&#xD;
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean&amp; usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)&#xD;
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQuery(RelationalCommandParameterObject parameterObject)&#xD;
+   at Microsoft.EntityFrameworkCore.Migrations.MigrationCommand.ExecuteNonQuery(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)&#xD;
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.Execute(IReadOnlyList`1 migrationCommands, IRelationalConnection connection, MigrationExecutionState executionState, Boolean beginTransaction, Boolean commitTransaction, Nullable`1 isolationLevel)&#xD;
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.&lt;&gt;c.&lt;ExecuteNonQuery&gt;b__3_1(DbContext _, ValueTuple`6 s)&#xD;
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)&#xD;
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.ExecuteNonQuery(IReadOnlyList`1 migrationCommands, IRelationalConnection connection, MigrationExecutionState executionState, Boolean commitTransaction, Nullable`1 isolationLevel)&#xD;
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.Delete()&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabaseCreator.EnsureDeleted()&#xD;
+   at Microsoft.EntityFrameworkCore.Infrastructure.DatabaseFacade.EnsureDeleted()&#xD;
+   at Tests.LibroRepositoryTests.Setup() in C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\LibroRepositoryTests.cs:line 39&#xD;
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)&#xD;
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="bc2a4e52-4dd3-4d6a-9ec2-2508bd515447" testId="32b41bea-2140-9cb3-3f03-abdd19619f40" testName="RegistrarDevolucion_CuandoDetalleExistente_DeberiaMarcarComoDevuelto" computerName="MYCOMPUTER" duration="00:00:02.0777233" startTime="2025-11-04T20:10:40.1737083-04:00" endTime="2025-11-04T20:10:42.3053439-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="bc2a4e52-4dd3-4d6a-9ec2-2508bd515447">
+      <Output>
+        <ErrorInfo>
+          <Message>Excepción método de prueba Tests.DetallePrestamoRepositoryTests.RegistrarDevolucion_CuandoDetalleExistente_DeberiaMarcarComoDevuelto:&#xD;
+Microsoft.Data.SqlClient.SqlException: Error de inicio de sesión del usuario 'MyComputer\natha'.</Message>
+          <StackTrace>    at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal&amp; connection)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal&amp; connection)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal&amp; connection)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)&#xD;
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)&#xD;
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)&#xD;
+   at Microsoft.Data.SqlClient.SqlConnection.Open()&#xD;
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)&#xD;
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)&#xD;
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)&#xD;
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)&#xD;
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.&lt;&gt;c.&lt;SaveChanges&gt;b__112_0(DbContext _, ValueTuple`2 t)&#xD;
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)&#xD;
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)&#xD;
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)&#xD;
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()&#xD;
+   at Tests.DetallePrestamoRepositoryTests.RegistrarDevolucion_CuandoDetalleExistente_DeberiaMarcarComoDevuelto() in C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\DetallePrestamoRepositoryTests.cs:line 134&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="307ca95a-afda-4151-b079-29487eb2aa2b" testId="68851ff9-62e3-3381-1aa6-306a6341c748" testName="ObtenerConfiguracion_CuandoExisteRegistro_DeberiaRetornarConfiguracionActual" computerName="MYCOMPUTER" duration="00:00:02.0777708" startTime="2025-11-04T20:10:40.1735178-04:00" endTime="2025-11-04T20:10:42.3051811-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="307ca95a-afda-4151-b079-29487eb2aa2b">
+      <Output>
+        <ErrorInfo>
+          <Message>Excepción método de prueba Tests.ConfiguracionServiceTests.ObtenerConfiguracion_CuandoExisteRegistro_DeberiaRetornarConfiguracionActual:&#xD;
+Microsoft.Data.SqlClient.SqlException: Error de inicio de sesión del usuario 'MyComputer\natha'.</Message>
+          <StackTrace>    at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal&amp; connection)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal&amp; connection)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal&amp; connection)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)&#xD;
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)&#xD;
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)&#xD;
+   at Microsoft.Data.SqlClient.SqlConnection.Open()&#xD;
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)&#xD;
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)&#xD;
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)&#xD;
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)&#xD;
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.&lt;&gt;c.&lt;SaveChanges&gt;b__112_0(DbContext _, ValueTuple`2 t)&#xD;
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)&#xD;
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)&#xD;
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)&#xD;
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()&#xD;
+   at Tests.ConfiguracionServiceTests.ObtenerConfiguracion_CuandoExisteRegistro_DeberiaRetornarConfiguracionActual() in C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\ConfiguracionServiceTests.cs:line 96&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="1c2029f1-7a2d-43dc-8316-d2bdda1d3392" testId="1e6b7b0a-c206-3b3d-3b03-9888f312f4ce" testName="RegistrarPrestamo_CuandoDatosValidos_DeberiaCrearPrestamoYDetalles" computerName="MYCOMPUTER" duration="00:00:02.0776541" startTime="2025-11-04T20:10:40.2130756-04:00" endTime="2025-11-04T20:10:42.3050607-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1c2029f1-7a2d-43dc-8316-d2bdda1d3392">
+      <Output>
+        <ErrorInfo>
+          <Message>Excepción método de prueba Tests.PrestamoServiceTests.RegistrarPrestamo_CuandoDatosValidos_DeberiaCrearPrestamoYDetalles:&#xD;
+Microsoft.Data.SqlClient.SqlException: Error de inicio de sesión del usuario 'MyComputer\natha'.</Message>
+          <StackTrace>    at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal&amp; connection)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal&amp; connection)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal&amp; connection)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)&#xD;
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)&#xD;
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)&#xD;
+   at Microsoft.Data.SqlClient.SqlConnection.Open()&#xD;
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)&#xD;
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)&#xD;
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)&#xD;
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)&#xD;
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.&lt;&gt;c.&lt;SaveChanges&gt;b__112_0(DbContext _, ValueTuple`2 t)&#xD;
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)&#xD;
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)&#xD;
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)&#xD;
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()&#xD;
+   at Tests.PrestamoServiceTests.RegistrarPrestamo_CuandoDatosValidos_DeberiaCrearPrestamoYDetalles() in C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\PrestamoServiceTests.cs:line 80&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="ce4e268a-b993-4730-ad8f-2e5f1277ab7c" testId="44f9bc9a-bf4b-2dbc-485d-a791de6ce3ec" testName="ObtenerLibrosMasPrestados_CuandoExistenPrestamos_DeberiaRetornarListaOrdenada" computerName="MYCOMPUTER" duration="00:00:01.5932060" startTime="2025-11-04T20:10:40.7109656-04:00" endTime="2025-11-04T20:10:42.3053320-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ce4e268a-b993-4730-ad8f-2e5f1277ab7c">
+      <Output>
+        <ErrorInfo>
+          <Message>Excepción método de prueba Tests.ReporteServiceTests.ObtenerLibrosMasPrestados_CuandoExistenPrestamos_DeberiaRetornarListaOrdenada:&#xD;
+Microsoft.Data.SqlClient.SqlException: Error de inicio de sesión del usuario 'MyComputer\natha'.</Message>
+          <StackTrace>    at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal&amp; connection)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal&amp; connection)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal&amp; connection)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)&#xD;
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)&#xD;
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)&#xD;
+   at Microsoft.Data.SqlClient.SqlConnection.Open()&#xD;
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)&#xD;
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)&#xD;
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)&#xD;
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)&#xD;
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.&lt;&gt;c.&lt;SaveChanges&gt;b__112_0(DbContext _, ValueTuple`2 t)&#xD;
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)&#xD;
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)&#xD;
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)&#xD;
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()&#xD;
+   at Tests.ReporteServiceTests.ObtenerLibrosMasPrestados_CuandoExistenPrestamos_DeberiaRetornarListaOrdenada() in C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\ReporteServiceTests.cs:line 71&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="a8f9a48e-a519-4370-9b12-89af0aa6561d" testId="53c7b45c-e7b0-e5e6-d198-7a21c3485639" testName="ObtenerLibrosMasPrestados_CuandoNoExistenPrestamos_DeberiaRetornarFail" computerName="MYCOMPUTER" duration="00:00:00.1673529" startTime="2025-11-04T20:10:41.9926822-04:00" endTime="2025-11-04T20:10:42.1603808-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a8f9a48e-a519-4370-9b12-89af0aa6561d">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de inicialización Tests.ReporteServiceTests.Setup devolvió una excepción. Microsoft.Data.SqlClient.SqlException: Error de inicio de sesión del usuario 'MyComputer\natha'..</Message>
+          <StackTrace>    at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal&amp; connection)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal&amp; connection)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal&amp; connection)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)&#xD;
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)&#xD;
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)&#xD;
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)&#xD;
+   at Microsoft.Data.SqlClient.SqlConnection.Open()&#xD;
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQuery(RelationalCommandParameterObject parameterObject)&#xD;
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.ExecuteSqlRaw(DatabaseFacade databaseFacade, String sql, IEnumerable`1 parameters)&#xD;
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.ExecuteSqlRaw(DatabaseFacade databaseFacade, String sql, Object[] parameters)&#xD;
+   at Tests.ReporteServiceTests.Setup() in C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\ReporteServiceTests.cs:line 41&#xD;
+   at InvokeStub_ReporteServiceTests.Setup(Object, Object, IntPtr*)&#xD;
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="a75d9808-14f3-4950-b275-d296c26a9b58" testId="ae86d0f6-a0b1-f0f1-b5e7-3b04ea1e40b0" testName="CrearUsuario_CuandoDatosValidos_DeberiaGuardarCorrectamente" computerName="MYCOMPUTER" duration="00:00:03.1419575" startTime="2025-11-04T20:10:42.1615275-04:00" endTime="2025-11-04T20:10:45.3040352-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a75d9808-14f3-4950-b275-d296c26a9b58">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de inicialización Tests.UsuarioRepositoryTests.Setup devolvió una excepción. Microsoft.Data.SqlClient.SqlException: La base de datos 'SIGEBI_Test' ya existe. Elija un nombre diferente para la base de datos..</Message>
+          <StackTrace>    at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean&amp; dataReady)&#xD;
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean isAsync, Int32 timeout, Boolean asyncWrite)&#xD;
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean&amp; usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)&#xD;
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQuery(RelationalCommandParameterObject parameterObject)&#xD;
+   at Microsoft.EntityFrameworkCore.Migrations.MigrationCommand.ExecuteNonQuery(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)&#xD;
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.Execute(IReadOnlyList`1 migrationCommands, IRelationalConnection connection, MigrationExecutionState executionState, Boolean beginTransaction, Boolean commitTransaction, Nullable`1 isolationLevel)&#xD;
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.&lt;&gt;c.&lt;ExecuteNonQuery&gt;b__3_1(DbContext _, ValueTuple`6 s)&#xD;
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)&#xD;
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.ExecuteNonQuery(IReadOnlyList`1 migrationCommands, IRelationalConnection connection, MigrationExecutionState executionState, Boolean commitTransaction, Nullable`1 isolationLevel)&#xD;
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.Create()&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabaseCreator.EnsureCreated()&#xD;
+   at Microsoft.EntityFrameworkCore.Infrastructure.DatabaseFacade.EnsureCreated()&#xD;
+   at Tests.UsuarioRepositoryTests.Setup() in C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\UsuarioRepositoryTests.cs:line 53&#xD;
+   at InvokeStub_UsuarioRepositoryTests.Setup(Object, Object, IntPtr*)&#xD;
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="00669a8c-76b5-4fe9-9b1a-6ac3b6736d90" testId="75360eca-d18f-a04d-7241-2e4f745f9d96" testName="BuscarLibro_CuandoExisteCoincidencia_DeberiaRetornarResultados" computerName="MYCOMPUTER" duration="00:00:04.8534883" startTime="2025-11-04T20:10:40.1737685-04:00" endTime="2025-11-04T20:10:45.0811075-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="00669a8c-76b5-4fe9-9b1a-6ac3b6736d90">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de inicialización Tests.LibroRepositoryTests.Setup devolvió una excepción. Microsoft.Data.SqlClient.SqlException: No se puede quitar el base de datos 'SIGEBI_Test' porque no existe o el usuario no tiene permiso..</Message>
+          <StackTrace>    at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)&#xD;
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)&#xD;
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean&amp; dataReady)&#xD;
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean isAsync, Int32 timeout, Boolean asyncWrite)&#xD;
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean&amp; usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)&#xD;
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQuery(RelationalCommandParameterObject parameterObject)&#xD;
+   at Microsoft.EntityFrameworkCore.Migrations.MigrationCommand.ExecuteNonQuery(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)&#xD;
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.Execute(IReadOnlyList`1 migrationCommands, IRelationalConnection connection, MigrationExecutionState executionState, Boolean beginTransaction, Boolean commitTransaction, Nullable`1 isolationLevel)&#xD;
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.&lt;&gt;c.&lt;ExecuteNonQuery&gt;b__3_1(DbContext _, ValueTuple`6 s)&#xD;
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)&#xD;
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.ExecuteNonQuery(IReadOnlyList`1 migrationCommands, IRelationalConnection connection, MigrationExecutionState executionState, Boolean commitTransaction, Nullable`1 isolationLevel)&#xD;
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.Delete()&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabaseCreator.EnsureDeleted()&#xD;
+   at Microsoft.EntityFrameworkCore.Infrastructure.DatabaseFacade.EnsureDeleted()&#xD;
+   at Tests.LibroRepositoryTests.Setup() in C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\LibroRepositoryTests.cs:line 39&#xD;
+   at InvokeStub_LibroRepositoryTests.Setup(Object, Object, IntPtr*)&#xD;
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="ObtenerLibrosMasPrestados_CuandoExistenPrestamos_DeberiaRetornarListaOrdenada" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="44f9bc9a-bf4b-2dbc-485d-a791de6ce3ec">
+      <Execution id="ce4e268a-b993-4730-ad8f-2e5f1277ab7c" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.ReporteServiceTests" name="ObtenerLibrosMasPrestados_CuandoExistenPrestamos_DeberiaRetornarListaOrdenada" />
+    </UnitTest>
+    <UnitTest name="ObtenerPorPrestamo_CuandoExistePrestamo_DeberiaRetornarDetallesCorrectos" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="eb0e14fb-52cb-e158-276b-af4b0d6069d1">
+      <Execution id="6696cdbe-5653-4702-8b3a-a727fa61407c" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.DetallePrestamoRepositoryTests" name="ObtenerPorPrestamo_CuandoExistePrestamo_DeberiaRetornarDetallesCorrectos" />
+    </UnitTest>
+    <UnitTest name="ActualizarLibro_CuandoExiste_DeberiaModificarCampos" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="dcf30a96-d6cd-55eb-620f-02ae4f912f46">
+      <Execution id="c7b370d7-3ab4-4ee7-87f0-e62fd85440fa" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.LibroRepositoryTests" name="ActualizarLibro_CuandoExiste_DeberiaModificarCampos" />
+    </UnitTest>
+    <UnitTest name="CrearUsuario_CuandoDatosValidos_DeberiaGuardarCorrectamente" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="ae86d0f6-a0b1-f0f1-b5e7-3b04ea1e40b0">
+      <Execution id="a75d9808-14f3-4950-b275-d296c26a9b58" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.UsuarioRepositoryTests" name="CrearUsuario_CuandoDatosValidos_DeberiaGuardarCorrectamente" />
+    </UnitTest>
+    <UnitTest name="BuscarLibro_CuandoExisteCoincidencia_DeberiaRetornarResultados" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="75360eca-d18f-a04d-7241-2e4f745f9d96">
+      <Execution id="00669a8c-76b5-4fe9-9b1a-6ac3b6736d90" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.LibroRepositoryTests" name="BuscarLibro_CuandoExisteCoincidencia_DeberiaRetornarResultados" />
+    </UnitTest>
+    <UnitTest name="CrearLibro_CuandoDatosValidos_DeberiaAgregarLibro" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="a5cdc2ad-b7c8-66ca-dae5-f2ad3e598f24">
+      <Execution id="10e0db4e-17fb-4975-ad73-085b20144903" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.LibroRepositoryTests" name="CrearLibro_CuandoDatosValidos_DeberiaAgregarLibro" />
+    </UnitTest>
+    <UnitTest name="EliminarLibro_CuandoExiste_DeberiaDesactivarEntidad" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="09405597-7121-f8cb-0dcd-20dc70f7c4b8">
+      <Execution id="31b89148-1f97-44cd-97cd-162e44a7c514" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.LibroRepositoryTests" name="EliminarLibro_CuandoExiste_DeberiaDesactivarEntidad" />
+    </UnitTest>
+    <UnitTest name="ObtenerPrestamosActivosPorUsuario_CuandoExisten_DeberiaRetornarLista" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="70c3f7cc-c780-6267-129e-c8e5972ee9f5">
+      <Execution id="b7a9eca8-cac1-452b-b7d6-ae3062852ef7" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.PrestamoServiceTests" name="ObtenerPrestamosActivosPorUsuario_CuandoExisten_DeberiaRetornarLista" />
+    </UnitTest>
+    <UnitTest name="ActualizarDuracionPrestamoDias_CuandoValorInvalido_DeberiaFallar" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="6bdbc0fc-2b9c-c66a-e759-3d331883aabb">
+      <Execution id="4feac390-3642-4e51-b18b-fb8a277a5198" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.ConfiguracionServiceTests" name="ActualizarDuracionPrestamoDias_CuandoValorInvalido_DeberiaFallar" />
+    </UnitTest>
+    <UnitTest name="ObtenerLibrosMasPrestados_CuandoNoExistenPrestamos_DeberiaRetornarFail" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="53c7b45c-e7b0-e5e6-d198-7a21c3485639">
+      <Execution id="a8f9a48e-a519-4370-9b12-89af0aa6561d" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.ReporteServiceTests" name="ObtenerLibrosMasPrestados_CuandoNoExistenPrestamos_DeberiaRetornarFail" />
+    </UnitTest>
+    <UnitTest name="DesactivarUsuario_CuandoActivo_DeberiaCambiarEstado" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="851917b9-5052-c156-f084-87ccdd71751c">
+      <Execution id="35c04107-10b6-48e3-bfe7-6dd6466dda38" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.UsuarioRepositoryTests" name="DesactivarUsuario_CuandoActivo_DeberiaCambiarEstado" />
+    </UnitTest>
+    <UnitTest name="ActualizarUsuario_CuandoExiste_DeberiaModificarDatos" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="7b8021a3-aa61-655c-6515-aa3edafe7fe2">
+      <Execution id="fb606112-9013-4369-b572-7a819c7cc639" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.UsuarioRepositoryTests" name="ActualizarUsuario_CuandoExiste_DeberiaModificarDatos" />
+    </UnitTest>
+    <UnitTest name="EstaDisponible_CuandoLibroNuevo_DeberiaRetornarTrue" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="366cb8e1-2545-6865-f252-4a6dd2bfeeba">
+      <Execution id="b10d3c6a-8724-4269-9cbf-f140d2bf954d" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.LibroRepositoryTests" name="EstaDisponible_CuandoLibroNuevo_DeberiaRetornarTrue" />
+    </UnitTest>
+    <UnitTest name="RegistrarPrestamo_CuandoDatosValidos_DeberiaCrearPrestamoYDetalles" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="1e6b7b0a-c206-3b3d-3b03-9888f312f4ce">
+      <Execution id="1c2029f1-7a2d-43dc-8316-d2bdda1d3392" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.PrestamoServiceTests" name="RegistrarPrestamo_CuandoDatosValidos_DeberiaCrearPrestamoYDetalles" />
+    </UnitTest>
+    <UnitTest name="ActivarUsuario_CuandoInactivo_DeberiaCambiarEstado" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="349a93cc-5b6f-086b-da47-8cfbdc04515d">
+      <Execution id="45a18783-f563-4179-9a7a-f09e3dbe4e74" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.UsuarioRepositoryTests" name="ActivarUsuario_CuandoInactivo_DeberiaCambiarEstado" />
+    </UnitTest>
+    <UnitTest name="EliminarUsuario_CuandoExiste_DeberiaDesactivarCorrectamente" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="2ec13354-dd5a-a43f-f317-0913a1db3842">
+      <Execution id="8a1bc49a-5b80-4c2f-9b49-c29193840ca9" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.UsuarioRepositoryTests" name="EliminarUsuario_CuandoExiste_DeberiaDesactivarCorrectamente" />
+    </UnitTest>
+    <UnitTest name="RegistrarDevolucion_CuandoLibroPrestado_DeberiaActualizarDisponibilidadYMarcarCerrado" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="1be18bb9-e86e-e203-bf97-cbe2a35d82b6">
+      <Execution id="ac3fadec-0949-47fb-b749-d3f1aba9b93c" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.PrestamoServiceTests" name="RegistrarDevolucion_CuandoLibroPrestado_DeberiaActualizarDisponibilidadYMarcarCerrado" />
+    </UnitTest>
+    <UnitTest name="RegistrarDevolucion_CuandoDetalleExistente_DeberiaMarcarComoDevuelto" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="32b41bea-2140-9cb3-3f03-abdd19619f40">
+      <Execution id="bc2a4e52-4dd3-4d6a-9ec2-2508bd515447" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.DetallePrestamoRepositoryTests" name="RegistrarDevolucion_CuandoDetalleExistente_DeberiaMarcarComoDevuelto" />
+    </UnitTest>
+    <UnitTest name="CambiarDisponibilidad_CuandoLibroActivo_DeberiaActualizarEstado" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="d48902c5-cca8-4efe-fb9a-86eeab005c63">
+      <Execution id="2fca3b26-1242-4f8b-b2cc-f34fa0c7d260" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.LibroRepositoryTests" name="CambiarDisponibilidad_CuandoLibroActivo_DeberiaActualizarEstado" />
+    </UnitTest>
+    <UnitTest name="ObtenerPrestamosVencidos_CuandoExisten_DeberiaRetornarPrestamosConFechaVencida" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="dae7012b-5194-5f78-ee8a-f5c65506513d">
+      <Execution id="0b3f68d5-1361-4e23-96ac-0359c6ccf034" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.PrestamoServiceTests" name="ObtenerPrestamosVencidos_CuandoExisten_DeberiaRetornarPrestamosConFechaVencida" />
+    </UnitTest>
+    <UnitTest name="ObtenerConfiguracion_CuandoExisteRegistro_DeberiaRetornarConfiguracionActual" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="68851ff9-62e3-3381-1aa6-306a6341c748">
+      <Execution id="307ca95a-afda-4151-b079-29487eb2aa2b" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.ConfiguracionServiceTests" name="ObtenerConfiguracion_CuandoExisteRegistro_DeberiaRetornarConfiguracionActual" />
+    </UnitTest>
+    <UnitTest name="ObtenerUsuarios_CuandoExistenRegistros_DeberiaRetornarLista" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="d400c81a-ba07-c123-583e-471c35077dca">
+      <Execution id="78f58f92-1281-4cbe-9f92-70905c260a85" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.UsuarioRepositoryTests" name="ObtenerUsuarios_CuandoExistenRegistros_DeberiaRetornarLista" />
+    </UnitTest>
+    <UnitTest name="ActualizarDuracionPrestamoDias_CuandoValorValido_DeberiaActualizarCorrectamente" storage="c:\users\natha\desktop\proyecto ii\sigebi2\tests\bin\debug\net8.0\tests.dll" id="c2cb83ee-50fa-52d9-fbf0-8bca7b90115f">
+      <Execution id="78c0c67d-340a-40fc-96fc-361dde7e5fea" />
+      <TestMethod codeBase="C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="Tests.ConfiguracionServiceTests" name="ActualizarDuracionPrestamoDias_CuandoValorValido_DeberiaActualizarCorrectamente" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="eb0e14fb-52cb-e158-276b-af4b0d6069d1" executionId="6696cdbe-5653-4702-8b3a-a727fa61407c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2ec13354-dd5a-a43f-f317-0913a1db3842" executionId="8a1bc49a-5b80-4c2f-9b49-c29193840ca9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d400c81a-ba07-c123-583e-471c35077dca" executionId="78f58f92-1281-4cbe-9f92-70905c260a85" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6bdbc0fc-2b9c-c66a-e759-3d331883aabb" executionId="4feac390-3642-4e51-b18b-fb8a277a5198" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7b8021a3-aa61-655c-6515-aa3edafe7fe2" executionId="fb606112-9013-4369-b572-7a819c7cc639" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="09405597-7121-f8cb-0dcd-20dc70f7c4b8" executionId="31b89148-1f97-44cd-97cd-162e44a7c514" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="70c3f7cc-c780-6267-129e-c8e5972ee9f5" executionId="b7a9eca8-cac1-452b-b7d6-ae3062852ef7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="dae7012b-5194-5f78-ee8a-f5c65506513d" executionId="0b3f68d5-1361-4e23-96ac-0359c6ccf034" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="349a93cc-5b6f-086b-da47-8cfbdc04515d" executionId="45a18783-f563-4179-9a7a-f09e3dbe4e74" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c2cb83ee-50fa-52d9-fbf0-8bca7b90115f" executionId="78c0c67d-340a-40fc-96fc-361dde7e5fea" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1be18bb9-e86e-e203-bf97-cbe2a35d82b6" executionId="ac3fadec-0949-47fb-b749-d3f1aba9b93c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d48902c5-cca8-4efe-fb9a-86eeab005c63" executionId="2fca3b26-1242-4f8b-b2cc-f34fa0c7d260" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="851917b9-5052-c156-f084-87ccdd71751c" executionId="35c04107-10b6-48e3-bfe7-6dd6466dda38" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="dcf30a96-d6cd-55eb-620f-02ae4f912f46" executionId="c7b370d7-3ab4-4ee7-87f0-e62fd85440fa" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a5cdc2ad-b7c8-66ca-dae5-f2ad3e598f24" executionId="10e0db4e-17fb-4975-ad73-085b20144903" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="366cb8e1-2545-6865-f252-4a6dd2bfeeba" executionId="b10d3c6a-8724-4269-9cbf-f140d2bf954d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="32b41bea-2140-9cb3-3f03-abdd19619f40" executionId="bc2a4e52-4dd3-4d6a-9ec2-2508bd515447" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="68851ff9-62e3-3381-1aa6-306a6341c748" executionId="307ca95a-afda-4151-b079-29487eb2aa2b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1e6b7b0a-c206-3b3d-3b03-9888f312f4ce" executionId="1c2029f1-7a2d-43dc-8316-d2bdda1d3392" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="44f9bc9a-bf4b-2dbc-485d-a791de6ce3ec" executionId="ce4e268a-b993-4730-ad8f-2e5f1277ab7c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="53c7b45c-e7b0-e5e6-d198-7a21c3485639" executionId="a8f9a48e-a519-4370-9b12-89af0aa6561d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ae86d0f6-a0b1-f0f1-b5e7-3b04ea1e40b0" executionId="a75d9808-14f3-4950-b275-d296c26a9b58" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="75360eca-d18f-a04d-7241-2e4f745f9d96" executionId="00669a8c-76b5-4fe9-9b1a-6ac3b6736d90" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Resultados sin formato de lista" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="Todos los resultados cargados" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Failed">
+    <Counters total="23" executed="23" passed="1" failed="22" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>Probar paralelización habilitada para C:\Users\natha\Desktop\PROYECTO II\SIGEBI2\Tests\bin\Debug\net8.0\Tests.dll (Trabajos: 16, Ámbito: MethodLevel)&#xD;
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>
