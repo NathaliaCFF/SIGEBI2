@@ -1,8 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-    <ItemGroup>
-        <Compile Update="Form1.cs">
-            <SubType>Form</SubType>
-        </Compile>
-    </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Views\Libros\LibroListadoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Login\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Main\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Prestamos\PrestamoListadoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Usuarios\UsuarioListadoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Views\Libros\LibroListadoForm.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Login\LoginForm.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Main\MainForm.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Prestamos\PrestamoListadoForm.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Usuarios\UsuarioListadoForm.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
 </Project>

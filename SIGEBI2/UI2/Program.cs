@@ -1,17 +1,27 @@
 using System;
 using System.Windows.Forms;
-using UI2;
+using UI2.AppConfig;
+using UI2.Views.Login;
+using static System.Windows.Forms.DataFormats;
 
-namespace UI
+namespace UI2
 {
     internal static class Program
     {
         [STAThread]
-        static void Main()
+        private static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
+            ServiceLocator.Configure();
+
+            var loginForm = new LoginForm(ServiceLocator.AuthAdapter,
+                                          ServiceLocator.SessionService,
+                                          ServiceLocator.NotificationService,
+                                          ServiceLocator.ValidationService);
+
+            Application.Run(loginForm);
         }
     }
 }
