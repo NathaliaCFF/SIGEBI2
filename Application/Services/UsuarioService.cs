@@ -133,13 +133,15 @@ namespace SIGEBI.Application.Services
 
             var usuario = await _usuarioRepository.ObtenerPorEmailAsync(email);
 
-            // 🟡 TEMPORAL: mostrar el hash actual para depurar
+            // TEMPORAL: mostrar el hash actual para depurar (evitando null reference)
             Console.WriteLine("---- DEBUG LOGIN ----");
             Console.WriteLine($"Email: {email}");
             Console.WriteLine($"Contraseña ingresada: {password}");
-            Console.WriteLine($"Hash almacenado: {usuario.Contraseña}");
-            Console.WriteLine($"Longitud del hash: {usuario.Contraseña?.Length}");
+
+            Console.WriteLine($"Hash almacenado: {usuario?.Contraseña ?? "(usuario no encontrado)"}");
+            Console.WriteLine($"Longitud del hash: {usuario?.Contraseña?.Length.ToString() ?? "N/A"}");
             Console.WriteLine("----------------------");
+
 
             // CU-00: Validar existencia y estado activo
             if (usuario == null || !usuario.Activo)

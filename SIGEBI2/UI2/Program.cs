@@ -11,8 +11,9 @@ namespace UI2
         [STAThread]
         private static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+            System.Windows.Forms.Application.EnableVisualStyles();
+            System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
+
 
             ServiceLocator.Configure();
 
@@ -21,7 +22,7 @@ namespace UI2
                                           ServiceLocator.NotificationService,
                                           ServiceLocator.ValidationService);
 
-            Application.Run(loginForm);
+            System.Windows.Forms.Application.Run(loginForm);
         }
     }
 }
