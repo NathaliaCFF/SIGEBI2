@@ -1,5 +1,4 @@
-﻿using Application.Interfaces;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using SIGEBI.Application.Interfaces;
 using SIGEBI.Application.Mappers;
 using System.Linq;

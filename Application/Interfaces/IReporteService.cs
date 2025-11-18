@@ -3,7 +3,7 @@ using SIGEBI.Shared.Base;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Application.Interfaces
+namespace SIGEBI.Application.Interfaces
 {
     public interface IReporteService
     {

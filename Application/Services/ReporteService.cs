@@ -1,4 +1,4 @@
-﻿using Application.Interfaces;
+﻿using SIGEBI.Application.Interfaces;
 using SIGEBI.Domain.Entities;
 using SIGEBI.Domain.Repository;
 using SIGEBI.Shared.Base;
@@ -6,9 +6,9 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
 
-namespace Application.Services
+namespace SIGEBI.Application.Services
 {
-    // ============================================================================
+    // ============================================================================ 
     // SERVICIO: ReporteService
     // MÓDULO: Reportes
     // DESCRIPCIÓN: Contiene la lógica de aplicación necesaria para generar los

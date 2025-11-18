@@ -2,6 +2,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using SIGEBI.Application.Interfaces;
+using SIGEBI.Application.Services;
 using SIGEBI.Domain.Repository;
 using SIGEBI.Infraestructure.Dependencies;
 using SIGEBI.Infrastructure.Dependencies;
@@ -93,9 +95,14 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 );
 
 // =====================================================
+// Registro explícito del módulo de usuarios
+// =====================================================
+builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+builder.Services.AddScoped<IUsuarioService, UsuarioService>();
+
+// =====================================================
 // Registro modular de dependencias
 // =====================================================
-builder.Services.AddUsuarioDependencies();
 builder.Services.AddLibroDependencies();
 builder.Services.AddPrestamoDependency();
 builder.Services.AddDetallePrestamoDependency();
