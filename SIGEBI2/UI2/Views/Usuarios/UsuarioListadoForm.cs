@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Drawing;
 using System.Windows.Forms;
 using UI2.Adapters;
 using UI2.AppConfig;
@@ -21,11 +22,59 @@ namespace UI2.Views.Usuarios
         public UsuarioListadoForm()
         {
             InitializeComponent();
+
             _usuarioAdapter = ServiceLocator.UsuarioAdapter;
             _sessionService = ServiceLocator.SessionService;
             _notificationService = ServiceLocator.NotificationService;
             _validationService = ServiceLocator.ValidationService;
+
+            // CONFIGURAR GRID
             gridUsuarios.AutoGenerateColumns = false;
+            gridUsuarios.Columns.Clear();
+
+            gridUsuarios.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                HeaderText = "ID",
+                DataPropertyName = "Id",
+                Width = 50
+            });
+
+            gridUsuarios.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                HeaderText = "Nombre",
+                DataPropertyName = "Nombre",
+                Width = 140
+            });
+
+            gridUsuarios.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                HeaderText = "Email",
+                DataPropertyName = "Email",
+                Width = 180
+            });
+
+            gridUsuarios.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                HeaderText = "Rol",
+                DataPropertyName = "Rol",
+                Width = 100
+            });
+
+            gridUsuarios.Columns.Add(new DataGridViewCheckBoxColumn
+            {
+                HeaderText = "Activo",
+                DataPropertyName = "Activo",
+                Width = 60
+            });
+
+            gridUsuarios.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                HeaderText = "Creado",
+                DataPropertyName = "FechaCreacion",
+                Width = 120,
+                DefaultCellStyle = new DataGridViewCellStyle { Format = "dd/MM/yyyy" }
+            });
+
             gridUsuarios.DataSource = _viewModel.Usuarios;
         }
 
@@ -40,6 +89,7 @@ namespace UI2.Views.Usuarios
             {
                 var actual = _sessionService.UsuarioActual ?? throw new InvalidOperationException("No hay un usuario en sesión.");
                 var resultado = await _usuarioAdapter.ObtenerUsuariosAsync(actual);
+
                 if (!resultado.Success || resultado.Data == null)
                 {
                     _notificationService.ShowError(resultado.Message);
@@ -101,15 +151,16 @@ namespace UI2.Views.Usuarios
         private async void btnCrear_Click(object sender, EventArgs e)
         {
             var model = ObtenerDatosFormulario();
+
             if (!ValidarNuevoUsuario(model))
-            {
                 return;
-            }
 
             try
             {
                 var actual = _sessionService.UsuarioActual ?? throw new InvalidOperationException("No hay un usuario en sesión.");
+
                 var resultado = await _usuarioAdapter.CrearUsuarioAsync(model, actual);
+
                 if (!resultado.Success || resultado.Data == null)
                 {
                     _notificationService.ShowError(resultado.Message);
@@ -118,6 +169,7 @@ namespace UI2.Views.Usuarios
 
                 _notificationService.ShowInfo(resultado.Message);
                 _viewModel.Usuarios.Add(resultado.Data);
+
                 LimpiarFormulario();
             }
             catch (Exception ex)
@@ -129,6 +181,7 @@ namespace UI2.Views.Usuarios
         private async void btnActualizar_Click(object sender, EventArgs e)
         {
             var model = ObtenerDatosFormulario();
+
             if (model.Id <= 0)
             {
                 _notificationService.ShowError("Debe seleccionar un usuario para actualizar.");
@@ -153,13 +206,13 @@ namespace UI2.Views.Usuarios
             {
                 var actual = _sessionService.UsuarioActual ?? throw new InvalidOperationException("No hay un usuario en sesión.");
                 var resultado = await _usuarioAdapter.ActualizarUsuarioAsync(model, actual);
+
                 if (!resultado.Success || resultado.Data == null)
                 {
                     _notificationService.ShowError(resultado.Message);
                     return;
                 }
 
-                _notificationService.ShowInfo(resultado.Message);
                 var seleccionado = _viewModel.Usuarios.FirstOrDefault(u => u.Id == model.Id);
                 if (seleccionado != null)
                 {
@@ -167,8 +220,10 @@ namespace UI2.Views.Usuarios
                     seleccionado.Email = resultado.Data.Email;
                     seleccionado.Rol = resultado.Data.Rol;
                     seleccionado.Activo = resultado.Data.Activo;
-                    gridUsuarios.Refresh();
                 }
+
+                _notificationService.ShowInfo(resultado.Message);
+                gridUsuarios.Refresh();
             }
             catch (Exception ex)
             {
@@ -179,22 +234,22 @@ namespace UI2.Views.Usuarios
         private async void btnActivar_Click(object sender, EventArgs e)
         {
             if (!TryObtenerUsuarioSeleccionado(out var usuario))
-            {
                 return;
-            }
 
             try
             {
                 var actual = _sessionService.UsuarioActual ?? throw new InvalidOperationException("No hay un usuario en sesión.");
                 var resultado = await _usuarioAdapter.ActivarUsuarioAsync(usuario.Id, actual);
+
                 if (!resultado.Success)
                 {
                     _notificationService.ShowError(resultado.Message);
                     return;
                 }
 
-                _notificationService.ShowInfo(resultado.Message);
                 usuario.Activo = true;
+                _notificationService.ShowInfo(resultado.Message);
+
                 gridUsuarios.Refresh();
             }
             catch (Exception ex)
@@ -206,27 +261,25 @@ namespace UI2.Views.Usuarios
         private async void btnDesactivar_Click(object sender, EventArgs e)
         {
             if (!TryObtenerUsuarioSeleccionado(out var usuario))
-            {
                 return;
-            }
 
             if (_notificationService.Confirm("¿Desea desactivar al usuario seleccionado?") != DialogResult.Yes)
-            {
                 return;
-            }
 
             try
             {
                 var actual = _sessionService.UsuarioActual ?? throw new InvalidOperationException("No hay un usuario en sesión.");
                 var resultado = await _usuarioAdapter.DesactivarUsuarioAsync(usuario.Id, actual);
+
                 if (!resultado.Success)
                 {
                     _notificationService.ShowError(resultado.Message);
                     return;
                 }
 
-                _notificationService.ShowInfo(resultado.Message);
                 usuario.Activo = false;
+                _notificationService.ShowInfo(resultado.Message);
+
                 gridUsuarios.Refresh();
             }
             catch (Exception ex)
@@ -237,7 +290,8 @@ namespace UI2.Views.Usuarios
 
         private bool TryObtenerUsuarioSeleccionado(out UsuarioListItemModel usuario)
         {
-            usuario = gridUsuarios.CurrentRow?.DataBoundItem as UsuarioListItemModel ?? null!;
+            usuario = gridUsuarios.CurrentRow?.DataBoundItem as UsuarioListItemModel ?? null;
+
             if (usuario == null)
             {
                 _notificationService.ShowError("Seleccione un usuario de la lista.");

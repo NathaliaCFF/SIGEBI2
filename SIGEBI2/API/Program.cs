@@ -1,4 +1,4 @@
-using Microsoft.EntityFrameworkCore;
+ï»¿using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -14,13 +14,13 @@ using System.Text;
 var builder = WebApplication.CreateBuilder(args);
 
 // =====================================================
-// CONFIGURACIÓN DE SERVICIOS
+// CONFIGURACIÃ“N DE SERVICIOS
 // =====================================================
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
 // =====================================================
-// CONFIGURACIÓN DE AUTENTICACIÓN JWT
+// CONFIGURACIÃ“N DE AUTENTICACIÃ“N JWT
 // =====================================================
 var jwtSettings = builder.Configuration.GetSection("Jwt");
 var key = Encoding.UTF8.GetBytes(jwtSettings["Key"]!);
@@ -40,37 +40,27 @@ builder.Services.AddAuthentication(options =>
         ValidateIssuerSigningKey = true,
         ValidIssuer = jwtSettings["Issuer"],
         ValidAudience = jwtSettings["Audience"],
-        IssuerSigningKey = new SymmetricSecurityKey(key),
-        ClockSkew = TimeSpan.Zero // Evita retrasos al validar expiración
+        IssuerSigningKey = new SymmetricSecurityKey(key)
     };
 });
 
-builder.Services.AddAuthorization();
-
 // =====================================================
-//  CONFIGURACIÓN DE SWAGGER CON AUTENTICACIÓN JWT
+// CONFIGURACIÃ“N DE SWAGGER + JWT
 // =====================================================
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo
-    {
-        Title = "SIGEBI API",
-        Version = "v1",
-        Description = "Sistema de Gestión de Biblioteca - API con autenticación JWT"
-    });
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "SIGEBI API", Version = "v1" });
 
-    // Esquema de seguridad tipo Bearer (JWT)
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         Name = "Authorization",
-        Type = SecuritySchemeType.Http,
+        Type = SecuritySchemeType.ApiKey,
         Scheme = "Bearer",
         BearerFormat = "JWT",
         In = ParameterLocation.Header,
-        Description = "Ingrese el token JWT generado en el login.\n\nEjemplo: Bearer {token}"
+        Description = "Ingrese el token JWT: Bearer {token}"
     });
 
-    // Requisito global para todos los endpoints protegidos
     c.AddSecurityRequirement(new OpenApiSecurityRequirement
     {
         {
@@ -95,15 +85,23 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 );
 
 // =====================================================
-// Registro explícito del módulo de usuarios
+// Registro de Repositorios (CORREGIDO)
 // =====================================================
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
-builder.Services.AddScoped<IUsuarioService, UsuarioService>();
+builder.Services.AddScoped<IPrestamoRepository, PrestamoRepository>();
+builder.Services.AddScoped<IConfigurationRepository, ConfigurationRepository>();
+builder.Services.AddScoped<IDetallePrestamoRepository, DetallePrestamoRepository>();
+builder.Services.AddScoped<ILibroRepository, LibroRepository>();
 
 // =====================================================
-// Registro modular de dependencias
+// Registro de Servicios
 // =====================================================
-builder.Services.AddLibroDependencies();
+builder.Services.AddScoped<ILibroService, LibroService>();
+
+// =====================================================
+// Registro modular de dependencias adicionales
+// =====================================================
+builder.Services.AddUsuarioDependencies();
 builder.Services.AddPrestamoDependency();
 builder.Services.AddDetallePrestamoDependency();
 builder.Services.AddReporteDependency();
@@ -111,7 +109,7 @@ builder.Services.AddConfiguracionDependency();
 builder.Services.AddAuthDependency();
 
 // =====================================================
-// CONSTRUCCIÓN Y CONFIGURACIÓN DE LA APLICACIÓN
+// CONSTRUCCIÃ“N Y CONFIGURACIÃ“N DE LA APLICACIÃ“N
 // =====================================================
 var app = builder.Build();
 
@@ -121,7 +119,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-// Middleware de autenticación y autorización
 app.UseAuthentication();
 app.UseAuthorization();
 

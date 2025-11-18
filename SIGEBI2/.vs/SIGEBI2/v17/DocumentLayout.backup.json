@@ -1,22 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{9D95B9B3-55CB-4C74-A40C-7E6060F7E344}|API\\API.csproj|c:\\users\\natha\\desktop\\proyecto ii\\sigebi2\\api\\controllers\\reportecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9D95B9B3-55CB-4C74-A40C-7E6060F7E344}|API\\API.csproj|solutionrelative:api\\controllers\\reportecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{788768C8-74C8-4841-B8CA-F07D045C406A}|..\\Infraestructure\\Infraestructure.csproj|c:\\users\\natha\\desktop\\proyecto ii\\infraestructure\\dependencies\\reportedependency.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6488438F-14CE-4C88-ACE2-39C9C0D93A3E}|..\\Application\\Application.csproj|c:\\users\\natha\\desktop\\proyecto ii\\application\\interfaces\\ireporteservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9D95B9B3-55CB-4C74-A40C-7E6060F7E344}|API\\API.csproj|c:\\users\\natha\\desktop\\proyecto ii\\sigebi2\\api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9D95B9B3-55CB-4C74-A40C-7E6060F7E344}|API\\API.csproj|solutionrelative:api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -24,51 +9,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": -1,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ReporteController.cs",
-              "DocumentMoniker": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\API\\Controllers\\ReporteController.cs",
-              "RelativeDocumentMoniker": "API\\Controllers\\ReporteController.cs",
-              "ToolTip": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\API\\Controllers\\ReporteController.cs",
-              "RelativeToolTip": "API\\Controllers\\ReporteController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T18:34:26.559Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ReporteDependency.cs",
-              "DocumentMoniker": "C:\\Users\\natha\\Desktop\\PROYECTO II\\Infraestructure\\Dependencies\\ReporteDependency.cs",
-              "RelativeDocumentMoniker": "..\\Infraestructure\\Dependencies\\ReporteDependency.cs",
-              "ToolTip": "C:\\Users\\natha\\Desktop\\PROYECTO II\\Infraestructure\\Dependencies\\ReporteDependency.cs*",
-              "RelativeToolTip": "..\\Infraestructure\\Dependencies\\ReporteDependency.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T18:33:26.501Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "IReporteService.cs",
-              "DocumentMoniker": "C:\\Users\\natha\\Desktop\\PROYECTO II\\Application\\Interfaces\\IReporteService.cs",
-              "RelativeDocumentMoniker": "..\\Application\\Interfaces\\IReporteService.cs",
-              "ToolTip": "C:\\Users\\natha\\Desktop\\PROYECTO II\\Application\\Interfaces\\IReporteService.cs*",
-              "RelativeToolTip": "..\\Application\\Interfaces\\IReporteService.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T18:32:35.462Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
@@ -79,24 +21,11 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
-            },
-            {
-              "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\API\\Program.cs",
-              "RelativeDocumentMoniker": "API\\Program.cs",
-              "ToolTip": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\API\\Program.cs",
-              "RelativeToolTip": "API\\Program.cs",
-              "ViewState": "AgIAAGYAAAAAAAAAAAArwGoAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T18:15:48.472Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
             }
           ]
         }
