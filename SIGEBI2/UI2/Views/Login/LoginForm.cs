@@ -1,11 +1,9 @@
-﻿using Application.DTOs;
-using System;
+﻿using System;
 using System.Windows.Forms;
 using UI2.Adapters;
-using UI2.AppConfig;
-using UI2.Models.Auth;
 using UI2.Services;
 using UI2.ViewModels.Auth;
+using UI2.Views.Main;
 
 namespace UI2.Views.Login
 {
@@ -89,7 +87,7 @@ namespace UI2.Views.Login
         private void AbrirPanelPrincipal()
         {
             Hide();
-            using var main = new Main.MainForm();
+            using var main = new MainForm();
             main.ShowDialog();
             txtPassword.Clear();
             Show();

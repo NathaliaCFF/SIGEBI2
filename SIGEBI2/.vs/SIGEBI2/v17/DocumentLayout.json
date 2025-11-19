@@ -3,6 +3,13 @@
   "WorkspaceRootPath": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{AE937C0A-C73C-4F32-8953-E928273034F1}|UI2\\UI2.csproj|c:\\users\\natha\\desktop\\proyecto ii\\sigebi2\\ui2\\views\\login\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE937C0A-C73C-4F32-8953-E928273034F1}|UI2\\UI2.csproj|solutionrelative:ui2\\views\\login\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6488438F-14CE-4C88-ACE2-39C9C0D93A3E}|..\\Application\\Application.csproj|c:\\users\\natha\\desktop\\proyecto ii\\application\\services\\usuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{AE937C0A-C73C-4F32-8953-E928273034F1}|UI2\\UI2.csproj|c:\\users\\natha\\desktop\\proyecto ii\\sigebi2\\ui2\\adapters\\prestamoadapter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AE937C0A-C73C-4F32-8953-E928273034F1}|UI2\\UI2.csproj|solutionrelative:ui2\\adapters\\prestamoadapter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -34,82 +41,33 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\UI2\\appsettings.json",
-              "RelativeDocumentMoniker": "UI2\\appsettings.json",
-              "ToolTip": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\UI2\\appsettings.json",
-              "RelativeToolTip": "UI2\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-11-19T13:39:33.145Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "PrestamoAdapter.cs",
-              "DocumentMoniker": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\UI2\\Adapters\\PrestamoAdapter.cs",
-              "RelativeDocumentMoniker": "UI2\\Adapters\\PrestamoAdapter.cs",
-              "ToolTip": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\UI2\\Adapters\\PrestamoAdapter.cs",
-              "RelativeToolTip": "UI2\\Adapters\\PrestamoAdapter.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEUAAAAAAAAAAAAAAA==",
+              "Title": "LoginForm.cs",
+              "DocumentMoniker": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\UI2\\Views\\Login\\LoginForm.cs",
+              "RelativeDocumentMoniker": "UI2\\Views\\Login\\LoginForm.cs",
+              "ToolTip": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\UI2\\Views\\Login\\LoginForm.cs",
+              "RelativeToolTip": "UI2\\Views\\Login\\LoginForm.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAFkAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-19T13:36:47.747Z",
+              "WhenOpened": "2025-11-19T14:14:47.518Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "LibroAdapter.cs",
-              "DocumentMoniker": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\UI2\\Adapters\\LibroAdapter.cs",
-              "RelativeDocumentMoniker": "UI2\\Adapters\\LibroAdapter.cs",
-              "ToolTip": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\UI2\\Adapters\\LibroAdapter.cs",
-              "RelativeToolTip": "UI2\\Adapters\\LibroAdapter.cs",
-              "ViewState": "AgIAAFEAAAAAAAAAAAAAwHUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-19T13:36:31.742Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "AuthAdapter.cs",
-              "DocumentMoniker": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\UI2\\Adapters\\AuthAdapter.cs",
-              "RelativeDocumentMoniker": "UI2\\Adapters\\AuthAdapter.cs",
-              "ToolTip": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\UI2\\Adapters\\AuthAdapter.cs",
-              "RelativeToolTip": "UI2\\Adapters\\AuthAdapter.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAAwC4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-19T13:35:59.07Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ServiceLocator.cs",
-              "DocumentMoniker": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\UI2\\AppConfig\\ServiceLocator.cs",
-              "RelativeDocumentMoniker": "UI2\\AppConfig\\ServiceLocator.cs",
-              "ToolTip": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\UI2\\AppConfig\\ServiceLocator.cs",
-              "RelativeToolTip": "UI2\\AppConfig\\ServiceLocator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADQAAAA1AAAAAAAAAA==",
+              "Title": "UsuarioService.cs",
+              "DocumentMoniker": "C:\\Users\\natha\\Desktop\\PROYECTO II\\Application\\Services\\UsuarioService.cs",
+              "RelativeDocumentMoniker": "..\\Application\\Services\\UsuarioService.cs",
+              "ToolTip": "C:\\Users\\natha\\Desktop\\PROYECTO II\\Application\\Services\\UsuarioService.cs",
+              "RelativeToolTip": "..\\Application\\Services\\UsuarioService.cs",
+              "ViewState": "AgIAAHQAAAAAAAAAAAAAAIsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-19T13:34:06.057Z",
+              "WhenOpened": "2025-11-19T14:11:18.919Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UsuarioAdapter.cs",
-              "DocumentMoniker": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\UI2\\Adapters\\UsuarioAdapter.cs",
-              "RelativeDocumentMoniker": "UI2\\Adapters\\UsuarioAdapter.cs",
-              "ToolTip": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\UI2\\Adapters\\UsuarioAdapter.cs",
-              "RelativeToolTip": "UI2\\Adapters\\UsuarioAdapter.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-19T13:37:23.57Z"
             },
             {
               "$type": "Bookmark",
@@ -122,6 +80,79 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\UI2\\appsettings.json",
+              "RelativeDocumentMoniker": "UI2\\appsettings.json",
+              "ToolTip": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\UI2\\appsettings.json",
+              "RelativeToolTip": "UI2\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-11-19T13:39:33.145Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PrestamoAdapter.cs",
+              "DocumentMoniker": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\UI2\\Adapters\\PrestamoAdapter.cs",
+              "RelativeDocumentMoniker": "UI2\\Adapters\\PrestamoAdapter.cs",
+              "ToolTip": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\UI2\\Adapters\\PrestamoAdapter.cs",
+              "RelativeToolTip": "UI2\\Adapters\\PrestamoAdapter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-19T13:36:47.747Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "LibroAdapter.cs",
+              "DocumentMoniker": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\UI2\\Adapters\\LibroAdapter.cs",
+              "RelativeDocumentMoniker": "UI2\\Adapters\\LibroAdapter.cs",
+              "ToolTip": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\UI2\\Adapters\\LibroAdapter.cs",
+              "RelativeToolTip": "UI2\\Adapters\\LibroAdapter.cs",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAAwHUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-19T13:36:31.742Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AuthAdapter.cs",
+              "DocumentMoniker": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\UI2\\Adapters\\AuthAdapter.cs",
+              "RelativeDocumentMoniker": "UI2\\Adapters\\AuthAdapter.cs",
+              "ToolTip": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\UI2\\Adapters\\AuthAdapter.cs",
+              "RelativeToolTip": "UI2\\Adapters\\AuthAdapter.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAAwC4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-19T13:35:59.07Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ServiceLocator.cs",
+              "DocumentMoniker": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\UI2\\AppConfig\\ServiceLocator.cs",
+              "RelativeDocumentMoniker": "UI2\\AppConfig\\ServiceLocator.cs",
+              "ToolTip": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\UI2\\AppConfig\\ServiceLocator.cs",
+              "RelativeToolTip": "UI2\\AppConfig\\ServiceLocator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADQAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-19T13:34:06.057Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UsuarioAdapter.cs",
+              "DocumentMoniker": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\UI2\\Adapters\\UsuarioAdapter.cs",
+              "RelativeDocumentMoniker": "UI2\\Adapters\\UsuarioAdapter.cs",
+              "ToolTip": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\UI2\\Adapters\\UsuarioAdapter.cs",
+              "RelativeToolTip": "UI2\\Adapters\\UsuarioAdapter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-19T13:37:23.57Z"
             },
             {
               "$type": "Bookmark",
