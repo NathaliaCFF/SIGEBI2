@@ -1,29 +1,46 @@
-﻿using System.Net.Http.Json;
+﻿using System.Net.Http;
 using Application.DTOs;
+using Shared;
 using UI2.Models.Auth;
-using UI2.Models.Common;
+using UI2.Services;
 
 namespace UI2.Adapters
 {
     public class AuthAdapter
     {
-        private readonly HttpClient _http;
+        private readonly ApiClient _apiClient;
 
-        public AuthAdapter(HttpClient http)
+        public AuthAdapter(ApiClient apiClient)
         {
-            _http = http;
+            _apiClient = apiClient;
         }
 
-        public async Task<LoginResultModel> LoginAsync(AuthRequestDTO request)
+        public async Task<LoginResultModel> LoginAsync(LoginRequestModel request)
         {
-            var response = await _http.PostAsJsonAsync("auth/login", request);
+            var response = await _apiClient.SendAsync<OperationResult<AuthResponseDTO>>(HttpMethod.Post,
+                                                                                       "api/auth/login",
+                                                                                       new AuthRequestDTO
+                                                                                       {
+                                                                                           Email = request.Email,
+                                                                                           Password = request.Password
+                                                                                       },
+                                                                                       requiresAuth: false);
 
-            if (!response.IsSuccessStatusCode)
-                return LoginResultModel.Failure("Credenciales inválidas.");
+            if (!response.Success || response.Data == null)
+            {
+                var mensajeApi = string.IsNullOrWhiteSpace(response.Message)
+                    ? "No fue posible iniciar sesión."
+                    : response.Message;
+                return LoginResultModel.Failure(mensajeApi);
+            }
 
-            var data = await response.Content.ReadFromJsonAsync<AuthResponseDTO>();
+            var resultado = response.Data;
+            if (!resultado.Success || resultado.Data == null)
+            {
+                return LoginResultModel.Failure(resultado.Message ?? "No fue posible iniciar sesión.");
+            }
 
-            return LoginResultModel.Successful(data!);
+            return LoginResultModel.Successful(resultado.Data);
         }
     }
 }
