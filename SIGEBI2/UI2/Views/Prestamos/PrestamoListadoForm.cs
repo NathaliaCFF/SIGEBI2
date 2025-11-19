@@ -23,14 +23,10 @@ namespace UI2.Views.Prestamos
             _prestamoAdapter = ServiceLocator.PrestamoAdapter;
             _notificationService = ServiceLocator.NotificationService;
 
-            ConfigurarColumnas();  // 🔹 IMPORTANTE
-
+            ConfigurarColumnas();
             gridPrestamos.DataSource = _viewModel.Prestamos;
         }
 
-        // ====================================================
-        // CONFIGURAR COLUMNAS DEL GRID (ANTES ESTABAN EN EL DESIGNER)
-        // ====================================================
         private void ConfigurarColumnas()
         {
             gridPrestamos.Columns.Clear();
@@ -81,10 +77,6 @@ namespace UI2.Views.Prestamos
             });
         }
 
-        // ====================================================
-        // EVENTOS
-        // ====================================================
-
         private void PrestamoListadoForm_Load(object sender, EventArgs e)
         {
             txtUsuarioId.Focus();
@@ -111,6 +103,7 @@ namespace UI2.Views.Prestamos
             try
             {
                 var resultado = await _prestamoAdapter.ObtenerPrestamosActivosAsync(usuarioId);
+
                 if (!resultado.Success || resultado.Data == null)
                 {
                     _notificationService.ShowError(resultado.Message);
@@ -131,6 +124,7 @@ namespace UI2.Views.Prestamos
             try
             {
                 var resultado = await _prestamoAdapter.ObtenerPrestamosVencidosAsync();
+
                 if (!resultado.Success || resultado.Data == null)
                 {
                     _notificationService.ShowError(resultado.Message);
@@ -157,20 +151,29 @@ namespace UI2.Views.Prestamos
 
             if (gridPrestamos.CurrentRow?.DataBoundItem is PrestamoListItemModel prestamo)
             {
+                if (prestamo.Detalles == null || prestamo.Detalles.Count == 0)
+                {
+                    lblResumen.Text = "No hay detalles para este préstamo.";
+                    return;
+                }
+
                 foreach (var detalle in prestamo.Detalles)
                 {
-                    var estado = detalle.Devuelto
-                        ? $"Devuelto el {detalle.FechaDevolucion:dd/MM/yyyy}"
-                        : "Pendiente";
+                    string estado;
 
-                    var item = new ListViewItem(detalle.TituloLibro)
+                    if (detalle.Devuelto)
                     {
-                        SubItems =
-                        {
-                            new ListViewItem.ListViewSubItem { Text = detalle.LibroId.ToString() },
-                            new ListViewItem.ListViewSubItem { Text = estado }
-                        }
-                    };
+                        var fechaDev = detalle.FechaDevolucion?.ToString("dd/MM/yyyy") ?? "Fecha no disponible";
+                        estado = $"Devuelto el {fechaDev}";
+                    }
+                    else
+                    {
+                        estado = "Pendiente";
+                    }
+
+                    var item = new ListViewItem(detalle.TituloLibro);
+                    item.SubItems.Add(detalle.LibroId.ToString());
+                    item.SubItems.Add(estado);
 
                     lstDetalles.Items.Add(item);
                 }
@@ -182,7 +185,7 @@ namespace UI2.Views.Prestamos
             }
             else
             {
-                lblResumen.Text = "Seleccione un préstamo para ver los detalles";
+                lblResumen.Text = "Seleccione un préstamo para ver los detalles.";
             }
         }
     }

@@ -1,8 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using SIGEBI.Application.Interfaces;
-using SIGEBI.Domain.Entities;
-using SIGEBI.Shared.Base;
+﻿using System.Net.Http.Json;
 using UI2.Models.Common;
 using UI2.Models.Prestamos;
 
@@ -10,54 +6,45 @@ namespace UI2.Adapters
 {
     public class PrestamoAdapter
     {
-        private readonly IPrestamoService _prestamoService;
+        private readonly HttpClient _http;
 
-        public PrestamoAdapter(IPrestamoService prestamoService)
+        public PrestamoAdapter(HttpClient http)
         {
-            _prestamoService = prestamoService;
+            _http = http;
         }
 
         public async Task<AdapterResult<IList<PrestamoListItemModel>>> ObtenerPrestamosActivosAsync(int usuarioId)
         {
-            var resultado = await _prestamoService.ObtenerPrestamosActivosPorUsuarioAsync(usuarioId);
-            return ProcesarResultado(resultado, "No se encontraron préstamos activos para el usuario seleccionado.");
+            var response = await _http.GetAsync($"prestamos/activos/{usuarioId}");
+
+            if (!response.IsSuccessStatusCode)
+                return AdapterResult<IList<PrestamoListItemModel>>.Fail(
+                    "No se encontraron préstamos activos."
+                );
+
+            var data = await response.Content.ReadFromJsonAsync<IList<PrestamoListItemModel>>();
+
+            return AdapterResult<IList<PrestamoListItemModel>>.Ok(
+                data!,
+                "Préstamos cargados correctamente."
+            );
         }
 
         public async Task<AdapterResult<IList<PrestamoListItemModel>>> ObtenerPrestamosVencidosAsync()
         {
-            var resultado = await _prestamoService.ObtenerPrestamosVencidosAsync();
-            return ProcesarResultado(resultado, "No hay préstamos vencidos registrados.");
-        }
+            var response = await _http.GetAsync("prestamos/vencidos");
 
-        private static AdapterResult<IList<PrestamoListItemModel>> ProcesarResultado(ServiceResult<IEnumerable<Prestamo>> resultado, string mensajeError)
-        {
-            if (!resultado.Success || resultado.Data == null)
-            {
-                return AdapterResult<IList<PrestamoListItemModel>>.Fail(resultado.Message ?? mensajeError);
-            }
+            if (!response.IsSuccessStatusCode)
+                return AdapterResult<IList<PrestamoListItemModel>>.Fail(
+                    "No hay préstamos vencidos registrados."
+                );
 
-            var lista = resultado.Data
-                .Select(p => new PrestamoListItemModel
-                {
-                    Id = p.Id,
-                    UsuarioId = p.UsuarioId,
-                    NombreUsuario = p.Usuario?.Nombre ?? string.Empty,
-                    FechaPrestamo = p.FechaPrestamo,
-                    FechaVencimiento = p.FechaVencimiento,
-                    Activo = p.Activo,
-                    Detalles = p.Detalles
-                        .Select(d => new PrestamoDetalleItemModel
-                        {
-                            LibroId = d.LibroId,
-                            TituloLibro = d.Libro?.Titulo ?? string.Empty,
-                            Devuelto = d.Devuelto,
-                            FechaDevolucion = d.FechaDevolucion
-                        })
-                        .ToList()
-                })
-                .ToList();
+            var data = await response.Content.ReadFromJsonAsync<IList<PrestamoListItemModel>>();
 
-            return AdapterResult<IList<PrestamoListItemModel>>.Ok(lista, resultado.Message ?? "Préstamos cargados correctamente.");
+            return AdapterResult<IList<PrestamoListItemModel>>.Ok(
+                data!,
+                "Préstamos vencidos cargados correctamente."
+            );
         }
     }
 }

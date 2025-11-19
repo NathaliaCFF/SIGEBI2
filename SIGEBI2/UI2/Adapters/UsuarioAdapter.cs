@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using SIGEBI.Application.Interfaces;
-using SIGEBI.Domain.Entities;
+﻿using System.Net.Http.Json;
 using UI2.Models.Common;
 using UI2.Models.Usuarios;
 
@@ -9,108 +6,69 @@ namespace UI2.Adapters
 {
     public class UsuarioAdapter
     {
-        private readonly IUsuarioService _usuarioService;
+        private readonly HttpClient _http;
 
-        public UsuarioAdapter(IUsuarioService usuarioService)
+        public UsuarioAdapter(HttpClient http)
         {
-            _usuarioService = usuarioService;
+            _http = http;
         }
 
-        public async Task<AdapterResult<IList<UsuarioListItemModel>>> ObtenerUsuariosAsync(Usuario usuarioActual)
+        public async Task<AdapterResult<IList<UsuarioListItemModel>>> ObtenerUsuariosAsync(int usuarioActualId)
         {
-            var resultado = await _usuarioService.ObtenerTodosAsync(usuarioActual);
-            if (!resultado.Success || resultado.Data == null)
-            {
-                return AdapterResult<IList<UsuarioListItemModel>>.Fail(resultado.Message ?? "No se pudieron cargar los usuarios.");
-            }
+            var response = await _http.GetAsync($"usuarios?actualId={usuarioActualId}");
 
-            var lista = resultado.Data
-                .Select(u => new UsuarioListItemModel
-                {
-                    Id = u.Id,
-                    Nombre = u.Nombre,
-                    Email = u.Email,
-                    Rol = u.Rol,
-                    Activo = u.Activo,
-                    FechaCreacion = u.FechaCreacion
-                })
-                .ToList();
+            if (!response.IsSuccessStatusCode)
+                return AdapterResult<IList<UsuarioListItemModel>>
+                    .Fail("No se pudieron cargar los usuarios.");
 
-            return AdapterResult<IList<UsuarioListItemModel>>.Ok(lista, resultado.Message ?? "Usuarios cargados correctamente.");
+            var data = await response.Content.ReadFromJsonAsync<IList<UsuarioListItemModel>>();
+
+            return AdapterResult<IList<UsuarioListItemModel>>
+                .Ok(data!, "Usuarios cargados correctamente.");
         }
 
-        public async Task<AdapterResult<UsuarioListItemModel>> CrearUsuarioAsync(UsuarioFormModel model, Usuario usuarioActual)
+        public async Task<AdapterResult<UsuarioListItemModel>> CrearUsuarioAsync(UsuarioFormModel model)
         {
-            var entidad = new Usuario
-            {
-                Nombre = model.Nombre,
-                Email = model.Email,
-                Contraseña = model.Password,
-                Rol = model.Rol,
-                Activo = model.Activo
-            };
+            var response = await _http.PostAsJsonAsync("usuarios", model);
 
-            var resultado = await _usuarioService.CrearAsync(entidad, usuarioActual);
-            if (!resultado.Success || resultado.Data == null)
-            {
-                return AdapterResult<UsuarioListItemModel>.Fail(resultado.Message ?? "No se pudo registrar el usuario.");
-            }
+            if (!response.IsSuccessStatusCode)
+                return AdapterResult<UsuarioListItemModel>.Fail("No se pudo registrar el usuario.");
 
-            var usuario = resultado.Data;
-            return AdapterResult<UsuarioListItemModel>.Ok(new UsuarioListItemModel
-            {
-                Id = usuario.Id,
-                Nombre = usuario.Nombre,
-                Email = usuario.Email,
-                Rol = usuario.Rol,
-                Activo = usuario.Activo,
-                FechaCreacion = usuario.FechaCreacion
-            }, resultado.Message ?? "Usuario registrado correctamente.");
+            var data = await response.Content.ReadFromJsonAsync<UsuarioListItemModel>();
+
+            return AdapterResult<UsuarioListItemModel>
+                .Ok(data!, "Usuario registrado correctamente.");
         }
 
-        public async Task<AdapterResult<UsuarioListItemModel>> ActualizarUsuarioAsync(UsuarioFormModel model, Usuario usuarioActual)
+        public async Task<AdapterResult<UsuarioListItemModel>> ActualizarUsuarioAsync(UsuarioFormModel model)
         {
-            var entidad = new Usuario
-            {
-                Id = model.Id,
-                Nombre = model.Nombre,
-                Email = model.Email,
-                Rol = model.Rol,
-                Activo = model.Activo
-            };
+            var response = await _http.PutAsJsonAsync($"usuarios/{model.Id}", model);
 
-            var resultado = await _usuarioService.ActualizarAsync(entidad, usuarioActual);
-            if (!resultado.Success || resultado.Data == null)
-            {
-                return AdapterResult<UsuarioListItemModel>.Fail(resultado.Message ?? "No se pudo actualizar el usuario.");
-            }
+            if (!response.IsSuccessStatusCode)
+                return AdapterResult<UsuarioListItemModel>.Fail("No se pudo actualizar el usuario.");
 
-            var usuario = resultado.Data;
-            return AdapterResult<UsuarioListItemModel>.Ok(new UsuarioListItemModel
-            {
-                Id = usuario.Id,
-                Nombre = usuario.Nombre,
-                Email = usuario.Email,
-                Rol = usuario.Rol,
-                Activo = usuario.Activo,
-                FechaCreacion = usuario.FechaCreacion
-            }, resultado.Message ?? "Usuario actualizado correctamente.");
+            var data = await response.Content.ReadFromJsonAsync<UsuarioListItemModel>();
+
+            return AdapterResult<UsuarioListItemModel>
+                .Ok(data!, "Usuario actualizado correctamente.");
         }
 
-        public async Task<AdapterResult> ActivarUsuarioAsync(int id, Usuario usuarioActual)
+        public async Task<AdapterResult> ActivarUsuarioAsync(int id)
         {
-            var resultado = await _usuarioService.ActivarAsync(id, usuarioActual);
-            return resultado.Success
-                ? AdapterResult.Ok(resultado.Message ?? "Usuario activado correctamente.")
-                : AdapterResult.Fail(resultado.Message ?? "No se pudo activar el usuario.");
+            var response = await _http.PostAsync($"usuarios/{id}/activar", null);
+
+            return response.IsSuccessStatusCode
+                ? AdapterResult.Ok("Usuario activado correctamente.")
+                : AdapterResult.Fail("No se pudo activar el usuario.");
         }
 
-        public async Task<AdapterResult> DesactivarUsuarioAsync(int id, Usuario usuarioActual)
+        public async Task<AdapterResult> DesactivarUsuarioAsync(int id)
         {
-            var resultado = await _usuarioService.DesactivarAsync(id, usuarioActual);
-            return resultado.Success
-                ? AdapterResult.Ok(resultado.Message ?? "Usuario desactivado correctamente.")
-                : AdapterResult.Fail(resultado.Message ?? "No se pudo desactivar el usuario.");
+            var response = await _http.PostAsync($"usuarios/{id}/desactivar", null);
+
+            return response.IsSuccessStatusCode
+                ? AdapterResult.Ok("Usuario desactivado correctamente.")
+                : AdapterResult.Fail("No se pudo desactivar el usuario.");
         }
     }
 }

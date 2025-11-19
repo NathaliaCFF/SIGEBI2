@@ -72,13 +72,6 @@ namespace UI2.Views.Libros
             btnActualizar = new Button();
             btnLimpiar = new Button();
 
-            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
-            dataGridViewCheckBoxColumn1 = new DataGridViewCheckBoxColumn();
-            dataGridViewCheckBoxColumn2 = new DataGridViewCheckBoxColumn();
-
             ((System.ComponentModel.ISupportInitialize)gridLibros).BeginInit();
             grpLibro.SuspendLayout();
             SuspendLayout();
@@ -88,40 +81,6 @@ namespace UI2.Views.Libros
             gridLibros.AllowUserToDeleteRows = false;
             gridLibros.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             gridLibros.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-
-            // Añadir columnas
-            gridLibros.Columns.AddRange(new DataGridViewColumn[]
-            {
-                dataGridViewTextBoxColumn1,
-                dataGridViewTextBoxColumn2,
-                dataGridViewTextBoxColumn3,
-                dataGridViewTextBoxColumn4,
-                dataGridViewCheckBoxColumn1,
-                dataGridViewCheckBoxColumn2
-            });
-
-            // Configurar encabezados y tamaños
-            dataGridViewTextBoxColumn1.HeaderText = "Id";
-            dataGridViewTextBoxColumn2.HeaderText = "Título";
-            dataGridViewTextBoxColumn3.HeaderText = "Autor";
-            dataGridViewTextBoxColumn4.HeaderText = "ISBN";
-            dataGridViewCheckBoxColumn1.HeaderText = "Disponible";
-            dataGridViewCheckBoxColumn2.HeaderText = "Activo";
-
-            dataGridViewTextBoxColumn1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewTextBoxColumn2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewTextBoxColumn3.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewTextBoxColumn4.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCheckBoxColumn1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCheckBoxColumn2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-
-            dataGridViewTextBoxColumn1.ReadOnly = true;
-            dataGridViewTextBoxColumn2.ReadOnly = true;
-            dataGridViewTextBoxColumn3.ReadOnly = true;
-            dataGridViewTextBoxColumn4.ReadOnly = true;
-            dataGridViewCheckBoxColumn1.ReadOnly = true;
-            dataGridViewCheckBoxColumn2.ReadOnly = true;
-
             gridLibros.Location = new Point(27, 85);
             gridLibros.Name = "gridLibros";
             gridLibros.ReadOnly = true;
@@ -259,5 +218,6 @@ namespace UI2.Views.Libros
             ResumeLayout(false);
             PerformLayout();
         }
+
     }
 }

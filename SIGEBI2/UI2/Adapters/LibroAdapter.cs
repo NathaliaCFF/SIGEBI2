@@ -1,5 +1,4 @@
-﻿using SIGEBI.Application.Interfaces;
-using SIGEBI.Domain.Entities;
+﻿using System.Net.Http.Json;
 using UI2.Models.Common;
 using UI2.Models.Libros;
 
@@ -7,78 +6,72 @@ namespace UI2.Adapters
 {
     public class LibroAdapter
     {
-        private readonly ILibroService _libroService;
+        private readonly HttpClient _http;
 
-        public LibroAdapter(ILibroService libroService)
+        public LibroAdapter(HttpClient http)
         {
-            _libroService = libroService;
+            _http = http;
         }
 
         public async Task<AdapterResult<IList<LibroListItemModel>>> ListarLibrosAsync()
         {
-            var resultado = await _libroService.ListarAsync();
-            if (!resultado.Success || resultado.Data == null)
-            {
-                return AdapterResult<IList<LibroListItemModel>>.Fail(resultado.Message ?? "No se pudieron obtener los libros.");
-            }
+            var response = await _http.GetAsync("libros");
 
-            return AdapterResult<IList<LibroListItemModel>>.Ok(Mapear(resultado.Data), resultado.Message ?? "Libros cargados correctamente.");
+            if (!response.IsSuccessStatusCode)
+                return AdapterResult<IList<LibroListItemModel>>.Fail("No se pudieron obtener los libros.");
+
+            var data = await response.Content.ReadFromJsonAsync<IList<LibroListItemModel>>();
+
+            return AdapterResult<IList<LibroListItemModel>>.Ok(
+                data!,
+                "Libros cargados correctamente."
+            );
         }
 
         public async Task<AdapterResult<IList<LibroListItemModel>>> BuscarLibrosAsync(string criterio)
         {
-            var resultado = await _libroService.BuscarAsync(criterio);
-            if (!resultado.Success || resultado.Data == null)
-            {
-                return AdapterResult<IList<LibroListItemModel>>.Fail(resultado.Message ?? "No se encontraron libros.");
-            }
+            var response = await _http.GetAsync($"libros/buscar?criterio={criterio}");
 
-            return AdapterResult<IList<LibroListItemModel>>.Ok(Mapear(resultado.Data), resultado.Message ?? "Búsqueda completada.");
+            if (!response.IsSuccessStatusCode)
+                return AdapterResult<IList<LibroListItemModel>>.Fail("No se encontraron libros.");
+
+            var data = await response.Content.ReadFromJsonAsync<IList<LibroListItemModel>>();
+
+            return AdapterResult<IList<LibroListItemModel>>.Ok(
+                data!,
+                "Búsqueda completada."
+            );
         }
 
-        public async Task<AdapterResult<LibroListItemModel>> CrearLibroAsync(Libro libro)
+        public async Task<AdapterResult<LibroListItemModel>> CrearLibroAsync(LibroCreateModel libro)
         {
-            var resultado = await _libroService.CrearAsync(libro);
-            if (!resultado.Success || resultado.Data == null)
-            {
-                return AdapterResult<LibroListItemModel>.Fail(resultado.Message ?? "No se pudo registrar el libro.");
-            }
+            var response = await _http.PostAsJsonAsync("libros", libro);
 
-            return AdapterResult<LibroListItemModel>.Ok(Mapear(resultado.Data), resultado.Message ?? "Libro registrado correctamente.");
+            if (!response.IsSuccessStatusCode)
+                return AdapterResult<LibroListItemModel>.Fail("No se pudo registrar el libro.");
+
+            var data = await response.Content.ReadFromJsonAsync<LibroListItemModel>();
+
+            return AdapterResult<LibroListItemModel>.Ok(
+                data!,
+                "Libro registrado correctamente."
+            );
         }
 
-        public async Task<AdapterResult<LibroListItemModel>> ActualizarLibroAsync(int id, Libro libro)
+        public async Task<AdapterResult<LibroListItemModel>> ActualizarLibroAsync(LibroUpdateModel libro)
         {
-            var resultado = await _libroService.ActualizarAsync(id, libro);
-            if (!resultado.Success || resultado.Data == null)
-            {
-                return AdapterResult<LibroListItemModel>.Fail(resultado.Message ?? "No se pudo actualizar el libro.");
-            }
+            var response = await _http.PutAsJsonAsync($"libros/{libro.Id}", libro);
 
-            return AdapterResult<LibroListItemModel>.Ok(Mapear(resultado.Data), resultado.Message ?? "Libro actualizado correctamente.");
+            if (!response.IsSuccessStatusCode)
+                return AdapterResult<LibroListItemModel>.Fail("No se pudo actualizar el libro.");
+
+            var data = await response.Content.ReadFromJsonAsync<LibroListItemModel>();
+
+            return AdapterResult<LibroListItemModel>.Ok(
+                data!,
+                "Libro actualizado correctamente."
+            );
         }
 
-        private static IList<LibroListItemModel> Mapear(IEnumerable<Libro> libros)
-        {
-            return libros
-                .Select(Mapear)
-                .ToList();
-        }
-
-        private static LibroListItemModel Mapear(Libro libro)
-        {
-            return new LibroListItemModel
-            {
-                Id = libro.Id,
-                Titulo = libro.Titulo,
-                Autor = libro.Autor,
-                ISBN = libro.ISBN,
-                Editorial = libro.Editorial,
-                AnioPublicacion = libro.AnioPublicacion,
-                Categoria = libro.Categoria,
-                Disponible = libro.Disponible,
-                Activo = libro.Activo
-            };
-        }
     }
 }

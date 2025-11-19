@@ -11,9 +11,6 @@ namespace SIGEBI.Persistence.Context
         {
         }
 
-        // Constructor sin parámetros
-        public AppDbContext() { }
-
         // Tablas (DbSet)
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Libro> Libros { get; set; }

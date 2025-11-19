@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using SIGEBI.Domain.Entities;
 using UI2.Adapters;
 using UI2.AppConfig;
 using UI2.Models.Libros;
@@ -21,10 +20,56 @@ namespace UI2.Views.Libros
         public LibroListadoForm()
         {
             InitializeComponent();
+
             _libroAdapter = ServiceLocator.LibroAdapter;
             _notificationService = ServiceLocator.NotificationService;
             _validationService = ServiceLocator.ValidationService;
+
             gridLibros.AutoGenerateColumns = false;
+
+            // COLUMNAS DEL GRID
+            gridLibros.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "Id",
+                HeaderText = "Id",
+                Width = 50
+            });
+
+            gridLibros.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "Titulo",
+                HeaderText = "Título",
+                Width = 150
+            });
+
+            gridLibros.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "Autor",
+                HeaderText = "Autor",
+                Width = 150
+            });
+
+            gridLibros.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "ISBN",
+                HeaderText = "ISBN",
+                Width = 120
+            });
+
+            gridLibros.Columns.Add(new DataGridViewCheckBoxColumn
+            {
+                DataPropertyName = "Disponible",
+                HeaderText = "Disponible",
+                Width = 70
+            });
+
+            gridLibros.Columns.Add(new DataGridViewCheckBoxColumn
+            {
+                DataPropertyName = "Activo",
+                HeaderText = "Activo",
+                Width = 60
+            });
+
             gridLibros.DataSource = _viewModel.Libros;
         }
 
@@ -55,9 +100,11 @@ namespace UI2.Views.Libros
         private async void btnBuscar_Click(object sender, EventArgs e)
         {
             _viewModel.Filtro.Criterio = txtBuscar.Text.Trim();
+
             try
             {
                 var resultado = await _libroAdapter.BuscarLibrosAsync(_viewModel.Filtro.Criterio);
+
                 if (!resultado.Success || resultado.Data == null)
                 {
                     _notificationService.ShowError(resultado.Message);
@@ -68,7 +115,7 @@ namespace UI2.Views.Libros
             }
             catch (Exception ex)
             {
-                _notificationService.ShowError($"Error al buscar libros: {ex.Message}");
+                _notificationService.ShowError($"Error al buscar: {ex.Message}");
             }
         }
 
@@ -77,9 +124,28 @@ namespace UI2.Views.Libros
             await CargarLibrosAsync();
         }
 
-        private Libro ObtenerLibroDesdeFormulario()
+        // ================================
+        //   📌 CREAR MODELO DESDE FORMULARIO
+        // ================================
+        private LibroCreateModel ObtenerModeloCrear()
         {
-            return new Libro
+            return new LibroCreateModel
+            {
+                Titulo = txtTitulo.Text.Trim(),
+                Autor = txtAutor.Text.Trim(),
+                ISBN = txtIsbn.Text.Trim(),
+                Editorial = txtEditorial.Text.Trim(),
+                AnioPublicacion = int.TryParse(txtAnio.Text, out var anio) ? anio : 0,
+                Categoria = txtCategoria.Text.Trim()
+            };
+        }
+
+        // ================================
+        //   📌 CREAR MODELO PARA ACTUALIZAR
+        // ================================
+        private LibroUpdateModel ObtenerModeloActualizar()
+        {
+            return new LibroUpdateModel
             {
                 Id = int.TryParse(txtIdLibro.Text, out var id) ? id : 0,
                 Titulo = txtTitulo.Text.Trim(),
@@ -93,95 +159,101 @@ namespace UI2.Views.Libros
             };
         }
 
-        private bool ValidarCamposLibro(Libro libro, bool validarDisponibilidad = false)
+        // ================================
+        //     📌 VALIDACIONES
+        // ================================
+        private bool ValidarCamposLibro()
         {
-            if (!_validationService.ValidateRequired(libro.Titulo, "título", out var mensajeTitulo))
+            if (!_validationService.ValidateRequired(txtTitulo.Text, "título", out var msg))
             {
-                _notificationService.ShowError(mensajeTitulo);
+                _notificationService.ShowError(msg);
                 txtTitulo.Focus();
                 return false;
             }
 
-            if (!_validationService.ValidateRequired(libro.Autor, "autor", out var mensajeAutor))
+            if (!_validationService.ValidateRequired(txtAutor.Text, "autor", out msg))
             {
-                _notificationService.ShowError(mensajeAutor);
+                _notificationService.ShowError(msg);
                 txtAutor.Focus();
                 return false;
             }
 
-            if (!_validationService.ValidateRequired(libro.ISBN, "ISBN", out var mensajeIsbn))
+            if (!_validationService.ValidateRequired(txtIsbn.Text, "ISBN", out msg))
             {
-                _notificationService.ShowError(mensajeIsbn);
+                _notificationService.ShowError(msg);
                 txtIsbn.Focus();
                 return false;
             }
 
-            if (libro.AnioPublicacion <= 0)
+            if (!int.TryParse(txtAnio.Text, out var anio) || anio <= 0)
             {
                 _notificationService.ShowError("Ingrese un año de publicación válido.");
                 txtAnio.Focus();
                 return false;
             }
 
-            if (validarDisponibilidad && gridLibros.CurrentRow?.DataBoundItem is LibroListItemModel seleccionado)
-            {
-                libro.Disponible = seleccionado.Disponible;
-            }
-
             return true;
         }
 
+        // ================================
+        //   📌 REGISTRAR
+        // ================================
         private async void btnRegistrar_Click(object sender, EventArgs e)
         {
-            var libro = ObtenerLibroDesdeFormulario();
-            if (!ValidarCamposLibro(libro))
-            {
+            if (!ValidarCamposLibro())
                 return;
-            }
+
+            var libro = ObtenerModeloCrear();
 
             try
             {
                 var resultado = await _libroAdapter.CrearLibroAsync(libro);
+
                 if (!resultado.Success || resultado.Data == null)
                 {
                     _notificationService.ShowError(resultado.Message);
                     return;
                 }
 
-                _notificationService.ShowInfo(resultado.Message);
+                _notificationService.ShowInfo("Libro registrado correctamente.");
                 _viewModel.Libros.Add(resultado.Data);
                 LimpiarFormulario();
             }
             catch (Exception ex)
             {
-                _notificationService.ShowError($"Error al registrar libro: {ex.Message}");
+                _notificationService.ShowError($"Error al registrar: {ex.Message}");
             }
         }
 
+        // ================================
+        //   📌 ACTUALIZAR
+        // ================================
         private async void btnActualizar_Click(object sender, EventArgs e)
         {
-            var libro = ObtenerLibroDesdeFormulario();
-            if (libro.Id <= 0)
+            if (!int.TryParse(txtIdLibro.Text, out var id) || id <= 0)
             {
-                _notificationService.ShowError("Seleccione un libro del listado para actualizar.");
+                _notificationService.ShowError("Seleccione un libro del listado.");
                 return;
             }
 
-            if (!ValidarCamposLibro(libro, validarDisponibilidad: true))
-            {
+            if (!ValidarCamposLibro())
                 return;
-            }
+
+            var libro = ObtenerModeloActualizar();
 
             try
             {
-                var resultado = await _libroAdapter.ActualizarLibroAsync(libro.Id, libro);
+                var resultado = await _libroAdapter.ActualizarLibroAsync(libro);
+
+
                 if (!resultado.Success || resultado.Data == null)
                 {
                     _notificationService.ShowError(resultado.Message);
                     return;
                 }
 
-                _notificationService.ShowInfo(resultado.Message);
+                _notificationService.ShowInfo("Libro actualizado correctamente.");
+
                 var seleccionado = _viewModel.Libros.FirstOrDefault(l => l.Id == libro.Id);
                 if (seleccionado != null)
                 {
@@ -193,20 +265,19 @@ namespace UI2.Views.Libros
                     seleccionado.Categoria = resultado.Data.Categoria;
                     seleccionado.Disponible = resultado.Data.Disponible;
                     seleccionado.Activo = resultado.Data.Activo;
+
                     gridLibros.Refresh();
                 }
             }
             catch (Exception ex)
             {
-                _notificationService.ShowError($"Error al actualizar libro: {ex.Message}");
+                _notificationService.ShowError($"Error al actualizar: {ex.Message}");
             }
         }
 
-        private void btnLimpiar_Click(object sender, EventArgs e)
-        {
-            LimpiarFormulario();
-        }
-
+        // ================================
+        //   📌 GRID SELECTION
+        // ================================
         private void gridLibros_SelectionChanged(object sender, EventArgs e)
         {
             if (gridLibros.CurrentRow?.DataBoundItem is LibroListItemModel libro)
@@ -221,6 +292,11 @@ namespace UI2.Views.Libros
                 chkDisponible.Checked = libro.Disponible;
                 chkActivoLibro.Checked = libro.Activo;
             }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            LimpiarFormulario();
         }
 
         private void LimpiarFormulario()

@@ -23,24 +23,40 @@ namespace UI2.Views.Main
         protected override void OnShown(EventArgs e)
         {
             base.OnShown(e);
-            lblBienvenida.Text = _sessionService.EstaAutenticado
-                ? $"Bienvenido, {_sessionService.UsuarioActual?.Nombre} ({_sessionService.UsuarioActual?.Rol})"
-                : "Sesión no iniciada";
+
+            if (_sessionService.EstaAutenticado)
+            {
+                lblBienvenida.Text =
+                    $"Bienvenido, {_sessionService.NombreUsuario} ({_sessionService.Rol})";
+            }
+            else
+            {
+                lblBienvenida.Text = "Sesión no iniciada";
+            }
         }
+
 
         private void AbrirFormulario(Form formulario)
         {
             panelContenido.Controls.Clear();
+
             formulario.TopLevel = false;
             formulario.FormBorderStyle = FormBorderStyle.None;
             formulario.Dock = DockStyle.Fill;
+
             panelContenido.Controls.Add(formulario);
             formulario.Show();
         }
-
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
-            if (!_sessionService.EstaAutenticado || _sessionService.UsuarioActual?.Rol != "Administrador")
+            if (!_sessionService.EstaAutenticado)
+            {
+                _notificationService.ShowError("Debe iniciar sesión.");
+                return;
+            }
+
+            // Validación robusta del rol
+            if (!string.Equals(_sessionService.Rol, "Administrador", StringComparison.OrdinalIgnoreCase))
             {
                 _notificationService.ShowError("Solo un administrador puede gestionar usuarios.");
                 return;
@@ -48,6 +64,7 @@ namespace UI2.Views.Main
 
             AbrirFormulario(new UsuarioListadoForm());
         }
+
 
         private void btnLibros_Click(object sender, EventArgs e)
         {

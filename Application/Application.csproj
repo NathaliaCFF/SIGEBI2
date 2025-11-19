@@ -15,7 +15,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj" />
+    <ProjectReference Include="..\Persistence\Persistence.csproj" />
     <ProjectReference Include="..\Shared\Shared.csproj" />
+
   </ItemGroup>
 
 </Project>

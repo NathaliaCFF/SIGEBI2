@@ -17,10 +17,11 @@ namespace UI2
 
             ServiceLocator.Configure();
 
-            var loginForm = new LoginForm(ServiceLocator.AuthAdapter,
-                                          ServiceLocator.SessionService,
-                                          ServiceLocator.NotificationService,
-                                          ServiceLocator.ValidationService);
+            var loginForm = new LoginForm(
+                ServiceLocator.AuthAdapter,
+                ServiceLocator.SessionService,
+                ServiceLocator.NotificationService,
+                ServiceLocator.ValidationService);
 
             System.Windows.Forms.Application.Run(loginForm);
         }

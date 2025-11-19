@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Application.DTOs;
+using System;
 using System.Windows.Forms;
 using UI2.Adapters;
 using UI2.AppConfig;
+using UI2.Models.Auth;
 using UI2.Services;
 using UI2.ViewModels.Auth;
 
@@ -29,25 +31,28 @@ namespace UI2.Views.Login
 
         private async void btnIngresar_Click(object sender, EventArgs e)
         {
-            _viewModel.Request.Email = txtEmail.Text.Trim();
-            _viewModel.Request.Password = txtPassword.Text;
-
-            if (!ValidarEntrada())
+            var request = new AuthRequestDTO
             {
+                Email = txtEmail.Text.Trim(),
+                Password = txtPassword.Text
+            };
+
+            if (!ValidarEntrada(request))
                 return;
-            }
 
             btnIngresar.Enabled = false;
+
             try
             {
-                var resultado = await _authAdapter.LoginAsync(_viewModel.Request);
+                var resultado = await _authAdapter.LoginAsync(request);
+
                 if (!resultado.Success || resultado.Data == null)
                 {
                     _notificationService.ShowError(resultado.Message);
                     return;
                 }
 
-                _sessionService.RegistrarSesion(_viewModel.Request.Email, resultado.Data);
+                _sessionService.RegistrarSesion(request.Email, resultado.Data);
                 AbrirPanelPrincipal();
             }
             catch (Exception ex)
@@ -60,16 +65,17 @@ namespace UI2.Views.Login
             }
         }
 
-        private bool ValidarEntrada()
+
+        private bool ValidarEntrada(AuthRequestDTO request)
         {
-            if (!_validationService.ValidateEmail(_viewModel.Request.Email, out var mensajeEmail))
+            if (!_validationService.ValidateEmail(request.Email, out var mensajeEmail))
             {
                 _notificationService.ShowError(mensajeEmail);
                 txtEmail.Focus();
                 return false;
             }
 
-            if (!_validationService.ValidateRequired(_viewModel.Request.Password, "contraseña", out var mensajePassword))
+            if (!_validationService.ValidateRequired(request.Password, "contraseña", out var mensajePassword))
             {
                 _notificationService.ShowError(mensajePassword);
                 txtPassword.Focus();
@@ -78,6 +84,7 @@ namespace UI2.Views.Login
 
             return true;
         }
+
 
         private void AbrirPanelPrincipal()
         {

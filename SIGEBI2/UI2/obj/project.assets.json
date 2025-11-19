@@ -1162,6 +1162,7 @@
           "BCrypt.Net-Next": "4.0.3",
           "Domain": "1.0.0",
           "Microsoft.IdentityModel.Tokens": "8.14.0",
+          "Persistence": "1.0.0",
           "Shared": "1.0.0",
           "Swashbuckle.AspNetCore": "9.0.6",
           "System.IdentityModel.Tokens.Jwt": "8.14.0"

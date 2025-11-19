@@ -1,28 +1,29 @@
-﻿using Application.DTOs;
-using SIGEBI.Application.Interfaces;
+﻿using System.Net.Http.Json;
+using Application.DTOs;
 using UI2.Models.Auth;
+using UI2.Models.Common;
 
 namespace UI2.Adapters
 {
     public class AuthAdapter
     {
-        private readonly IUsuarioService _usuarioService;
+        private readonly HttpClient _http;
 
-        public AuthAdapter(IUsuarioService usuarioService)
+        public AuthAdapter(HttpClient http)
         {
-            _usuarioService = usuarioService;
+            _http = http;
         }
 
-        public async Task<LoginResultModel> LoginAsync(LoginRequestModel request)
+        public async Task<LoginResultModel> LoginAsync(AuthRequestDTO request)
         {
-            var resultado = await _usuarioService.AutenticarAsync(request.Email, request.Password);
+            var response = await _http.PostAsJsonAsync("auth/login", request);
 
-            if (!resultado.Success || resultado.Data == null)
-            {
-                return LoginResultModel.Failure(resultado.Message ?? "No fue posible iniciar sesión.");
-            }
+            if (!response.IsSuccessStatusCode)
+                return LoginResultModel.Failure("Credenciales inválidas.");
 
-            return LoginResultModel.Successful(resultado.Data);
+            var data = await response.Content.ReadFromJsonAsync<AuthResponseDTO>();
+
+            return LoginResultModel.Successful(data!);
         }
     }
 }
