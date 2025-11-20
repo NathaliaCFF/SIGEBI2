@@ -18,7 +18,7 @@ namespace UI2.Adapters
         public async Task<LoginResultModel> LoginAsync(LoginRequestModel request)
         {
             var response = await _apiClient.SendAsync<OperationResult<AuthResponseDTO>>(HttpMethod.Post,
-                                                                                       "api/auth/login",
+                                                                                       "/api/auth/login",
                                                                                        new AuthRequestDTO
                                                                                        {
                                                                                            Email = request.Email,

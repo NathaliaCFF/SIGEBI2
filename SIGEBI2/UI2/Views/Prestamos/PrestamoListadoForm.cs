@@ -23,11 +23,16 @@ namespace UI2.Views.Prestamos
             _prestamoAdapter = ServiceLocator.PrestamoAdapter;
             _notificationService = ServiceLocator.NotificationService;
 
-            ConfigurarColumnas();
+            ConfigurarColumnasPrestamos();
+            ConfigurarColumnasDetalles();
+
             gridPrestamos.DataSource = _viewModel.Prestamos;
         }
 
-        private void ConfigurarColumnas()
+        // ======================================================
+        // CONFIGURAR COLUMNAS GRID PRINCIPAL
+        // ======================================================
+        private void ConfigurarColumnasPrestamos()
         {
             gridPrestamos.Columns.Clear();
             gridPrestamos.AutoGenerateColumns = false;
@@ -36,13 +41,13 @@ namespace UI2.Views.Prestamos
             {
                 DataPropertyName = "Id",
                 HeaderText = "Id",
-                Width = 50
+                Width = 60
             });
 
             gridPrestamos.Columns.Add(new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "UsuarioId",
-                HeaderText = "Usuario",
+                HeaderText = "Usuario Id",
                 Width = 80
             });
 
@@ -56,16 +61,16 @@ namespace UI2.Views.Prestamos
             gridPrestamos.Columns.Add(new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "FechaPrestamo",
-                HeaderText = "Fecha préstamo",
-                Width = 140,
+                HeaderText = "Prestado",
+                Width = 120,
                 DefaultCellStyle = new DataGridViewCellStyle { Format = "dd/MM/yyyy" }
             });
 
             gridPrestamos.Columns.Add(new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "FechaVencimiento",
-                HeaderText = "Vencimiento",
-                Width = 140,
+                HeaderText = "Vence",
+                Width = 120,
                 DefaultCellStyle = new DataGridViewCellStyle { Format = "dd/MM/yyyy" }
             });
 
@@ -77,34 +82,59 @@ namespace UI2.Views.Prestamos
             });
         }
 
+        // ======================================================
+        // CONFIGURAR COLUMNAS LISTA DE DETALLES
+        // ======================================================
+        private void ConfigurarColumnasDetalles()
+        {
+            lstDetalles.View = View.Details;
+            lstDetalles.Columns.Clear();
+
+            lstDetalles.Columns.Add("Título", 250);
+            lstDetalles.Columns.Add("Id libro", 80);
+            lstDetalles.Columns.Add("Estado", 150);
+        }
+
+        // ======================================================
+        // LOAD FORM
+        // ======================================================
         private void PrestamoListadoForm_Load(object sender, EventArgs e)
         {
             txtUsuarioId.Focus();
         }
 
+        // ======================================================
+        // BOTÓN CONSULTAR PRÉSTAMOS ACTIVOS
+        // ======================================================
         private async void btnBuscarPorUsuario_Click(object sender, EventArgs e)
         {
             if (!int.TryParse(txtUsuarioId.Text, out var usuarioId))
             {
-                _notificationService.ShowError("Ingrese un identificador de usuario válido.");
+                _notificationService.ShowError("Ingrese un ID de usuario válido.");
                 return;
             }
 
             await CargarPrestamosActivosAsync(usuarioId);
         }
 
+        // ======================================================
+        // BOTÓN CONSULTAR VENCIDOS
+        // ======================================================
         private async void btnVerVencidos_Click(object sender, EventArgs e)
         {
             await CargarPrestamosVencidosAsync();
         }
 
+        // ======================================================
+        // CARGAR ACTIVOS
+        // ======================================================
         private async Task CargarPrestamosActivosAsync(int usuarioId)
         {
             try
             {
                 var resultado = await _prestamoAdapter.ObtenerPrestamosActivosAsync(usuarioId);
 
-                if (!resultado.Success || resultado.Data == null)
+                if (!resultado.Success)
                 {
                     _notificationService.ShowError(resultado.Message);
                     return;
@@ -119,13 +149,16 @@ namespace UI2.Views.Prestamos
             }
         }
 
+        // ======================================================
+        // CARGAR VENCIDOS
+        // ======================================================
         private async Task CargarPrestamosVencidosAsync()
         {
             try
             {
                 var resultado = await _prestamoAdapter.ObtenerPrestamosVencidosAsync();
 
-                if (!resultado.Success || resultado.Data == null)
+                if (!resultado.Success)
                 {
                     _notificationService.ShowError(resultado.Message);
                     return;
@@ -140,11 +173,17 @@ namespace UI2.Views.Prestamos
             }
         }
 
+        // ======================================================
+        // ACTUALIZAR DETALLES AL CAMBIAR SELECCIÓN
+        // ======================================================
         private void gridPrestamos_SelectionChanged(object sender, EventArgs e)
         {
             MostrarDetallesSeleccionados();
         }
 
+        // ======================================================
+        // MOSTRAR DETALLES DEL PRÉSTAMO
+        // ======================================================
         private void MostrarDetallesSeleccionados()
         {
             lstDetalles.Items.Clear();
@@ -153,40 +192,68 @@ namespace UI2.Views.Prestamos
             {
                 if (prestamo.Detalles == null || prestamo.Detalles.Count == 0)
                 {
-                    lblResumen.Text = "No hay detalles para este préstamo.";
+                    lblResumen.Text = "Este préstamo no tiene detalles.";
                     return;
                 }
 
-                foreach (var detalle in prestamo.Detalles)
+                foreach (var d in prestamo.Detalles)
                 {
-                    string estado;
+                    string estado = d.Devuelto
+                        ? $"Devuelto el {d.FechaDevolucion?.ToString("dd/MM/yyyy")}"
+                        : "Pendiente";
 
-                    if (detalle.Devuelto)
-                    {
-                        var fechaDev = detalle.FechaDevolucion?.ToString("dd/MM/yyyy") ?? "Fecha no disponible";
-                        estado = $"Devuelto el {fechaDev}";
-                    }
-                    else
-                    {
-                        estado = "Pendiente";
-                    }
-
-                    var item = new ListViewItem(detalle.TituloLibro);
-                    item.SubItems.Add(detalle.LibroId.ToString());
+                    var item = new ListViewItem(d.TituloLibro);
+                    item.SubItems.Add(d.LibroId.ToString());
                     item.SubItems.Add(estado);
 
                     lstDetalles.Items.Add(item);
                 }
 
                 lblResumen.Text =
-                    $"Usuario: {prestamo.NombreUsuario} | " +
-                    $"Vencimiento: {prestamo.FechaVencimiento:dd/MM/yyyy} | " +
-                    $"Activo: {(prestamo.Activo ? "Sí" : "No")}";
+                    $"Usuario: {prestamo.NombreUsuario} | Vence: {prestamo.FechaVencimiento:dd/MM/yyyy} | Activo: {(prestamo.Activo ? "Sí" : "No")}";
             }
             else
             {
-                lblResumen.Text = "Seleccione un préstamo para ver los detalles.";
+                lblResumen.Text = "Seleccione un préstamo para ver sus detalles.";
             }
+        }
+
+        // ======================================================
+        // REGISTRAR NUEVO PRÉSTAMO
+        // ======================================================
+        private async void btnRegistrarPrestamo_Click(object sender, EventArgs e)
+        {
+            if (!int.TryParse(txtUsuarioRegistrar.Text, out int usuarioId))
+            {
+                _notificationService.ShowError("Ingrese un ID de usuario válido.");
+                return;
+            }
+
+            if (!int.TryParse(txtLibroRegistrar.Text, out int libroId))
+            {
+                _notificationService.ShowError("Ingrese un ID de libro válido.");
+                return;
+            }
+
+            var model = new PrestamoCreateModel
+            {
+                UsuarioId = usuarioId,
+                LibrosIds = new System.Collections.Generic.List<int> { libroId }
+            };
+
+            var resultado = await _prestamoAdapter.RegistrarPrestamoAsync(model);
+
+            if (!resultado.Success)
+            {
+                _notificationService.ShowError(resultado.Message);
+                return;
+            }
+
+            _notificationService.ShowInfo("Préstamo registrado correctamente.");
+
+            txtLibroRegistrar.Clear();
+
+            await CargarPrestamosActivosAsync(usuarioId);
         }
     }
 }

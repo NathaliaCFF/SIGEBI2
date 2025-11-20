@@ -85,7 +85,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 );
 
 // =====================================================
-// Registro de Repositorios (CORREGIDO)
+// Registro de Repositorios
 // =====================================================
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IPrestamoRepository, PrestamoRepository>();

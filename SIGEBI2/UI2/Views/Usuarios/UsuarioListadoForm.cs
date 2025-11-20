@@ -17,6 +17,8 @@ namespace UI2.Views.Usuarios
         private readonly ValidationService _validationService;
         private readonly UsuarioListadoViewModel _viewModel = new();
 
+        private bool _bloquearSeleccion = false;
+
         public UsuarioListadoForm()
         {
             InitializeComponent();
@@ -110,8 +112,8 @@ namespace UI2.Views.Usuarios
         {
             try
             {
-                
-                var resultado = await _usuarioAdapter.ObtenerUsuariosAsync(0);
+                var usuarioActual = ObtenerUsuarioActual();
+                var resultado = await _usuarioAdapter.ObtenerUsuariosAsync(usuarioActual);
 
                 if (!resultado.Success || resultado.Data == null)
                 {
@@ -127,8 +129,6 @@ namespace UI2.Views.Usuarios
             }
         }
 
-
-
         private async void btnRefrescar_Click(object sender, EventArgs e)
         {
             await CargarUsuariosAsync();
@@ -143,7 +143,8 @@ namespace UI2.Views.Usuarios
 
             try
             {
-                var resultado = await _usuarioAdapter.CrearUsuarioAsync(model);
+                var usuarioActual = ObtenerUsuarioActual();
+                var resultado = await _usuarioAdapter.CrearUsuarioAsync(model, usuarioActual);
 
                 if (!resultado.Success || resultado.Data == null)
                 {
@@ -153,6 +154,7 @@ namespace UI2.Views.Usuarios
 
                 _notificationService.ShowInfo(resultado.Message);
                 _viewModel.AgregarUsuario(resultado.Data);
+
                 LimpiarFormulario();
             }
             catch (Exception ex)
@@ -183,10 +185,10 @@ namespace UI2.Views.Usuarios
                 return;
             }
 
-
             try
             {
-                var resultado = await _usuarioAdapter.ActualizarUsuarioAsync(model);
+                var usuarioActual = ObtenerUsuarioActual();
+                var resultado = await _usuarioAdapter.ActualizarUsuarioAsync(model, usuarioActual);
 
                 if (!resultado.Success || resultado.Data == null)
                 {
@@ -216,6 +218,17 @@ namespace UI2.Views.Usuarios
             return true;
         }
 
+        private SIGEBI.Domain.Entities.Usuario ObtenerUsuarioActual()
+        {
+            return new SIGEBI.Domain.Entities.Usuario
+            {
+                Nombre = _sessionService.NombreUsuario,
+                Email = _sessionService.Email,
+                Rol = _sessionService.Rol,
+                Activo = true
+            };
+        }
+
         private async void btnActivar_Click(object sender, EventArgs e)
         {
             if (!TryObtenerUsuarioSeleccionado(out var usuario))
@@ -223,7 +236,8 @@ namespace UI2.Views.Usuarios
 
             try
             {
-                var resultado = await _usuarioAdapter.ActivarUsuarioAsync(usuario.Id);
+                var usuarioActual = ObtenerUsuarioActual();
+                var resultado = await _usuarioAdapter.ActivarUsuarioAsync(usuario.Id, usuarioActual);
 
                 if (!resultado.Success)
                 {
@@ -250,7 +264,8 @@ namespace UI2.Views.Usuarios
 
             try
             {
-                var resultado = await _usuarioAdapter.DesactivarUsuarioAsync(usuario.Id);
+                var usuarioActual = ObtenerUsuarioActual();
+                var resultado = await _usuarioAdapter.DesactivarUsuarioAsync(usuario.Id, usuarioActual);
 
                 if (!resultado.Success)
                 {
@@ -274,6 +289,9 @@ namespace UI2.Views.Usuarios
 
         private void gridUsuarios_SelectionChanged(object sender, EventArgs e)
         {
+            if (_bloquearSeleccion)
+                return;
+
             if (gridUsuarios.CurrentRow?.DataBoundItem is UsuarioListItemModel usuario)
             {
                 txtId.Text = usuario.Id.ToString();
@@ -281,7 +299,25 @@ namespace UI2.Views.Usuarios
                 txtEmail.Text = usuario.Email;
                 cmbRol.SelectedItem = usuario.Rol;
                 chkActivo.Checked = usuario.Activo;
+                txtPassword.Clear();
             }
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            _bloquearSeleccion = true;
+
+            txtId.Clear();
+            txtNombre.Clear();
+            txtEmail.Clear();
+            txtPassword.Clear();
+            cmbRol.SelectedIndex = -1;
+            chkActivo.Checked = true;
+
+            gridUsuarios.ClearSelection();
+            txtNombre.Focus();
+
+            _bloquearSeleccion = false;
         }
 
         private void LimpiarFormulario()
@@ -292,6 +328,8 @@ namespace UI2.Views.Usuarios
             txtPassword.Clear();
             cmbRol.SelectedIndex = -1;
             chkActivo.Checked = true;
+
+            gridUsuarios.ClearSelection();
         }
     }
 }

@@ -21,7 +21,7 @@ namespace SIGEBI.Application.Mappers
             };
         }
 
-        // Convierte de DTO a entidad (útil si en el futuro se reciben detalles desde la API)
+        // Convierte de DTO a entidad 
         public static DetallePrestamo ToEntity(this DetallePrestamoDTO dto)
         {
             return new DetallePrestamo

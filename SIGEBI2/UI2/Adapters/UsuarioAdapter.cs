@@ -9,7 +9,7 @@ namespace UI2.Adapters
 {
     public class UsuarioAdapter
     {
-        private const string BaseEndpoint = "api/usuario";
+        private const string BaseEndpoint = "/api/usuario";
         private readonly ApiClient _apiClient;
 
         public UsuarioAdapter(ApiClient apiClient)

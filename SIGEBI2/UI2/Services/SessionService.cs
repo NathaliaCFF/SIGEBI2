@@ -4,7 +4,7 @@ namespace UI2.Services
 {
     public class SessionService
     {
-        public AuthResponseDTO? AuthInfo { get; private set; }
+        public AuthResponseDTO? AuthInfo { get; set; }
         public string Email { get; private set; } = string.Empty;
 
         public bool EstaAutenticado =>

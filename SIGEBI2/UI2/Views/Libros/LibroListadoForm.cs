@@ -7,6 +7,7 @@ using UI2.AppConfig;
 using UI2.Models.Libros;
 using UI2.Services;
 using UI2.ViewModels.Libros;
+using Shared; 
 
 namespace UI2.Views.Libros
 {
@@ -56,6 +57,27 @@ namespace UI2.Views.Libros
                 Width = 120
             });
 
+            gridLibros.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "Editorial",
+                HeaderText = "Editorial",
+                Width = 120
+            });
+
+            gridLibros.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "AnioPublicacion",
+                HeaderText = "Año",
+                Width = 70
+            });
+
+            gridLibros.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "Categoria",
+                HeaderText = "Categoría",
+                Width = 120
+            });
+
             gridLibros.Columns.Add(new DataGridViewCheckBoxColumn
             {
                 DataPropertyName = "Disponible",
@@ -83,6 +105,7 @@ namespace UI2.Views.Libros
             try
             {
                 var resultado = await _libroAdapter.ListarLibrosAsync();
+
                 if (!resultado.Success || resultado.Data == null)
                 {
                     _notificationService.ShowError(resultado.Message);
@@ -124,9 +147,9 @@ namespace UI2.Views.Libros
             await CargarLibrosAsync();
         }
 
-        // ================================
-        //   📌 CREAR MODELO DESDE FORMULARIO
-        // ================================
+        // ========================================
+        //    CREAR MODELO PARA REGISTRO
+        // ========================================
         private LibroCreateModel ObtenerModeloCrear()
         {
             return new LibroCreateModel
@@ -140,9 +163,9 @@ namespace UI2.Views.Libros
             };
         }
 
-        // ================================
-        //   📌 CREAR MODELO PARA ACTUALIZAR
-        // ================================
+        // ========================================
+        //    CREAR MODELO PARA ACTUALIZAR
+        // ========================================
         private LibroUpdateModel ObtenerModeloActualizar()
         {
             return new LibroUpdateModel
@@ -159,9 +182,9 @@ namespace UI2.Views.Libros
             };
         }
 
-        // ================================
-        //     📌 VALIDACIONES
-        // ================================
+        // ========================================
+        //    VALIDACIONES
+        // ========================================
         private bool ValidarCamposLibro()
         {
             if (!_validationService.ValidateRequired(txtTitulo.Text, "título", out var msg))
@@ -187,7 +210,7 @@ namespace UI2.Views.Libros
 
             if (!int.TryParse(txtAnio.Text, out var anio) || anio <= 0)
             {
-                _notificationService.ShowError("Ingrese un año de publicación válido.");
+                _notificationService.ShowError("Ingrese un año válido.");
                 txtAnio.Focus();
                 return false;
             }
@@ -195,15 +218,27 @@ namespace UI2.Views.Libros
             return true;
         }
 
-        // ================================
-        //   📌 REGISTRAR
-        // ================================
+        // ========================================
+        //    REGISTRAR
+        // ========================================
         private async void btnRegistrar_Click(object sender, EventArgs e)
         {
             if (!ValidarCamposLibro())
                 return;
 
-            var libro = ObtenerModeloCrear();
+            var model = ObtenerModeloCrear();
+
+            var libro = new SIGEBI.Domain.Entities.Libro
+            {
+                Titulo = model.Titulo,
+                Autor = model.Autor,
+                ISBN = model.ISBN,
+                Editorial = model.Editorial,
+                AnioPublicacion = model.AnioPublicacion,
+                Categoria = model.Categoria,
+                Disponible = true,
+                Activo = true
+            };
 
             try
             {
@@ -217,7 +252,9 @@ namespace UI2.Views.Libros
 
                 _notificationService.ShowInfo("Libro registrado correctamente.");
                 _viewModel.Libros.Add(resultado.Data);
+
                 LimpiarFormulario();
+                gridLibros.ClearSelection();
             }
             catch (Exception ex)
             {
@@ -225,26 +262,38 @@ namespace UI2.Views.Libros
             }
         }
 
-        // ================================
-        //   📌 ACTUALIZAR
-        // ================================
+        // ========================================
+        //    ACTUALIZAR
+        // ========================================
         private async void btnActualizar_Click(object sender, EventArgs e)
         {
             if (!int.TryParse(txtIdLibro.Text, out var id) || id <= 0)
             {
-                _notificationService.ShowError("Seleccione un libro del listado.");
+                _notificationService.ShowError("Seleccione un libro.");
                 return;
             }
 
             if (!ValidarCamposLibro())
                 return;
 
-            var libro = ObtenerModeloActualizar();
+            var model = ObtenerModeloActualizar();
+
+            var libro = new SIGEBI.Domain.Entities.Libro
+            {
+                Id = model.Id,
+                Titulo = model.Titulo,
+                Autor = model.Autor,
+                ISBN = model.ISBN,
+                Editorial = model.Editorial,
+                AnioPublicacion = model.AnioPublicacion,
+                Categoria = model.Categoria,
+                Disponible = model.Disponible,
+                Activo = model.Activo
+            };
 
             try
             {
-                var resultado = await _libroAdapter.ActualizarLibroAsync(libro);
-
+                var resultado = await _libroAdapter.ActualizarLibroAsync(id, libro);
 
                 if (!resultado.Success || resultado.Data == null)
                 {
@@ -275,9 +324,57 @@ namespace UI2.Views.Libros
             }
         }
 
-        // ================================
-        //   📌 GRID SELECTION
-        // ================================
+        // ========================================
+        //    ELIMINAR
+        // ========================================
+        private async void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (!int.TryParse(txtIdLibro.Text, out var id) || id <= 0)
+            {
+                _notificationService.ShowError("Seleccione un libro para eliminar.");
+                return;
+            }
+
+            var confirmar = MessageBox.Show(
+                "¿Está seguro que desea eliminar este libro?",
+                "Confirmar eliminación",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+
+            if (confirmar != DialogResult.Yes)
+                return;
+
+            try
+            {
+                var resultado = await _libroAdapter.EliminarLibroAsync(id);
+
+                if (!resultado.Success)
+                {
+                    _notificationService.ShowError(resultado.Message);
+                    return;
+                }
+
+                _notificationService.ShowInfo("Libro eliminado correctamente.");
+
+                var libroVM = _viewModel.Libros.FirstOrDefault(x => x.Id == id);
+                if (libroVM != null)
+                {
+                    _viewModel.Libros.Remove(libroVM);
+                }
+
+                LimpiarFormulario();
+                gridLibros.ClearSelection();
+            }
+            catch (Exception ex)
+            {
+                _notificationService.ShowError($"Error al eliminar: {ex.Message}");
+            }
+        }
+
+        // ========================================
+        //    SELECCIÓN DEL GRID
+        // ========================================
         private void gridLibros_SelectionChanged(object sender, EventArgs e)
         {
             if (gridLibros.CurrentRow?.DataBoundItem is LibroListItemModel libro)
@@ -294,9 +391,13 @@ namespace UI2.Views.Libros
             }
         }
 
+        // ========================================
+        //    LIMPIAR FORMULARIO
+        // ========================================
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             LimpiarFormulario();
+            gridLibros.ClearSelection();
         }
 
         private void LimpiarFormulario()
@@ -308,6 +409,7 @@ namespace UI2.Views.Libros
             txtEditorial.Clear();
             txtAnio.Clear();
             txtCategoria.Clear();
+
             chkDisponible.Checked = true;
             chkActivoLibro.Checked = true;
         }

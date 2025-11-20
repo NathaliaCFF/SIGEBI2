@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SIGEBI.Application.Interfaces;
 using SIGEBI.Application.DTOs;
-using SIGEBI.Application.Mappers; // 🔹 Importante: usar el mapper
+using SIGEBI.Application.Mappers; 
 using SIGEBI.Domain.Entities;
 using System.Collections.Generic;
 using System.Linq;

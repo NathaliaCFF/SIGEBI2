@@ -55,7 +55,7 @@ namespace UI2.Views.Main
                 return;
             }
 
-            // Validación robusta del rol
+            // Validación del rol
             if (!string.Equals(_sessionService.Rol, "Administrador", StringComparison.OrdinalIgnoreCase))
             {
                 _notificationService.ShowError("Solo un administrador puede gestionar usuarios.");

@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Application.DTOs;
+using System;
 using System.Windows.Forms;
 using UI2.Adapters;
+using UI2.AppConfig;
+using UI2.Models.Auth;
 using UI2.Services;
 using UI2.ViewModels.Auth;
 using UI2.Views.Main;
@@ -27,60 +30,27 @@ namespace UI2.Views.Login
             _validationService = validationService;
         }
 
-        private async void btnIngresar_Click(object sender, EventArgs e)
+        private async void btnLogin_Click(object sender, EventArgs e)
         {
-            var request = new AuthRequestDTO
+            var request = new LoginRequestModel
             {
-                Email = txtEmail.Text.Trim(),
+                Email = txtEmail.Text,
                 Password = txtPassword.Text
             };
 
-            if (!ValidarEntrada(request))
+            var result = await ServiceLocator.AuthAdapter.LoginAsync(request);
+
+            if (!result.Success)
+            {
+                MessageBox.Show(result.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
-
-            btnIngresar.Enabled = false;
-
-            try
-            {
-                var resultado = await _authAdapter.LoginAsync(request);
-
-                if (!resultado.Success || resultado.Data == null)
-                {
-                    _notificationService.ShowError(resultado.Message);
-                    return;
-                }
-
-                _sessionService.RegistrarSesion(request.Email, resultado.Data);
-                AbrirPanelPrincipal();
-            }
-            catch (Exception ex)
-            {
-                _notificationService.ShowError($"Error al iniciar sesión: {ex.Message}");
-            }
-            finally
-            {
-                btnIngresar.Enabled = true;
-            }
-        }
-
-
-        private bool ValidarEntrada(AuthRequestDTO request)
-        {
-            if (!_validationService.ValidateEmail(request.Email, out var mensajeEmail))
-            {
-                _notificationService.ShowError(mensajeEmail);
-                txtEmail.Focus();
-                return false;
             }
 
-            if (!_validationService.ValidateRequired(request.Password, "contraseña", out var mensajePassword))
-            {
-                _notificationService.ShowError(mensajePassword);
-                txtPassword.Focus();
-                return false;
-            }
+            // Guarda la sesión
+            _sessionService.AuthInfo = result.Data;
 
-            return true;
+            MessageBox.Show("Login correcto");
+            AbrirPanelPrincipal();
         }
 
 
