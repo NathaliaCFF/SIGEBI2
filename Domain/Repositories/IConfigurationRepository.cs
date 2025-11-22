@@ -1,6 +1,5 @@
 ﻿using SIGEBI.Domain.Entities;
 using SIGEBI.Shared.Base;
-using System.Threading.Tasks;
 
 namespace SIGEBI.Domain.Repository
 {

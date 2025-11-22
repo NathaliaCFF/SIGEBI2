@@ -1,5 +1,5 @@
-﻿using SIGEBI.Domain.Entities;
-using Application.DTOs;
+﻿using Application.DTOs;
+using SIGEBI.Domain.Entities;
 
 namespace SIGEBI.Application.Interfaces
 {

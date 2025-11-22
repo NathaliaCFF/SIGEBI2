@@ -4,7 +4,7 @@ namespace SIGEBI.Domain.Entities
 {
     public class Libro : BaseEntity
     {
-        public string Titulo { get; set; } = string.Empty;   
+        public string Titulo { get; set; } = string.Empty;
         public string Autor { get; set; } = string.Empty;
         public string ISBN { get; set; } = string.Empty;
         public string Editorial { get; set; } = string.Empty;

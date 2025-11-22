@@ -1,20 +1,17 @@
-﻿using Xunit;
-using Moq;
+﻿using Application.DTOs;
 using FluentAssertions;
-using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using SIGEBI.Application.Services;
+using Microsoft.Extensions.Configuration;
+using Moq;
+using Shared;
+using SIGEBI.API.Controllers;
 using SIGEBI.Application.Interfaces;
+using SIGEBI.Application.Services;
 using SIGEBI.Domain.Entities;
 using SIGEBI.Domain.Repository;
-using Shared;
-using Application.DTOs;
-using SIGEBI.API.Controllers;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using System.Security.Claims;
-using Microsoft.AspNetCore.Http;
-using System;
+using Xunit;
 
 namespace SIGEBI.Tests
 {

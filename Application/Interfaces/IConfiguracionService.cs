@@ -1,6 +1,5 @@
-﻿using SIGEBI.Shared.Base;
-using SIGEBI.Domain.Entities;
-using System.Threading.Tasks;
+﻿using SIGEBI.Domain.Entities;
+using SIGEBI.Shared.Base;
 
 namespace SIGEBI.Application.Interfaces
 {

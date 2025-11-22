@@ -4,7 +4,7 @@ namespace SIGEBI.Domain.Entities
 {
     public class Configuration : BaseEntity
     {
-        public int DuracionPrestamoDias { get; set; } = 7; 
+        public int DuracionPrestamoDias { get; set; } = 7;
     }
 
 }

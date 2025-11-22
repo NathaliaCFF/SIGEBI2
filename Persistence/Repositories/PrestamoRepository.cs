@@ -3,10 +3,6 @@ using SIGEBI.Domain.Entities;
 using SIGEBI.Domain.Repository;
 using SIGEBI.Persistence.Base;
 using SIGEBI.Persistence.Context;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SIGEBI.Persistence.Repositories
 {

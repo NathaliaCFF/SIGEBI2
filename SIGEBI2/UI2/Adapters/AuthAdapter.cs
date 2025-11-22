@@ -1,5 +1,4 @@
-﻿using System.Net.Http;
-using Application.DTOs;
+﻿using Application.DTOs;
 using Shared;
 using UI2.Models.Auth;
 using UI2.Services;

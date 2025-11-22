@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using SIGEBI.Application.Interfaces;
@@ -13,15 +13,11 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// =====================================================
 // CONFIGURACIÓN DE SERVICIOS
-// =====================================================
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
-// =====================================================
 // CONFIGURACIÓN DE AUTENTICACIÓN JWT
-// =====================================================
 var jwtSettings = builder.Configuration.GetSection("Jwt");
 var key = Encoding.UTF8.GetBytes(jwtSettings["Key"]!);
 
@@ -44,9 +40,8 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-// =====================================================
+
 // CONFIGURACIÓN DE SWAGGER + JWT
-// =====================================================
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "SIGEBI API", Version = "v1" });
@@ -77,30 +72,30 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-// =====================================================
+
 // Registro de DbContext
-// =====================================================
+
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
 );
 
-// =====================================================
+
 // Registro de Repositorios
-// =====================================================
+
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IPrestamoRepository, PrestamoRepository>();
 builder.Services.AddScoped<IConfigurationRepository, ConfigurationRepository>();
 builder.Services.AddScoped<IDetallePrestamoRepository, DetallePrestamoRepository>();
 builder.Services.AddScoped<ILibroRepository, LibroRepository>();
 
-// =====================================================
+
 // Registro de Servicios
-// =====================================================
+
 builder.Services.AddScoped<ILibroService, LibroService>();
 
-// =====================================================
+
 // Registro modular de dependencias adicionales
-// =====================================================
+
 builder.Services.AddUsuarioDependencies();
 builder.Services.AddPrestamoDependency();
 builder.Services.AddDetallePrestamoDependency();
@@ -108,9 +103,9 @@ builder.Services.AddReporteDependency();
 builder.Services.AddConfiguracionDependency();
 builder.Services.AddAuthDependency();
 
-// =====================================================
+
 // CONSTRUCCIÓN Y CONFIGURACIÓN DE LA APLICACIÓN
-// =====================================================
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())

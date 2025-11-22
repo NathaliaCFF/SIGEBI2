@@ -1,11 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SIGEBI.Application.Interfaces;
 using SIGEBI.Application.DTOs;
-using SIGEBI.Application.Mappers; 
-using SIGEBI.Domain.Entities;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using SIGEBI.Application.Interfaces;
+using SIGEBI.Application.Mappers;
 
 namespace SIGEBI.API.Controllers
 {
@@ -23,7 +19,7 @@ namespace SIGEBI.API.Controllers
         [HttpPost("crear")]
         public async Task<IActionResult> Crear([FromBody] LibroDTO dto)
         {
-            var libro = dto.ToEntity(); 
+            var libro = dto.ToEntity();
             var result = await _libroService.CrearAsync(libro);
             return result.Success
                 ? Ok(result.Data!.ToDTO())

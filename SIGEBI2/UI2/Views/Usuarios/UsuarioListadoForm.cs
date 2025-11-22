@@ -1,7 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using UI2.Adapters;
+﻿using UI2.Adapters;
 using UI2.AppConfig;
 using UI2.Models.Usuarios;
 using UI2.Services;

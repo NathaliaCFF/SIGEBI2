@@ -1,6 +1,4 @@
-﻿using System;
-using System.Windows.Forms;
-using UI2.AppConfig;
+﻿using UI2.AppConfig;
 using UI2.Services;
 using UI2.Views.Libros;
 using UI2.Views.Prestamos;
@@ -84,5 +82,12 @@ namespace UI2.Views.Main
                 Close();
             }
         }
+
+        private void btnConfiguracion_Click(object sender, EventArgs e)
+        {
+            var form = new UI2.Views.Configuracion.ConfiguracionForm();
+            form.ShowDialog();
+        }
+
     }
 }

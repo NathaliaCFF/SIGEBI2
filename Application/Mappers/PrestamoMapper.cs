@@ -1,7 +1,5 @@
 ﻿using SIGEBI.Application.DTOs;
 using SIGEBI.Domain.Entities;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace SIGEBI.Application.Mappers
 {
@@ -18,9 +16,9 @@ namespace SIGEBI.Application.Mappers
                 FechaVencimiento = entity.FechaVencimiento,
                 Activo = entity.Activo,
 
-                
+
                 Detalles = entity.Detalles != null
-                    ? entity.Detalles.ToDtoList() 
+                    ? entity.Detalles.ToDtoList()
                     : new List<DetallePrestamoDTO>()
             };
         }
@@ -34,7 +32,7 @@ namespace SIGEBI.Application.Mappers
                 FechaVencimiento = dto.FechaVencimiento,
                 Activo = dto.Activo,
 
-                
+
                 Detalles = dto.Detalles != null
                     ? dto.Detalles.Select(d => d.ToEntity()).ToList()
                     : new List<DetallePrestamo>()

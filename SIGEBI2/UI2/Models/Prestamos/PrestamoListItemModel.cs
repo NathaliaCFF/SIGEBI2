@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace UI2.Models.Prestamos
+﻿namespace UI2.Models.Prestamos
 {
     public class PrestamoListItemModel
     {

@@ -72,13 +72,23 @@ namespace SIGEBI.Application.Services
             if (usuario.Id <= 0)
                 return OperationResult<Usuario>.Fail("Debe especificar un ID válido.");
 
-            // CU-06: Validar existencia previa del usuario
             var existente = await _usuarioRepository.GetByIdAsync(usuario.Id);
             if (existente.Data == null)
                 return OperationResult<Usuario>.Fail("El usuario no existe.");
 
-            usuario.FechaModificacion = DateTime.UtcNow;
-            return await _usuarioRepository.UpdateAsync(usuario);
+            var entity = existente.Data;
+
+            entity.Nombre = usuario.Nombre;
+            entity.Email = usuario.Email;
+            entity.Rol = usuario.Rol;
+            entity.Activo = usuario.Activo;
+
+            if (!string.IsNullOrWhiteSpace(usuario.Contraseña))
+                entity.Contraseña = BCrypt.Net.BCrypt.HashPassword(usuario.Contraseña);
+
+            entity.FechaModificacion = DateTime.UtcNow;
+
+            return await _usuarioRepository.UpdateAsync(entity);
         }
 
         // ============================================================================

@@ -1,10 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SIGEBI.Application.Interfaces;
 using SIGEBI.Application.Mappers;
-using SIGEBI.Application.DTOs;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SIGEBI.API.Controllers
 {
@@ -47,7 +43,7 @@ namespace SIGEBI.API.Controllers
             if (!result.Success || result.Data == null)
                 return NotFound(result.Message);
 
-            
+
             var prestamosDto = result.Data.Select(p => p.ToDTO()).ToList();
             return Ok(prestamosDto);
         }
@@ -65,7 +61,7 @@ namespace SIGEBI.API.Controllers
         }
     }
 
-    
+
     public class PrestamoRequest
     {
         public int UsuarioId { get; set; }

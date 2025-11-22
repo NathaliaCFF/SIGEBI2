@@ -2,9 +2,6 @@
 using SIGEBI.Domain.Entities;
 using SIGEBI.Domain.Repository;
 using SIGEBI.Shared.Base;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using System.Linq;
 
 namespace SIGEBI.Application.Services
 {

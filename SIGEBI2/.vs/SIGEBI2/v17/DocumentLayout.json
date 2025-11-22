@@ -1,7 +1,38 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{AE937C0A-C73C-4F32-8953-E928273034F1}|UI2\\UI2.csproj|c:\\users\\natha\\desktop\\proyecto ii\\sigebi2\\ui2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE937C0A-C73C-4F32-8953-E928273034F1}|UI2\\UI2.csproj|solutionrelative:ui2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE937C0A-C73C-4F32-8953-E928273034F1}|UI2\\UI2.csproj|c:\\users\\natha\\desktop\\proyecto ii\\sigebi2\\ui2\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{AE937C0A-C73C-4F32-8953-E928273034F1}|UI2\\UI2.csproj|solutionrelative:ui2\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE937C0A-C73C-4F32-8953-E928273034F1}|UI2\\UI2.csproj|c:\\users\\natha\\desktop\\proyecto ii\\sigebi2\\ui2\\views\\libros\\librolistadoform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE937C0A-C73C-4F32-8953-E928273034F1}|UI2\\UI2.csproj|solutionrelative:ui2\\views\\libros\\librolistadoform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE937C0A-C73C-4F32-8953-E928273034F1}|UI2\\UI2.csproj|c:\\users\\natha\\desktop\\proyecto ii\\sigebi2\\ui2\\appconfig\\servicelocator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE937C0A-C73C-4F32-8953-E928273034F1}|UI2\\UI2.csproj|solutionrelative:ui2\\appconfig\\servicelocator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE937C0A-C73C-4F32-8953-E928273034F1}|UI2\\UI2.csproj|c:\\users\\natha\\desktop\\proyecto ii\\sigebi2\\ui2\\adapters\\prestamoadapter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE937C0A-C73C-4F32-8953-E928273034F1}|UI2\\UI2.csproj|solutionrelative:ui2\\adapters\\prestamoadapter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6488438F-14CE-4C88-ACE2-39C9C0D93A3E}|..\\Application\\Application.csproj|c:\\users\\natha\\desktop\\proyecto ii\\application\\services\\prestamoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6488438F-14CE-4C88-ACE2-39C9C0D93A3E}|..\\Application\\Application.csproj|c:\\users\\natha\\desktop\\proyecto ii\\application\\buses\\configurationsistema\\getconfiguracionquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9D95B9B3-55CB-4C74-A40C-7E6060F7E344}|API\\API.csproj|c:\\users\\natha\\desktop\\proyecto ii\\sigebi2\\api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9D95B9B3-55CB-4C74-A40C-7E6060F7E344}|API\\API.csproj|solutionrelative:api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +40,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -22,6 +53,114 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\UI2\\Program.cs",
+              "RelativeDocumentMoniker": "UI2\\Program.cs",
+              "ToolTip": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\UI2\\Program.cs",
+              "RelativeToolTip": "UI2\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T04:08:12.232Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "LibroListadoForm.cs",
+              "DocumentMoniker": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\UI2\\Views\\Libros\\LibroListadoForm.cs",
+              "RelativeDocumentMoniker": "UI2\\Views\\Libros\\LibroListadoForm.cs",
+              "ToolTip": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\UI2\\Views\\Libros\\LibroListadoForm.cs",
+              "RelativeToolTip": "UI2\\Views\\Libros\\LibroListadoForm.cs",
+              "ViewState": "AgIAAIQBAAAAAAAAAAAAAIUBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T04:04:45.55Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PrestamoAdapter.cs",
+              "DocumentMoniker": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\UI2\\Adapters\\PrestamoAdapter.cs",
+              "RelativeDocumentMoniker": "UI2\\Adapters\\PrestamoAdapter.cs",
+              "ToolTip": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\UI2\\Adapters\\PrestamoAdapter.cs",
+              "RelativeToolTip": "UI2\\Adapters\\PrestamoAdapter.cs",
+              "ViewState": "AgIAAK8AAAAAAAAAAAAAAKoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T04:01:01.121Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\API\\Program.cs",
+              "RelativeDocumentMoniker": "API\\Program.cs",
+              "ToolTip": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\API\\Program.cs",
+              "RelativeToolTip": "API\\Program.cs",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAAAGsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T03:54:33.663Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PrestamoService.cs",
+              "DocumentMoniker": "C:\\Users\\natha\\Desktop\\PROYECTO II\\Application\\Services\\PrestamoService.cs",
+              "RelativeDocumentMoniker": "..\\Application\\Services\\PrestamoService.cs",
+              "ToolTip": "C:\\Users\\natha\\Desktop\\PROYECTO II\\Application\\Services\\PrestamoService.cs",
+              "RelativeToolTip": "..\\Application\\Services\\PrestamoService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAALoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T03:19:25.684Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\UI2\\appsettings.json",
+              "RelativeDocumentMoniker": "UI2\\appsettings.json",
+              "ToolTip": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\UI2\\appsettings.json",
+              "RelativeToolTip": "UI2\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-11-22T03:11:35.7Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ServiceLocator.cs",
+              "DocumentMoniker": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\UI2\\AppConfig\\ServiceLocator.cs",
+              "RelativeDocumentMoniker": "UI2\\AppConfig\\ServiceLocator.cs",
+              "ToolTip": "C:\\Users\\natha\\Desktop\\PROYECTO II\\SIGEBI2\\UI2\\AppConfig\\ServiceLocator.cs",
+              "RelativeToolTip": "UI2\\AppConfig\\ServiceLocator.cs",
+              "ViewState": "AgIAAGUAAAAAAAAAAAAAAFcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T02:53:05.935Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "GetConfiguracionQuery.cs",
+              "DocumentMoniker": "C:\\Users\\natha\\Desktop\\PROYECTO II\\Application\\Buses\\ConfigurationSistema\\GetConfiguracionQuery.cs",
+              "RelativeDocumentMoniker": "..\\Application\\Buses\\ConfigurationSistema\\GetConfiguracionQuery.cs",
+              "ToolTip": "C:\\Users\\natha\\Desktop\\PROYECTO II\\Application\\Buses\\ConfigurationSistema\\GetConfiguracionQuery.cs",
+              "RelativeToolTip": "..\\Application\\Buses\\ConfigurationSistema\\GetConfiguracionQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T02:49:48.769Z",
+              "EditorCaption": ""
             }
           ]
         }

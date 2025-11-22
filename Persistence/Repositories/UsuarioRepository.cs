@@ -1,9 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SIGEBI.Persistence.Base;
 using SIGEBI.Domain.Entities;
 using SIGEBI.Domain.Repository;
+using SIGEBI.Persistence.Base;
 using SIGEBI.Persistence.Context;
-using System.Threading.Tasks;
 
 namespace SIGEBI.Persistence.Repositories
 {

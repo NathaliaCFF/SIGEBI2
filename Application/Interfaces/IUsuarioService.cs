@@ -1,8 +1,6 @@
 ﻿using Application.DTOs;
 using Shared;
 using SIGEBI.Domain.Entities;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace SIGEBI.Application.Interfaces
 {

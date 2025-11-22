@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
+﻿using System.ComponentModel;
 using UI2.Models.Usuarios;
 
 namespace UI2.ViewModels.Usuarios

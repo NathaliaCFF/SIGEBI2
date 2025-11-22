@@ -1,8 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using UI2.Adapters;
+﻿using UI2.Adapters;
 using UI2.AppConfig;
 using UI2.Models.Prestamos;
 using UI2.Services;
@@ -83,21 +79,22 @@ namespace UI2.Views.Prestamos
         }
 
         // ======================================================
-        // CONFIGURAR COLUMNAS LISTA DE DETALLES
+        // CONFIGURAR COLUMNAS DETALLES
         // ======================================================
         private void ConfigurarColumnasDetalles()
         {
             lstDetalles.View = View.Details;
             lstDetalles.Columns.Clear();
 
+            lstDetalles.FullRowSelect = true;
+            lstDetalles.HideSelection = false;
+            lstDetalles.MultiSelect = false;
+
             lstDetalles.Columns.Add("Título", 250);
             lstDetalles.Columns.Add("Id libro", 80);
             lstDetalles.Columns.Add("Estado", 150);
         }
 
-        // ======================================================
-        // LOAD FORM
-        // ======================================================
         private void PrestamoListadoForm_Load(object sender, EventArgs e)
         {
             txtUsuarioId.Focus();
@@ -126,8 +123,43 @@ namespace UI2.Views.Prestamos
         }
 
         // ======================================================
-        // CARGAR ACTIVOS
+        // BOTÓN REFRESCAR
         // ======================================================
+        private async void btnRefrescar_Click(object sender, EventArgs e)
+        {
+            if (int.TryParse(txtUsuarioId.Text, out int usuarioId))
+            {
+                var resultado = await _prestamoAdapter.ObtenerPrestamosActivosAsync(usuarioId);
+
+                if (!resultado.Success)
+                {
+                    _viewModel.CargarPrestamos(new List<PrestamoListItemModel>());
+                    lstDetalles.Items.Clear();
+                    lblResumen.Text = "No hay préstamos activos.";
+                    _notificationService.ShowError(resultado.Message);
+                    return;
+                }
+
+                _viewModel.CargarPrestamos(resultado.Data);
+                MostrarDetallesSeleccionados();
+                return;
+            }
+
+            var resultadoV = await _prestamoAdapter.ObtenerPrestamosVencidosAsync();
+
+            if (!resultadoV.Success)
+            {
+                _viewModel.CargarPrestamos(new List<PrestamoListItemModel>());
+                lstDetalles.Items.Clear();
+                lblResumen.Text = "No hay vencidos.";
+                _notificationService.ShowError(resultadoV.Message);
+                return;
+            }
+
+            _viewModel.CargarPrestamos(resultadoV.Data);
+            MostrarDetallesSeleccionados();
+        }
+
         private async Task CargarPrestamosActivosAsync(int usuarioId)
         {
             try
@@ -149,9 +181,6 @@ namespace UI2.Views.Prestamos
             }
         }
 
-        // ======================================================
-        // CARGAR VENCIDOS
-        // ======================================================
         private async Task CargarPrestamosVencidosAsync()
         {
             try
@@ -174,16 +203,13 @@ namespace UI2.Views.Prestamos
         }
 
         // ======================================================
-        // ACTUALIZAR DETALLES AL CAMBIAR SELECCIÓN
+        // MOSTRAR DETALLES
         // ======================================================
         private void gridPrestamos_SelectionChanged(object sender, EventArgs e)
         {
             MostrarDetallesSeleccionados();
         }
 
-        // ======================================================
-        // MOSTRAR DETALLES DEL PRÉSTAMO
-        // ======================================================
         private void MostrarDetallesSeleccionados()
         {
             lstDetalles.Items.Clear();
@@ -219,7 +245,7 @@ namespace UI2.Views.Prestamos
         }
 
         // ======================================================
-        // REGISTRAR NUEVO PRÉSTAMO
+        // REGISTRAR PRÉSTAMO
         // ======================================================
         private async void btnRegistrarPrestamo_Click(object sender, EventArgs e)
         {
@@ -255,5 +281,55 @@ namespace UI2.Views.Prestamos
 
             await CargarPrestamosActivosAsync(usuarioId);
         }
+
+        // ======================================================
+        // DEVOLVER PRÉSTAMO COMPLETO
+        // ======================================================
+        private async void btnDevolverPrestamo_Click(object sender, EventArgs e)
+        {
+            if (gridPrestamos.CurrentRow?.DataBoundItem is not PrestamoListItemModel prestamo)
+            {
+                _notificationService.ShowError("Seleccione un préstamo.");
+                return;
+            }
+
+            if (!prestamo.Activo)
+            {
+                _notificationService.ShowError("Este préstamo ya está cerrado.");
+                return;
+            }
+
+            var librosIds = prestamo.Detalles
+                .Where(x => !x.Devuelto)
+                .Select(x => x.LibroId)
+                .ToList();
+
+            if (librosIds.Count == 0)
+            {
+                _notificationService.ShowInfo("Todos los libros ya fueron devueltos.");
+                return;
+            }
+
+            var result = await _prestamoAdapter.RegistrarDevolucionAsync(prestamo.Id, librosIds);
+
+            if (!result.Success)
+            {
+                _notificationService.ShowError(result.Message);
+                return;
+            }
+
+            _notificationService.ShowInfo("Préstamo devuelto correctamente.");
+
+            await ActualizarVistaDespuesDeDevolucion(prestamo.UsuarioId);
+        }
+
+        private async Task ActualizarVistaDespuesDeDevolucion(int usuarioId)
+        {
+            if (usuarioId > 0)
+                await CargarPrestamosActivosAsync(usuarioId);
+            else
+                await CargarPrestamosVencidosAsync();
+        }
     }
 }
+

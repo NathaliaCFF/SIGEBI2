@@ -8,7 +8,7 @@ namespace SIGEBI.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<Reporte> builder)
         {
-            
+
             builder.HasNoKey();
         }
     }

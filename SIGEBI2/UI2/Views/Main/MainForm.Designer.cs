@@ -13,6 +13,8 @@ namespace UI2.Views.Main
         private Button btnPrestamos = null!;
         private Button btnCerrarSesion = null!;
         private Label lblBienvenida = null!;
+        private Button btnConfiguracion;
+
 
         protected override void Dispose(bool disposing)
         {
@@ -88,6 +90,16 @@ namespace UI2.Views.Main
             btnPrestamos.Text = "Préstamos";
             btnPrestamos.UseVisualStyleBackColor = true;
             btnPrestamos.Click += btnPrestamos_Click;
+
+
+            // BOTÓN CONFIGURACIÓN
+            this.btnConfiguracion = new Button();
+            this.btnConfiguracion.Text = "Configuración";
+            this.btnConfiguracion.Size = new Size(150, 35);
+            this.btnConfiguracion.Location = new Point(15, 250);
+            this.btnConfiguracion.Click += btnConfiguracion_Click;
+            this.Controls.Add(this.btnConfiguracion);
+
             // 
             // btnCerrarSesion
             // 

@@ -1,8 +1,6 @@
-﻿using Application.DTOs;
-using Shared;
+﻿using Shared;
 using SIGEBI.Application.DTOs;
 using SIGEBI.Domain.Entities;
-using System.Net.Http;
 using UI2.Models.Common;
 using UI2.Models.Libros;
 using UI2.Services;
@@ -34,7 +32,7 @@ namespace UI2.Adapters
 
         public async Task<AdapterResult<bool>> EliminarLibroAsync(int id)
         {
-            
+
             var response = await _apiClient.SendAsync<OperationResult<bool>>(
                 HttpMethod.Delete,
                 $"api/libro/{id}",
@@ -48,7 +46,7 @@ namespace UI2.Adapters
                 );
             }
 
-            
+
             if (!response.Data.Success)
             {
                 return AdapterResult<bool>.Fail(
@@ -92,7 +90,7 @@ namespace UI2.Adapters
 
         public async Task<AdapterResult<LibroListItemModel>> ActualizarLibroAsync(int id, SIGEBI.Domain.Entities.Libro libro)
         {
-            
+
             var response = await _apiClient.SendAsync<LibroDTO>(
                 HttpMethod.Put,
                 $"/api/libro/actualizar/{id}",
@@ -106,9 +104,9 @@ namespace UI2.Adapters
                 );
             }
 
-            var dto = response.Data; 
+            var dto = response.Data;
 
-           
+
             var model = new LibroListItemModel
             {
                 Id = dto.Id,

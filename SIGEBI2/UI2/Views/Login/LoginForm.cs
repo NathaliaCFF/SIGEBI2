@@ -1,7 +1,4 @@
-﻿using Application.DTOs;
-using System;
-using System.Windows.Forms;
-using UI2.Adapters;
+﻿using UI2.Adapters;
 using UI2.AppConfig;
 using UI2.Models.Auth;
 using UI2.Services;

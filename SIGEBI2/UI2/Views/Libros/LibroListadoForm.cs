@@ -1,13 +1,8 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using UI2.Adapters;
+﻿using UI2.Adapters;
 using UI2.AppConfig;
 using UI2.Models.Libros;
 using UI2.Services;
 using UI2.ViewModels.Libros;
-using Shared; 
 
 namespace UI2.Views.Libros
 {
@@ -147,9 +142,9 @@ namespace UI2.Views.Libros
             await CargarLibrosAsync();
         }
 
-        // ========================================
+
         //    CREAR MODELO PARA REGISTRO
-        // ========================================
+
         private LibroCreateModel ObtenerModeloCrear()
         {
             return new LibroCreateModel
@@ -163,9 +158,9 @@ namespace UI2.Views.Libros
             };
         }
 
-        // ========================================
+
         //    CREAR MODELO PARA ACTUALIZAR
-        // ========================================
+
         private LibroUpdateModel ObtenerModeloActualizar()
         {
             return new LibroUpdateModel
@@ -182,9 +177,8 @@ namespace UI2.Views.Libros
             };
         }
 
-        // ========================================
+
         //    VALIDACIONES
-        // ========================================
         private bool ValidarCamposLibro()
         {
             if (!_validationService.ValidateRequired(txtTitulo.Text, "título", out var msg))
@@ -218,9 +212,9 @@ namespace UI2.Views.Libros
             return true;
         }
 
-        // ========================================
+
         //    REGISTRAR
-        // ========================================
+
         private async void btnRegistrar_Click(object sender, EventArgs e)
         {
             if (!ValidarCamposLibro())
@@ -262,9 +256,9 @@ namespace UI2.Views.Libros
             }
         }
 
-        // ========================================
+
         //    ACTUALIZAR
-        // ========================================
+
         private async void btnActualizar_Click(object sender, EventArgs e)
         {
             if (!int.TryParse(txtIdLibro.Text, out var id) || id <= 0)
@@ -324,9 +318,9 @@ namespace UI2.Views.Libros
             }
         }
 
-        // ========================================
+
         //    ELIMINAR
-        // ========================================
+
         private async void btnEliminar_Click(object sender, EventArgs e)
         {
             if (!int.TryParse(txtIdLibro.Text, out var id) || id <= 0)
@@ -372,9 +366,9 @@ namespace UI2.Views.Libros
             }
         }
 
-        // ========================================
+
         //    SELECCIÓN DEL GRID
-        // ========================================
+
         private void gridLibros_SelectionChanged(object sender, EventArgs e)
         {
             if (gridLibros.CurrentRow?.DataBoundItem is LibroListItemModel libro)
@@ -391,9 +385,9 @@ namespace UI2.Views.Libros
             }
         }
 
-        // ========================================
+
         //    LIMPIAR FORMULARIO
-        // ========================================
+
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             LimpiarFormulario();

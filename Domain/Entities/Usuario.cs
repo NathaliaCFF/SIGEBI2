@@ -1,5 +1,4 @@
 ﻿using SIGEBI.Shared.Base;
-using System.Collections.Generic;
 
 namespace SIGEBI.Domain.Entities
 {

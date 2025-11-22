@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using UI2.Models.Libros;
 
 namespace UI2.ViewModels.Libros

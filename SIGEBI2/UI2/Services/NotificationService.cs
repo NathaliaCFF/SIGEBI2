@@ -1,6 +1,4 @@
-﻿using System.Windows.Forms;
-
-namespace UI2.Services
+﻿namespace UI2.Services
 {
     public class NotificationService
     {

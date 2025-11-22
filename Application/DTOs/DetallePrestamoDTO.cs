@@ -1,8 +1,4 @@
-﻿using SIGEBI.Application.DTOs;
-using SIGEBI.Domain.Entities;
-using System.Linq;
-
-namespace SIGEBI.Application.DTOs
+﻿namespace SIGEBI.Application.DTOs
 {
     public class DetallePrestamoDTO
     {

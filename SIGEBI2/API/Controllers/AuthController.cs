@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Application.DTOs;
+﻿using Application.DTOs;
+using Microsoft.AspNetCore.Mvc;
 using SIGEBI.Application.Interfaces;
 
 namespace SIGEBI.API.Controllers

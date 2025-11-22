@@ -2,10 +2,6 @@
 using SIGEBI.Domain.Entities;
 using SIGEBI.Domain.Repository;
 using SIGEBI.Shared.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SIGEBI.Application.Services
 {
@@ -28,16 +24,23 @@ namespace SIGEBI.Application.Services
         private readonly ILibroRepository _libroRepo;
         private readonly IDetallePrestamoRepository _detalleRepo;
 
+        // 👉 AGREGADO: dependencia de configuración
+        private readonly IConfiguracionService _configService;
+
         public PrestamoService(
             IPrestamoRepository prestamoRepo,
             IUsuarioRepository usuarioRepo,
             ILibroRepository libroRepo,
-            IDetallePrestamoRepository detalleRepo)
+            IDetallePrestamoRepository detalleRepo,
+            IConfiguracionService configService)
         {
             _prestamoRepo = prestamoRepo;
             _usuarioRepo = usuarioRepo;
             _libroRepo = libroRepo;
             _detalleRepo = detalleRepo;
+
+            // 👉 Guardamos el servicio de configuración
+            _configService = configService;
         }
 
         // ============================================================================
@@ -70,12 +73,20 @@ namespace SIGEBI.Application.Services
                 libros.Add(libro.Data);
             }
 
+            // 👉 OBTENER DURACIÓN DESDE CONFIGURACIÓN (CU-14)
+            var config = await _configService.ObtenerConfiguracionAsync();
+            int dias = config.Success && config.Data != null
+                ? config.Data.DuracionPrestamoDias
+                : 7; // fallback por si no existe config
+
             // CU-09: Crear préstamo principal
             var prestamo = new Prestamo
             {
                 UsuarioId = usuarioId,
                 FechaPrestamo = DateTime.Now,
-                FechaVencimiento = DateTime.Now.AddDays(7) // configurable en módulo Configuración (CU-14)
+
+                // 👉 AHORA ES CONFIGURABLE
+                FechaVencimiento = DateTime.Now.AddDays(dias)
             };
 
             var creado = await _prestamoRepo.AddAsync(prestamo);
@@ -104,9 +115,6 @@ namespace SIGEBI.Application.Services
 
         // ============================================================================
         // CASO DE USO: CU-10 - Registrar devolución
-        // DESCRIPCIÓN: Permite registrar la devolución parcial o total de los libros
-        // asociados a un préstamo, actualizando su estado en DetallePrestamo y
-        // restableciendo la disponibilidad de los libros.
         // ============================================================================
         public async Task<ServiceResult> RegistrarDevolucionAsync(int prestamoId, List<int> librosIds)
         {
@@ -153,8 +161,6 @@ namespace SIGEBI.Application.Services
 
         // ============================================================================
         // CASO DE USO: CU-11 - Consultar préstamos activos por usuario
-        // DESCRIPCIÓN: Permite al usuario autenticado (docente o estudiante)
-        // consultar los préstamos que tiene activos junto con sus detalles.
         // ============================================================================
         public async Task<ServiceResult<IEnumerable<Prestamo>>> ObtenerPrestamosActivosPorUsuarioAsync(int usuarioId)
         {
@@ -167,9 +173,6 @@ namespace SIGEBI.Application.Services
 
         // ============================================================================
         // CASO DE USO: CU-12 - Identificar préstamos vencidos
-        // DESCRIPCIÓN: Permite al Administrador identificar los préstamos cuyo
-        // período de vencimiento ha expirado, mostrando los datos del usuario y
-        // los libros asociados.
         // ============================================================================
         public async Task<ServiceResult<IEnumerable<Prestamo>>> ObtenerPrestamosVencidosAsync()
         {

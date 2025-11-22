@@ -1,5 +1,4 @@
-﻿using System;
-namespace UI2.Models.Usuarios
+﻿namespace UI2.Models.Usuarios
 {
     public class UsuarioListItemModel
     {

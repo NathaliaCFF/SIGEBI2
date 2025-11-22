@@ -1,6 +1,4 @@
-﻿using Application.DTOs;
-using SIGEBI.Application.DTOs;
-using System.Net.Http;
+﻿using SIGEBI.Application.DTOs;
 using UI2.Models.Common;
 using UI2.Models.Prestamos;
 using UI2.Services;
@@ -16,7 +14,9 @@ namespace UI2.Adapters
             _apiClient = apiClient;
         }
 
-]
+
+        // OBTENER TODOS
+
         public async Task<AdapterResult<IList<PrestamoListItemModel>>> ObtenerTodosAsync()
         {
             var response = await _apiClient.SendAsync<List<PrestamoDTO>>(
@@ -34,6 +34,8 @@ namespace UI2.Adapters
         }
 
 
+        // OBTENER POR USUARIO
+
         public async Task<AdapterResult<IList<PrestamoListItemModel>>> ObtenerPorUsuarioAsync(int usuarioId)
         {
             var response = await _apiClient.SendAsync<List<PrestamoDTO>>(
@@ -49,6 +51,8 @@ namespace UI2.Adapters
                 "Préstamos del usuario cargados."
             );
         }
+
+        // OBTENER ACTIVOS
 
         public async Task<AdapterResult<IList<PrestamoListItemModel>>> ObtenerPrestamosActivosAsync(int usuarioId)
         {
@@ -66,6 +70,7 @@ namespace UI2.Adapters
             );
         }
 
+        // OBTENER VENCIDOS
 
         public async Task<AdapterResult<IList<PrestamoListItemModel>>> ObtenerPrestamosVencidosAsync()
         {
@@ -83,6 +88,9 @@ namespace UI2.Adapters
             );
         }
 
+
+        // OBTENER DETALLES DE UN PRÉSTAMO
+
         public async Task<AdapterResult<IList<PrestamoDetalleItemModel>>> ObtenerDetallesAsync(int prestamoId)
         {
             var response = await _apiClient.SendAsync<List<DetallePrestamoDTO>>(
@@ -95,6 +103,7 @@ namespace UI2.Adapters
 
             var detalles = response.Data.Select(d => new PrestamoDetalleItemModel
             {
+                DetalleId = d.Id,
                 LibroId = d.LibroId,
                 TituloLibro = d.TituloLibro,
                 Devuelto = d.Devuelto,
@@ -107,6 +116,8 @@ namespace UI2.Adapters
             );
         }
 
+
+        // REGISTRAR NUEVO PRÉSTAMO
 
         public async Task<AdapterResult<PrestamoListItemModel>> RegistrarPrestamoAsync(PrestamoCreateModel model)
         {
@@ -126,6 +137,8 @@ namespace UI2.Adapters
         }
 
 
+        // DEVOLVER PRÉSTAMO COMPLETO
+
         public async Task<AdapterResult<string>> RegistrarDevolucionAsync(int prestamoId, List<int> librosIds)
         {
             var response = await _apiClient.SendAsync<string>(
@@ -140,6 +153,8 @@ namespace UI2.Adapters
         }
 
 
+        // DEVOLVER SOLO UN LIBRO (DETALLE)
+
         public async Task<AdapterResult<string>> RegistrarDevolucionDetalleAsync(int detalleId)
         {
             var response = await _apiClient.SendAsync<string>(
@@ -152,6 +167,7 @@ namespace UI2.Adapters
                 : AdapterResult<string>.Fail("No se pudo devolver el libro.");
         }
 
+        // MAPEO GENERAL
 
         private PrestamoListItemModel Mapear(PrestamoDTO p)
         {
@@ -163,13 +179,14 @@ namespace UI2.Adapters
                 FechaPrestamo = p.FechaPrestamo,
                 FechaVencimiento = p.FechaVencimiento,
                 Activo = p.Activo,
+
                 Detalles = p.Detalles.Select(d => new PrestamoDetalleItemModel
                 {
+                    DetalleId = d.Id,            // CORREGIDO
                     LibroId = d.LibroId,
                     TituloLibro = d.TituloLibro,
                     Devuelto = d.Devuelto,
                     FechaDevolucion = d.FechaDevolucion
-
                 }).ToList()
             };
         }

@@ -1,5 +1,4 @@
-﻿using System.Net.Http;
-using Shared;
+﻿using Shared;
 using SIGEBI.Domain.Entities;
 using UI2.Models.Common;
 using UI2.Models.Usuarios;

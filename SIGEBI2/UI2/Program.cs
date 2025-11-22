@@ -1,8 +1,5 @@
-using System;
-using System.Windows.Forms;
 using UI2.AppConfig;
 using UI2.Views.Login;
-using static System.Windows.Forms.DataFormats;
 
 namespace UI2
 {

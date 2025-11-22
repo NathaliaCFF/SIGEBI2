@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Application.DTOs.Usuario
+﻿namespace Application.DTOs.Usuario
 {
     public class UsuarioDto
     {

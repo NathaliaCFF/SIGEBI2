@@ -1,7 +1,6 @@
 ﻿
-using System.Linq.Expressions;
-using System.Collections.Generic;
 using Shared;
+using System.Linq.Expressions;
 
 namespace SIGEBI.Shared.Base
 {

@@ -8,7 +8,7 @@ namespace SIGEBI.Infrastructure.Dependencies
     {
         public static void AddUsuarioDependencies(this IServiceCollection services)
         {
-            services.AddScoped<IAuthService, AuthService>(); 
+            services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<IUsuarioService, UsuarioService>();
         }
     }

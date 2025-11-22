@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SIGEBI.Application.Interfaces;
 using SIGEBI.Application.Mappers;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SIGEBI.API.Controllers
 {

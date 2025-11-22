@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace SIGEBI.Application.DTOs
+﻿namespace SIGEBI.Application.DTOs
 {
     public class PrestamoDTO
     {
