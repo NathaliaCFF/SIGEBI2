@@ -1,5 +1,8 @@
 ﻿namespace UI2.Models.Common
 {
+
+    // Clase base
+
     public class AdapterResult
     {
         public bool Success { get; }
@@ -8,12 +11,17 @@
         protected AdapterResult(bool success, string message)
         {
             Success = success;
-            Message = message;
+            Message = message ?? ""; // Null-safe
         }
 
-        public static AdapterResult Ok(string message = "") => new(true, message);
-        public static AdapterResult Fail(string message) => new(false, message);
+        public static AdapterResult Ok(string message = "") =>
+            new(true, message ?? "");
+
+        public static AdapterResult Fail(string message) =>
+            new(false, message ?? "Ha ocurrido un error.");
     }
+
+    // Clase genérica
 
     public class AdapterResult<T> : AdapterResult
     {
@@ -25,7 +33,10 @@
             Data = data;
         }
 
-        public static AdapterResult<T> Ok(T data, string message = "") => new(true, data, message);
-        public static AdapterResult<T> Fail(string message) => new(false, default, message);
+        public static AdapterResult<T> Ok(T data, string message = "") =>
+            new(true, data, message ?? "");
+
+        public new static AdapterResult<T> Fail(string message) =>
+            new(false, default, message ?? "Ha ocurrido un error.");
     }
 }

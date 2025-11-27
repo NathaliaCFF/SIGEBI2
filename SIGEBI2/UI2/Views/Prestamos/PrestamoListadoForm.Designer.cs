@@ -35,17 +35,16 @@ namespace UI2.Views.Prestamos
         {
             components = new System.ComponentModel.Container();
 
-            // ---------------------------------------------------------
+
             // FORM PRINCIPAL
-            // ---------------------------------------------------------
+
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1250, 720);
             Text = "Gestión de Préstamos";
 
-            // ---------------------------------------------------------
             // BUSCAR POR USUARIO
-            // ---------------------------------------------------------
+
             txtUsuarioId = new TextBox();
             txtUsuarioId.Location = new Point(230, 30);
             txtUsuarioId.Size = new Size(150, 28);
@@ -69,9 +68,9 @@ namespace UI2.Views.Prestamos
             btnRefrescar.Text = "Refrescar";
             btnRefrescar.Click += btnRefrescar_Click;
 
-            // ---------------------------------------------------------
+
             // GRID PRINCIPAL
-            // ---------------------------------------------------------
+
             gridPrestamos = new DataGridView();
             gridPrestamos.Location = new Point(230, 80);
             gridPrestamos.Size = new Size(1000, 300);
@@ -81,27 +80,26 @@ namespace UI2.Views.Prestamos
             gridPrestamos.AllowUserToDeleteRows = false;
             gridPrestamos.SelectionChanged += gridPrestamos_SelectionChanged;
 
-            // ---------------------------------------------------------
-            // BOTÓN DEVOLVER PRÉSTAMO (ENCIMA DEL LISTVIEW)
-            // ---------------------------------------------------------
+            // BOTÓN DEVOLVER PRÉSTAMO 
+
             btnDevolverPrestamo = new Button();
             btnDevolverPrestamo.Text = "Devolver préstamo";
             btnDevolverPrestamo.Size = new Size(180, 32);
             btnDevolverPrestamo.Location = new Point(230, 390);
             btnDevolverPrestamo.Click += btnDevolverPrestamo_Click;
 
-            // ---------------------------------------------------------
+
             // RESUMEN
-            // ---------------------------------------------------------
+
             lblResumen = new Label();
             lblResumen.Location = new Point(230, 430);
             lblResumen.Size = new Size(800, 30);
             lblResumen.Font = new Font("Segoe UI", 10);
             lblResumen.Text = "Seleccione un préstamo para ver sus detalles.";
 
-            // ---------------------------------------------------------
+
             // LISTA DE DETALLES
-            // ---------------------------------------------------------
+
             lstDetalles = new ListView();
             lstDetalles.Location = new Point(230, 470);
             lstDetalles.Size = new Size(1000, 180);
@@ -109,9 +107,9 @@ namespace UI2.Views.Prestamos
             lstDetalles.FullRowSelect = true;
             lstDetalles.GridLines = true;
 
-            // ---------------------------------------------------------
+
             // SECCIÓN REGISTRAR PRÉSTAMO
-            // ---------------------------------------------------------
+
             lblRegistrarTitulo = new Label();
             lblRegistrarTitulo.Text = "Registrar préstamo";
             lblRegistrarTitulo.Font = new Font("Segoe UI", 11, FontStyle.Bold);
@@ -134,9 +132,9 @@ namespace UI2.Views.Prestamos
             btnRegistrarPrestamo.Text = "Registrar";
             btnRegistrarPrestamo.Click += btnRegistrarPrestamo_Click;
 
-            // ---------------------------------------------------------
+
             // AGREGAR TODO AL FORM
-            // ---------------------------------------------------------
+
             Controls.Add(txtUsuarioId);
             Controls.Add(btnBuscarPorUsuario);
             Controls.Add(btnVerVencidos);

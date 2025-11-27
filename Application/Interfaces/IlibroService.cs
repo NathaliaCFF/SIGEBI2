@@ -18,6 +18,10 @@ namespace SIGEBI.Application.Interfaces
         Task<ServiceResult> DesactivarAsync(int id);
 
         Task<ServiceResult<Libro>> ObtenerPorIdAsync(int id);
+
         Task<ServiceResult<IEnumerable<Libro>>> ListarAsync();
+
+        Task<ServiceResult> ActivarAsync(int id);
     }
 }
+

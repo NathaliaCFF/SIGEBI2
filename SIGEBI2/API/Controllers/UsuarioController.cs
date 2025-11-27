@@ -6,7 +6,7 @@ using System.Security.Claims;
 
 namespace SIGEBI.API.Controllers
 {
-    [Authorize] // Todos los métodos requieren autenticación
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class UsuarioController : ControllerBase
@@ -18,7 +18,9 @@ namespace SIGEBI.API.Controllers
             _usuarioService = usuarioService;
         }
 
-        // Método auxiliar para obtener el usuario autenticado
+
+        // Método auxiliar para obtener usuario autenticado
+
         private Usuario ObtenerUsuarioActual()
         {
             return new Usuario
@@ -30,44 +32,128 @@ namespace SIGEBI.API.Controllers
             };
         }
 
+
+        // Obtener todos los usuarios (solo Administrador)
+
         [Authorize(Roles = "Administrador")]
         [HttpGet]
         public async Task<IActionResult> ObtenerTodos()
         {
-            var result = await _usuarioService.ObtenerTodosAsync(ObtenerUsuarioActual());
-            return Ok(result);
+            try
+            {
+                var result = await _usuarioService.ObtenerTodosAsync(ObtenerUsuarioActual());
+
+                return Ok(new
+                {
+                    Success = result.Success,
+                    Message = result.Message,
+                    Data = result.Data
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Success = false, Message = ex.Message });
+            }
         }
+
+
+        // Crear usuario
 
         [Authorize(Roles = "Administrador")]
         [HttpPost]
         public async Task<IActionResult> Crear([FromBody] Usuario usuario)
         {
-            var result = await _usuarioService.CrearAsync(usuario, ObtenerUsuarioActual());
-            return Ok(result);
+            try
+            {
+                if (usuario == null)
+                    return BadRequest(new { Success = false, Message = "El cuerpo de la solicitud es inválido." });
+
+                var result = await _usuarioService.CrearAsync(usuario, ObtenerUsuarioActual());
+
+                return Ok(new
+                {
+                    Success = result.Success,
+                    Message = result.Message,
+                    Data = result.Data
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Success = false, Message = ex.Message });
+            }
         }
+
+
+        // Actualizar usuario
 
         [Authorize(Roles = "Administrador")]
         [HttpPut]
         public async Task<IActionResult> Actualizar([FromBody] Usuario usuario)
         {
-            var result = await _usuarioService.ActualizarAsync(usuario, ObtenerUsuarioActual());
-            return Ok(result);
+            try
+            {
+                if (usuario == null)
+                    return BadRequest(new { Success = false, Message = "El cuerpo de la solicitud es inválido." });
+
+                var result = await _usuarioService.ActualizarAsync(usuario, ObtenerUsuarioActual());
+
+                return Ok(new
+                {
+                    Success = result.Success,
+                    Message = result.Message,
+                    Data = result.Data
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Success = false, Message = ex.Message });
+            }
         }
+
+
+        // Activar usuario
 
         [Authorize(Roles = "Administrador")]
         [HttpPatch("{id}/activar")]
         public async Task<IActionResult> Activar(int id)
         {
-            var result = await _usuarioService.ActivarAsync(id, ObtenerUsuarioActual());
-            return Ok(result);
+            try
+            {
+                var result = await _usuarioService.ActivarAsync(id, ObtenerUsuarioActual());
+
+                return Ok(new
+                {
+                    Success = result.Success,
+                    Message = result.Message
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Success = false, Message = ex.Message });
+            }
         }
+
+
+        // Desactivar usuario
 
         [Authorize(Roles = "Administrador")]
         [HttpPatch("{id}/desactivar")]
         public async Task<IActionResult> Desactivar(int id)
         {
-            var result = await _usuarioService.DesactivarAsync(id, ObtenerUsuarioActual());
-            return Ok(result);
+            try
+            {
+                var result = await _usuarioService.DesactivarAsync(id, ObtenerUsuarioActual());
+
+                return Ok(new
+                {
+                    Success = result.Success,
+                    Message = result.Message
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Success = false, Message = ex.Message });
+            }
         }
     }
 }

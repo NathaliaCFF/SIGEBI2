@@ -1,14 +1,14 @@
-﻿using UI2.Adapters;
-using UI2.AppConfig;
+﻿using UI2.AppConfig;
 using UI2.Models.Libros;
 using UI2.Services;
+using UI2.Services.Interfaces;
 using UI2.ViewModels.Libros;
 
 namespace UI2.Views.Libros
 {
     public partial class LibroListadoForm : Form
     {
-        private readonly LibroAdapter _libroAdapter;
+        private readonly ILibroApiService _libroService;
         private readonly NotificationService _notificationService;
         private readonly ValidationService _validationService;
         private readonly LibroListadoViewModel _viewModel = new();
@@ -17,75 +17,25 @@ namespace UI2.Views.Libros
         {
             InitializeComponent();
 
-            _libroAdapter = ServiceLocator.LibroAdapter;
+            _libroService = ServiceLocator.LibroApiService;
             _notificationService = ServiceLocator.NotificationService;
             _validationService = ServiceLocator.ValidationService;
 
             gridLibros.AutoGenerateColumns = false;
 
-            // COLUMNAS DEL GRID
-            gridLibros.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                DataPropertyName = "Id",
-                HeaderText = "Id",
-                Width = 50
-            });
+            // EVENTO NUEVO PARA COLORES SEGÚN ESTADO
+            gridLibros.CellFormatting += gridLibros_CellFormatting;
 
-            gridLibros.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                DataPropertyName = "Titulo",
-                HeaderText = "Título",
-                Width = 150
-            });
-
-            gridLibros.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                DataPropertyName = "Autor",
-                HeaderText = "Autor",
-                Width = 150
-            });
-
-            gridLibros.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                DataPropertyName = "ISBN",
-                HeaderText = "ISBN",
-                Width = 120
-            });
-
-            gridLibros.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                DataPropertyName = "Editorial",
-                HeaderText = "Editorial",
-                Width = 120
-            });
-
-            gridLibros.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                DataPropertyName = "AnioPublicacion",
-                HeaderText = "Año",
-                Width = 70
-            });
-
-            gridLibros.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                DataPropertyName = "Categoria",
-                HeaderText = "Categoría",
-                Width = 120
-            });
-
-            gridLibros.Columns.Add(new DataGridViewCheckBoxColumn
-            {
-                DataPropertyName = "Disponible",
-                HeaderText = "Disponible",
-                Width = 70
-            });
-
-            gridLibros.Columns.Add(new DataGridViewCheckBoxColumn
-            {
-                DataPropertyName = "Activo",
-                HeaderText = "Activo",
-                Width = 60
-            });
+            // --- COLUMNAS ---
+            gridLibros.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Id", HeaderText = "Id", Width = 50 });
+            gridLibros.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Titulo", HeaderText = "Título", Width = 150 });
+            gridLibros.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Autor", HeaderText = "Autor", Width = 150 });
+            gridLibros.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "ISBN", HeaderText = "ISBN", Width = 120 });
+            gridLibros.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Editorial", HeaderText = "Editorial", Width = 120 });
+            gridLibros.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "AnioPublicacion", HeaderText = "Año", Width = 70 });
+            gridLibros.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Categoria", HeaderText = "Categoría", Width = 120 });
+            gridLibros.Columns.Add(new DataGridViewCheckBoxColumn { DataPropertyName = "Disponible", HeaderText = "Disponible", Width = 70 });
+            gridLibros.Columns.Add(new DataGridViewCheckBoxColumn { DataPropertyName = "Activo", HeaderText = "Activo", Width = 60 });
 
             gridLibros.DataSource = _viewModel.Libros;
         }
@@ -99,7 +49,7 @@ namespace UI2.Views.Libros
         {
             try
             {
-                var resultado = await _libroAdapter.ListarLibrosAsync();
+                var resultado = await _libroService.ListarLibrosAsync();
 
                 if (!resultado.Success || resultado.Data == null)
                 {
@@ -115,13 +65,14 @@ namespace UI2.Views.Libros
             }
         }
 
+        // BUSCAR
         private async void btnBuscar_Click(object sender, EventArgs e)
         {
             _viewModel.Filtro.Criterio = txtBuscar.Text.Trim();
 
             try
             {
-                var resultado = await _libroAdapter.BuscarLibrosAsync(_viewModel.Filtro.Criterio);
+                var resultado = await _libroService.BuscarLibrosAsync(_viewModel.Filtro.Criterio);
 
                 if (!resultado.Success || resultado.Data == null)
                 {
@@ -143,42 +94,104 @@ namespace UI2.Views.Libros
         }
 
 
-        //    CREAR MODELO PARA REGISTRO
+        // ACTIVAR LIBRO  
 
-        private LibroCreateModel ObtenerModeloCrear()
+        private async void btnActivar_Click(object sender, EventArgs e)
         {
-            return new LibroCreateModel
+            if (!int.TryParse(txtIdLibro.Text, out var id) || id <= 0)
             {
-                Titulo = txtTitulo.Text.Trim(),
-                Autor = txtAutor.Text.Trim(),
-                ISBN = txtIsbn.Text.Trim(),
-                Editorial = txtEditorial.Text.Trim(),
-                AnioPublicacion = int.TryParse(txtAnio.Text, out var anio) ? anio : 0,
-                Categoria = txtCategoria.Text.Trim()
-            };
+                _notificationService.ShowError("Seleccione un libro para activar.");
+                return;
+            }
+
+            try
+            {
+                var confirmar = MessageBox.Show(
+                    "¿Desea activar este libro?",
+                    "Confirmar activación",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                );
+
+                if (confirmar != DialogResult.Yes)
+                    return;
+
+                var resultado = await _libroService.ActivarLibroAsync(id);
+
+                if (!resultado.Success)
+                {
+                    _notificationService.ShowError(resultado.Message);
+                    return;
+                }
+
+                _notificationService.ShowInfo("Libro activado correctamente.");
+
+                await CargarLibrosAsync();
+                SeleccionarLibroEnGrid(id);
+            }
+            catch (Exception ex)
+            {
+                _notificationService.ShowError($"Error al activar: {ex.Message}");
+            }
         }
 
 
-        //    CREAR MODELO PARA ACTUALIZAR
+        // SOMBREADO DEL GRID POR ESTADO 
 
-        private LibroUpdateModel ObtenerModeloActualizar()
+        private void gridLibros_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            return new LibroUpdateModel
+            if (gridLibros.Rows[e.RowIndex].DataBoundItem is LibroListItemModel libro)
             {
-                Id = int.TryParse(txtIdLibro.Text, out var id) ? id : 0,
-                Titulo = txtTitulo.Text.Trim(),
-                Autor = txtAutor.Text.Trim(),
-                ISBN = txtIsbn.Text.Trim(),
-                Editorial = txtEditorial.Text.Trim(),
-                AnioPublicacion = int.TryParse(txtAnio.Text, out var anio) ? anio : 0,
-                Categoria = txtCategoria.Text.Trim(),
-                Disponible = chkDisponible.Checked,
-                Activo = chkActivoLibro.Checked
-            };
+                if (!libro.Activo)
+                    gridLibros.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.MistyRose;
+                else if (!libro.Disponible)
+                    gridLibros.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightYellow;
+                else
+                    gridLibros.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
+            }
+        }
+
+        // SELECCIONAR EL LIBRO EN EL GRID DESPUÉS DE ACTIVAR
+
+        private void SeleccionarLibroEnGrid(int id)
+        {
+            foreach (DataGridViewRow row in gridLibros.Rows)
+            {
+                if (row.DataBoundItem is LibroListItemModel libro && libro.Id == id)
+                {
+                    row.Selected = true;
+                    gridLibros.CurrentCell = row.Cells[0];
+                    break;
+                }
+            }
         }
 
 
-        //    VALIDACIONES
+        // REGISTRAR LIBRO
+
+        private LibroCreateModel ObtenerModeloCrear() => new()
+        {
+            Titulo = txtTitulo.Text.Trim(),
+            Autor = txtAutor.Text.Trim(),
+            ISBN = txtIsbn.Text.Trim(),
+            Editorial = txtEditorial.Text.Trim(),
+            AnioPublicacion = int.TryParse(txtAnio.Text, out var anio) ? anio : 0,
+            Categoria = txtCategoria.Text.Trim()
+        };
+
+        private LibroUpdateModel ObtenerModeloActualizar() => new()
+        {
+            Id = int.TryParse(txtIdLibro.Text, out var id) ? id : 0,
+            Titulo = txtTitulo.Text.Trim(),
+            Autor = txtAutor.Text.Trim(),
+            ISBN = txtIsbn.Text.Trim(),
+            Editorial = txtEditorial.Text.Trim(),
+            AnioPublicacion = int.TryParse(txtAnio.Text, out var anio) ? anio : 0,
+            Categoria = txtCategoria.Text.Trim(),
+            Disponible = chkDisponible.Checked,
+            Activo = chkActivoLibro.Checked
+        };
+
         private bool ValidarCamposLibro()
         {
             if (!_validationService.ValidateRequired(txtTitulo.Text, "título", out var msg))
@@ -212,8 +225,7 @@ namespace UI2.Views.Libros
             return true;
         }
 
-
-        //    REGISTRAR
+        // REGISTRAR
 
         private async void btnRegistrar_Click(object sender, EventArgs e)
         {
@@ -236,7 +248,7 @@ namespace UI2.Views.Libros
 
             try
             {
-                var resultado = await _libroAdapter.CrearLibroAsync(libro);
+                var resultado = await _libroService.CrearLibroAsync(libro);
 
                 if (!resultado.Success || resultado.Data == null)
                 {
@@ -257,7 +269,7 @@ namespace UI2.Views.Libros
         }
 
 
-        //    ACTUALIZAR
+        // ACTUALIZAR
 
         private async void btnActualizar_Click(object sender, EventArgs e)
         {
@@ -287,7 +299,7 @@ namespace UI2.Views.Libros
 
             try
             {
-                var resultado = await _libroAdapter.ActualizarLibroAsync(id, libro);
+                var resultado = await _libroService.ActualizarLibroAsync(id, libro);
 
                 if (!resultado.Success || resultado.Data == null)
                 {
@@ -319,7 +331,7 @@ namespace UI2.Views.Libros
         }
 
 
-        //    ELIMINAR
+        // ELIMINAR
 
         private async void btnEliminar_Click(object sender, EventArgs e)
         {
@@ -341,7 +353,7 @@ namespace UI2.Views.Libros
 
             try
             {
-                var resultado = await _libroAdapter.EliminarLibroAsync(id);
+                var resultado = await _libroService.EliminarLibroAsync(id);
 
                 if (!resultado.Success)
                 {
@@ -367,7 +379,7 @@ namespace UI2.Views.Libros
         }
 
 
-        //    SELECCIÓN DEL GRID
+        // SELECCIÓN DEL GRID
 
         private void gridLibros_SelectionChanged(object sender, EventArgs e)
         {
@@ -385,8 +397,7 @@ namespace UI2.Views.Libros
             }
         }
 
-
-        //    LIMPIAR FORMULARIO
+        // LIMPIAR
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
@@ -409,3 +420,4 @@ namespace UI2.Views.Libros
         }
     }
 }
+

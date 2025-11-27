@@ -1,57 +1,42 @@
-﻿using SIGEBI.Application.Buses.Configuration;
-using UI2.AppConfig;
+﻿using UI2.AppConfig;
+using UI2.Services.Interfaces;
 
 namespace UI2.Views.Configuracion
 {
     public partial class ConfiguracionForm : Form
     {
-        private readonly GetConfiguracionHandler _getHandler;
-        private readonly UpdateConfiguracionHandler _updateHandler;
+        private readonly IConfigurationApiService _configService;
 
         public ConfiguracionForm()
         {
             InitializeComponent();
-
-            _getHandler = ServiceLocator.GetConfiguracionHandler;
-            _updateHandler = ServiceLocator.UpdateConfiguracionHandler;
-
+            _configService = ServiceLocator.ConfigurationApiService;
         }
 
         private async void ConfiguracionForm_Load(object sender, EventArgs e)
         {
-            var result = await _getHandler.Handle();
+            var result = await _configService.ObtenerConfiguracionAsync();
 
             if (!result.Success || result.Data == null)
             {
-                MessageBox.Show("No fue posible cargar la configuración.", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(result.Message ?? "No fue posible cargar la configuración.");
                 return;
             }
 
-            txtDias.Text = result.Data.DuracionPrestamoDias.ToString();
+            txtDias.Text = result.Data.Valor;
         }
 
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
             if (!int.TryParse(txtDias.Text, out int dias) || dias <= 0)
             {
-                MessageBox.Show("Ingrese un número válido mayor que 0.", "Advertencia",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Ingrese un valor válido.");
                 return;
             }
 
-            var cmd = new UpdateConfiguracionCommand { Dias = dias };
-            var result = await _updateHandler.Handle(cmd);
+            var result = await _configService.ActualizarDiasAsync(dias);
 
-            if (!result.Success)
-            {
-                MessageBox.Show(result.Message, "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            MessageBox.Show("Configuración actualizada correctamente.", "Éxito",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(result.Message);
         }
     }
 }

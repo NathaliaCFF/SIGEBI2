@@ -2,8 +2,9 @@
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Net.Http.Headers;
-using UI2.Adapters;
 using UI2.Services;
+using UI2.Services.Implementations;
+using UI2.Services.Interfaces;
 
 namespace UI2.AppConfig
 {
@@ -19,6 +20,9 @@ namespace UI2.AppConfig
 
             var services = new ServiceCollection();
 
+
+            // Configuración general (appsettings.json)
+
             _configuration = new ConfigurationBuilder()
                 .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
                 .AddJsonFile("appsettings.json")
@@ -26,28 +30,43 @@ namespace UI2.AppConfig
 
             services.AddSingleton<IConfiguration>(_configuration);
 
+
+            // Servicios de utilidad
+
             services.AddSingleton<SessionService>();
             services.AddSingleton<ValidationService>();
             services.AddSingleton<NotificationService>();
 
+
+            // Servicios API 
+
+            services.AddTransient<IAuthApiService, AuthApiService>();
+            services.AddTransient<IUsuarioApiService, UsuarioApiService>();
+            services.AddTransient<ILibroApiService, LibroApiService>();
+            services.AddTransient<IPrestamoApiService, PrestamoApiService>();
+            services.AddTransient<IConfigurationApiService, ConfigurationApiService>();
+
+            // HttpClient utilizado por ApiClient
+
             services.AddHttpClient<ApiClient>((sp, client) =>
             {
                 var config = sp.GetRequiredService<IConfiguration>();
-                var baseUrl = config.GetValue<string>("ApiSettings:BaseUrl");
+
+                var baseUrl = config.GetValue<string>("ApiSettings:BaseUrl")
+                             ?? throw new InvalidOperationException("ApiSettings:BaseUrl no está configurado.");
+
                 client.BaseAddress = new Uri(baseUrl);
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(
                     new MediaTypeWithQualityHeaderValue("application/json"));
             });
 
-            services.AddTransient<AuthAdapter>();
-            services.AddTransient<UsuarioAdapter>();
-            services.AddTransient<LibroAdapter>();
-            services.AddTransient<PrestamoAdapter>();
-            services.AddTransient<ConfigurationAdapter>();
-
+            // Construcción final del contenedor de dependencias
             _provider = services.BuildServiceProvider();
         }
+
+
+        // Métodos para obtener servicios registrados
 
         public static T GetRequired<T>() where T : notnull =>
             _provider!.GetRequiredService<T>();
@@ -58,10 +77,11 @@ namespace UI2.AppConfig
         public static ValidationService ValidationService => GetRequired<ValidationService>();
         public static NotificationService NotificationService => GetRequired<NotificationService>();
 
-        public static AuthAdapter AuthAdapter => GetRequired<AuthAdapter>();
-        public static UsuarioAdapter UsuarioAdapter => GetRequired<UsuarioAdapter>();
-        public static LibroAdapter LibroAdapter => GetRequired<LibroAdapter>();
-        public static PrestamoAdapter PrestamoAdapter => GetRequired<PrestamoAdapter>();
-        public static ConfigurationAdapter ConfigurationAdapter => GetRequired<ConfigurationAdapter>();
+
+        public static IAuthApiService AuthApiService => GetRequired<IAuthApiService>();
+        public static IUsuarioApiService UsuarioApiService => GetRequired<IUsuarioApiService>();
+        public static ILibroApiService LibroApiService => GetRequired<ILibroApiService>();
+        public static IPrestamoApiService PrestamoApiService => GetRequired<IPrestamoApiService>();
+        public static IConfigurationApiService ConfigurationApiService => GetRequired<IConfigurationApiService>();
     }
 }

@@ -15,22 +15,58 @@ namespace SIGEBI.API.Controllers
             _service = service;
         }
 
+
+        /// Obtiene la configuración actual del sistema (días de préstamo, etc.)
+
         [HttpGet]
         public async Task<IActionResult> ObtenerConfiguracion()
         {
-            var result = await _service.ObtenerConfiguracionAsync();
-            if (!result.Success || result.Data == null)
-                return NotFound(result.Message);
+            try
+            {
+                var result = await _service.ObtenerConfiguracionAsync();
 
-            return Ok(result.Data.ToDTO());
+                if (!result.Success || result.Data == null)
+                    return NotFound(new { Success = false, Message = result.Message });
+
+                return Ok(new
+                {
+                    Success = true,
+                    Message = "Configuración cargada correctamente.",
+                    Data = result.Data.ToDTO()
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Success = false, Message = ex.Message });
+            }
         }
 
+
+        /// Actualiza la duración máxima del préstamo en días.
 
         [HttpPut("duracion/{dias:int}")]
         public async Task<IActionResult> ActualizarDuracionPrestamo(int dias)
         {
-            var result = await _service.ActualizarDuracionPrestamoDiasAsync(dias);
-            return result.Success ? Ok(result.Message) : BadRequest(result.Message);
+            try
+            {
+                if (dias <= 0)
+                    return BadRequest(new { Success = false, Message = "Los días deben ser mayores que cero." });
+
+                var result = await _service.ActualizarDuracionPrestamoDiasAsync(dias);
+
+                if (!result.Success)
+                    return BadRequest(new { Success = false, Message = result.Message });
+
+                return Ok(new
+                {
+                    Success = true,
+                    Message = "Duración del préstamo actualizada correctamente."
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Success = false, Message = ex.Message });
+            }
         }
     }
 }

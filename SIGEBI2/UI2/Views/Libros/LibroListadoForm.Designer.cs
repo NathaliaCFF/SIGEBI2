@@ -27,6 +27,7 @@ namespace UI2.Views.Libros
         private Button btnRegistrar = null!;
         private Button btnActualizar = null!;
         private Button btnEliminar = null!;
+        private Button btnActivar = null!;  
         private Button btnLimpiar = null!;
 
         private Label lblId = null!;
@@ -79,6 +80,7 @@ namespace UI2.Views.Libros
             btnRegistrar = new Button();
             btnActualizar = new Button();
             btnEliminar = new Button();
+            btnActivar = new Button();   
             btnLimpiar = new Button();
 
             ((System.ComponentModel.ISupportInitialize)gridLibros).BeginInit();
@@ -94,6 +96,9 @@ namespace UI2.Views.Libros
             gridLibros.Size = new Size(650, 600);
             gridLibros.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             gridLibros.SelectionChanged += gridLibros_SelectionChanged;
+
+            // sombreado según estado
+            gridLibros.CellFormatting += gridLibros_CellFormatting;
 
             // ======================== BUSCAR ==========================
             txtBuscar.Location = new Point(27, 32);
@@ -113,7 +118,7 @@ namespace UI2.Views.Libros
             // ======================== GROUPBOX ==========================
             grpLibro.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             grpLibro.Location = new Point(700, 20);
-            grpLibro.Size = new Size(350, 700);   // MÁS GRANDE
+            grpLibro.Size = new Size(350, 720);
             grpLibro.Text = "Gestión de libros";
 
             // ======================== CAMPOS ==========================
@@ -177,7 +182,14 @@ namespace UI2.Views.Libros
             btnEliminar.ForeColor = Color.White;
             btnEliminar.Click += btnEliminar_Click;
 
-            btnLimpiar.Location = new Point(18, 560);
+            // ⭐ NUEVO BOTÓN ACTIVAR
+            btnActivar.Location = new Point(18, 560);
+            btnActivar.Size = new Size(314, 40);
+            btnActivar.Text = "Activar libro";
+            btnActivar.BackColor = Color.LightGreen;
+            btnActivar.Click += btnActivar_Click;
+
+            btnLimpiar.Location = new Point(18, 610);
             btnLimpiar.Size = new Size(314, 40);
             btnLimpiar.Text = "Limpiar";
             btnLimpiar.Click += btnLimpiar_Click;
@@ -202,10 +214,11 @@ namespace UI2.Views.Libros
             grpLibro.Controls.Add(btnRegistrar);
             grpLibro.Controls.Add(btnActualizar);
             grpLibro.Controls.Add(btnEliminar);
+            grpLibro.Controls.Add(btnActivar); 
             grpLibro.Controls.Add(btnLimpiar);
 
             // ======================== FORM ==========================
-            ClientSize = new Size(1100, 760);
+            ClientSize = new Size(1100, 770);
             Controls.Add(grpLibro);
             Controls.Add(btnRefrescar);
             Controls.Add(btnBuscar);

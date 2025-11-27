@@ -2,100 +2,88 @@
 using UI2.Models.Common;
 using UI2.Models.Prestamos;
 using UI2.Services;
+using UI2.Services.Interfaces;
 
-namespace UI2.Adapters
+namespace UI2.Services.Implementations
 {
-    public class PrestamoAdapter
+    public class PrestamoApiService : IPrestamoApiService
     {
         private readonly ApiClient _apiClient;
 
-        public PrestamoAdapter(ApiClient apiClient)
+        public PrestamoApiService(ApiClient apiClient)
         {
             _apiClient = apiClient;
         }
-
-
-        // OBTENER TODOS
 
         public async Task<AdapterResult<IList<PrestamoListItemModel>>> ObtenerTodosAsync()
         {
             var response = await _apiClient.SendAsync<List<PrestamoDTO>>(
                 HttpMethod.Get,
-                "/api/prestamo/listado"
+                "/api/Prestamo/listado"
             );
 
             if (!response.Success || response.Data == null)
                 return AdapterResult<IList<PrestamoListItemModel>>.Fail("No se encontraron préstamos.");
 
             return AdapterResult<IList<PrestamoListItemModel>>.Ok(
-                Mapear(response.Data),
+                MapearListado(response.Data),
                 "Préstamos cargados correctamente."
             );
         }
-
-
-        // OBTENER POR USUARIO
 
         public async Task<AdapterResult<IList<PrestamoListItemModel>>> ObtenerPorUsuarioAsync(int usuarioId)
         {
             var response = await _apiClient.SendAsync<List<PrestamoDTO>>(
                 HttpMethod.Get,
-                $"api/prestamo/usuario/{usuarioId}"
+                $"/api/Prestamo/usuario/{usuarioId}"
             );
 
             if (!response.Success || response.Data == null)
                 return AdapterResult<IList<PrestamoListItemModel>>.Fail("No existen préstamos para este usuario.");
 
             return AdapterResult<IList<PrestamoListItemModel>>.Ok(
-                Mapear(response.Data),
+                MapearListado(response.Data),
                 "Préstamos del usuario cargados."
             );
         }
-
-        // OBTENER ACTIVOS
 
         public async Task<AdapterResult<IList<PrestamoListItemModel>>> ObtenerPrestamosActivosAsync(int usuarioId)
         {
             var response = await _apiClient.SendAsync<List<PrestamoDTO>>(
                 HttpMethod.Get,
-                $"api/prestamo/activos/{usuarioId}"
+                $"/api/Prestamo/activos/{usuarioId}"
             );
 
             if (!response.Success || response.Data == null)
                 return AdapterResult<IList<PrestamoListItemModel>>.Fail("No hay préstamos activos.");
 
             return AdapterResult<IList<PrestamoListItemModel>>.Ok(
-                Mapear(response.Data),
+                MapearListado(response.Data),
                 "Préstamos activos cargados."
             );
         }
-
-        // OBTENER VENCIDOS
 
         public async Task<AdapterResult<IList<PrestamoListItemModel>>> ObtenerPrestamosVencidosAsync()
         {
             var response = await _apiClient.SendAsync<List<PrestamoDTO>>(
                 HttpMethod.Get,
-                $"api/prestamo/vencidos"
+                "/api/Prestamo/vencidos"
             );
 
             if (!response.Success || response.Data == null)
                 return AdapterResult<IList<PrestamoListItemModel>>.Fail("No hay vencidos.");
 
             return AdapterResult<IList<PrestamoListItemModel>>.Ok(
-                Mapear(response.Data),
+                MapearListado(response.Data),
                 "Préstamos vencidos cargados."
             );
         }
-
-
-        // OBTENER DETALLES DE UN PRÉSTAMO
 
         public async Task<AdapterResult<IList<PrestamoDetalleItemModel>>> ObtenerDetallesAsync(int prestamoId)
         {
             var response = await _apiClient.SendAsync<List<DetallePrestamoDTO>>(
                 HttpMethod.Get,
-                $"api/prestamo/{prestamoId}/detalles"
+                $"/api/Prestamo/{prestamoId}/detalles"
             );
 
             if (!response.Success || response.Data == null)
@@ -116,14 +104,11 @@ namespace UI2.Adapters
             );
         }
 
-
-        // REGISTRAR NUEVO PRÉSTAMO
-
         public async Task<AdapterResult<PrestamoListItemModel>> RegistrarPrestamoAsync(PrestamoCreateModel model)
         {
             var response = await _apiClient.SendAsync<PrestamoDTO>(
                 HttpMethod.Post,
-                "api/prestamo/registrar",
+                "/api/Prestamo/registrar",
                 model
             );
 
@@ -136,14 +121,11 @@ namespace UI2.Adapters
             );
         }
 
-
-        // DEVOLVER PRÉSTAMO COMPLETO
-
         public async Task<AdapterResult<string>> RegistrarDevolucionAsync(int prestamoId, List<int> librosIds)
         {
             var response = await _apiClient.SendAsync<string>(
                 HttpMethod.Put,
-                $"api/prestamo/{prestamoId}/devolucion",
+                $"/api/Prestamo/{prestamoId}/devolucion",
                 librosIds
             );
 
@@ -152,22 +134,17 @@ namespace UI2.Adapters
                 : AdapterResult<string>.Fail("No se pudo devolver el préstamo.");
         }
 
-
-        // DEVOLVER SOLO UN LIBRO (DETALLE)
-
         public async Task<AdapterResult<string>> RegistrarDevolucionDetalleAsync(int detalleId)
         {
             var response = await _apiClient.SendAsync<string>(
                 HttpMethod.Put,
-                $"api/prestamo/detalle/{detalleId}/devolver"
+                $"/api/Prestamo/detalle/{detalleId}/devolver"
             );
 
             return response.Success
                 ? AdapterResult<string>.Ok("Libro devuelto correctamente.")
                 : AdapterResult<string>.Fail("No se pudo devolver el libro.");
         }
-
-        // MAPEO GENERAL
 
         private PrestamoListItemModel Mapear(PrestamoDTO p)
         {
@@ -179,10 +156,9 @@ namespace UI2.Adapters
                 FechaPrestamo = p.FechaPrestamo,
                 FechaVencimiento = p.FechaVencimiento,
                 Activo = p.Activo,
-
                 Detalles = p.Detalles.Select(d => new PrestamoDetalleItemModel
                 {
-                    DetalleId = d.Id,            // CORREGIDO
+                    DetalleId = d.Id,
                     LibroId = d.LibroId,
                     TituloLibro = d.TituloLibro,
                     Devuelto = d.Devuelto,
@@ -191,10 +167,9 @@ namespace UI2.Adapters
             };
         }
 
-        private IList<PrestamoListItemModel> Mapear(IEnumerable<PrestamoDTO> prestamos)
+        private IList<PrestamoListItemModel> MapearListado(IEnumerable<PrestamoDTO> prestamos)
         {
             return prestamos.Select(Mapear).ToList();
         }
     }
 }
-

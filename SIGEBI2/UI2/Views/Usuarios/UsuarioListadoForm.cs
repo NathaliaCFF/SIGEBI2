@@ -1,14 +1,15 @@
-﻿using UI2.Adapters;
-using UI2.AppConfig;
+﻿using UI2.AppConfig;
 using UI2.Models.Usuarios;
+using UI2.Models.Common;
 using UI2.Services;
+using UI2.Services.Interfaces;
 using UI2.ViewModels.Usuarios;
 
 namespace UI2.Views.Usuarios
 {
     public partial class UsuarioListadoForm : Form
     {
-        private readonly UsuarioAdapter _usuarioAdapter;
+        private readonly IUsuarioApiService _usuarioApiService;
         private readonly SessionService _sessionService;
         private readonly NotificationService _notificationService;
         private readonly ValidationService _validationService;
@@ -20,7 +21,7 @@ namespace UI2.Views.Usuarios
         {
             InitializeComponent();
 
-            _usuarioAdapter = ServiceLocator.UsuarioAdapter;
+            _usuarioApiService = ServiceLocator.UsuarioApiService;
             _sessionService = ServiceLocator.SessionService;
             _notificationService = ServiceLocator.NotificationService;
             _validationService = ServiceLocator.ValidationService;
@@ -109,8 +110,7 @@ namespace UI2.Views.Usuarios
         {
             try
             {
-                var usuarioActual = ObtenerUsuarioActual();
-                var resultado = await _usuarioAdapter.ObtenerUsuariosAsync(usuarioActual);
+                var resultado = await _usuarioApiService.ObtenerUsuariosAsync();
 
                 if (!resultado.Success || resultado.Data == null)
                 {
@@ -140,8 +140,7 @@ namespace UI2.Views.Usuarios
 
             try
             {
-                var usuarioActual = ObtenerUsuarioActual();
-                var resultado = await _usuarioAdapter.CrearUsuarioAsync(model, usuarioActual);
+                var resultado = await _usuarioApiService.CrearUsuarioAsync(model);
 
                 if (!resultado.Success || resultado.Data == null)
                 {
@@ -184,8 +183,7 @@ namespace UI2.Views.Usuarios
 
             try
             {
-                var usuarioActual = ObtenerUsuarioActual();
-                var resultado = await _usuarioAdapter.ActualizarUsuarioAsync(model, usuarioActual);
+                var resultado = await _usuarioApiService.ActualizarUsuarioAsync(model);
 
                 if (!resultado.Success || resultado.Data == null)
                 {
@@ -215,17 +213,6 @@ namespace UI2.Views.Usuarios
             return true;
         }
 
-        private SIGEBI.Domain.Entities.Usuario ObtenerUsuarioActual()
-        {
-            return new SIGEBI.Domain.Entities.Usuario
-            {
-                Nombre = _sessionService.NombreUsuario,
-                Email = _sessionService.Email,
-                Rol = _sessionService.Rol,
-                Activo = true
-            };
-        }
-
         private async void btnActivar_Click(object sender, EventArgs e)
         {
             if (!TryObtenerUsuarioSeleccionado(out var usuario))
@@ -233,8 +220,7 @@ namespace UI2.Views.Usuarios
 
             try
             {
-                var usuarioActual = ObtenerUsuarioActual();
-                var resultado = await _usuarioAdapter.ActivarUsuarioAsync(usuario.Id, usuarioActual);
+                var resultado = await _usuarioApiService.ActivarUsuarioAsync(usuario.Id);
 
                 if (!resultado.Success)
                 {
@@ -261,8 +247,7 @@ namespace UI2.Views.Usuarios
 
             try
             {
-                var usuarioActual = ObtenerUsuarioActual();
-                var resultado = await _usuarioAdapter.DesactivarUsuarioAsync(usuario.Id, usuarioActual);
+                var resultado = await _usuarioApiService.DesactivarUsuarioAsync(usuario.Id);
 
                 if (!resultado.Success)
                 {

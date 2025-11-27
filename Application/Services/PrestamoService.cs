@@ -24,7 +24,7 @@ namespace SIGEBI.Application.Services
         private readonly ILibroRepository _libroRepo;
         private readonly IDetallePrestamoRepository _detalleRepo;
 
-        // 👉 AGREGADO: dependencia de configuración
+
         private readonly IConfiguracionService _configService;
 
         public PrestamoService(
@@ -39,7 +39,7 @@ namespace SIGEBI.Application.Services
             _libroRepo = libroRepo;
             _detalleRepo = detalleRepo;
 
-            // 👉 Guardamos el servicio de configuración
+
             _configService = configService;
         }
 
@@ -73,27 +73,26 @@ namespace SIGEBI.Application.Services
                 libros.Add(libro.Data);
             }
 
-            // 👉 OBTENER DURACIÓN DESDE CONFIGURACIÓN (CU-14)
+            // OBTENER DURACIÓN DESDE CONFIGURACIÓN
             var config = await _configService.ObtenerConfiguracionAsync();
             int dias = config.Success && config.Data != null
                 ? config.Data.DuracionPrestamoDias
-                : 7; // fallback por si no existe config
+                : 7;
 
-            // CU-09: Crear préstamo principal
+
             var prestamo = new Prestamo
             {
                 UsuarioId = usuarioId,
                 FechaPrestamo = DateTime.Now,
-
-                // 👉 AHORA ES CONFIGURABLE
-                FechaVencimiento = DateTime.Now.AddDays(dias)
+                FechaVencimiento = DateTime.Now.AddDays(dias),
+                Activo = true            
             };
 
             var creado = await _prestamoRepo.AddAsync(prestamo);
             if (!creado.Success || creado.Data == null)
                 return ServiceResult<Prestamo>.Fail("No se pudo registrar el préstamo en la base de datos.");
 
-            // CU-09: Registrar detalles del préstamo y actualizar disponibilidad
+            // Registrar detalles y actualizar libros
             foreach (var libro in libros)
             {
                 libro.Disponible = false;
@@ -112,6 +111,7 @@ namespace SIGEBI.Application.Services
 
             return ServiceResult<Prestamo>.Ok(creado.Data, "Préstamo registrado correctamente.");
         }
+
 
         // ============================================================================
         // CASO DE USO: CU-10 - Registrar devolución
@@ -165,10 +165,14 @@ namespace SIGEBI.Application.Services
         public async Task<ServiceResult<IEnumerable<Prestamo>>> ObtenerPrestamosActivosPorUsuarioAsync(int usuarioId)
         {
             var prestamos = await _prestamoRepo.ObtenerPorUsuarioAsync(usuarioId);
-            if (!prestamos.Any())
-                return ServiceResult<IEnumerable<Prestamo>>.Fail("No hay préstamos activos para este usuario.");
 
-            return ServiceResult<IEnumerable<Prestamo>>.Ok(prestamos, "Listado de préstamos activos obtenido correctamente.");
+
+
+            return ServiceResult<IEnumerable<Prestamo>>.Ok(
+                prestamos,
+                prestamos.Any() ? "Listado de préstamos activos obtenido correctamente."
+                                : "No hay préstamos activos."
+            );
         }
 
         // ============================================================================

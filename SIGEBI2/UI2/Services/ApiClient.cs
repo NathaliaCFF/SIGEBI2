@@ -113,7 +113,7 @@ namespace UI2.Services
             }
             catch (JsonException)
             {
-                // Ignorar errores y devolver el contenido crudo
+              
             }
 
             return contenido;

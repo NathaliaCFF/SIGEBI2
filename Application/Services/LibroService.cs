@@ -28,13 +28,10 @@ namespace SIGEBI.Application.Services
         }
 
         // ============================================================================
-        // CASO DE USO: CU-01 - Registrar libro
-        // DESCRIPCIÓN: Permite al Administrador registrar un nuevo libro, validando
-        // duplicidad de ISBN y completando los metadatos del registro.
+        // CU-01 - Registrar libro
         // ============================================================================
         public async Task<ServiceResult<Libro>> CrearAsync(Libro libro)
         {
-            // CU-01: Validar ISBN duplicado antes del registro
             if (await _repo.ExisteISBNAsync(libro.ISBN))
                 return ServiceResult<Libro>.Fail("El ISBN ya existe.");
 
@@ -43,15 +40,14 @@ namespace SIGEBI.Application.Services
             libro.FechaCreacion = DateTime.UtcNow;
 
             var result = await _repo.AddAsync(libro);
+
             return result.Success
                 ? ServiceResult<Libro>.Ok(result.Data!, "Libro registrado correctamente.")
                 : ServiceResult<Libro>.Fail(result.Message ?? "Error al registrar el libro.");
         }
 
         // ============================================================================
-        // CASO DE USO: CU-02 - Editar libro
-        // DESCRIPCIÓN: Permite al Administrador modificar la información de un libro
-        // existente, incluyendo título, autor, ISBN, editorial y categoría.
+        // CU-02 - Editar libro
         // ============================================================================
         public async Task<ServiceResult<Libro>> ActualizarAsync(int id, Libro libro)
         {
@@ -59,30 +55,36 @@ namespace SIGEBI.Application.Services
             if (!existente.Success || existente.Data == null)
                 return ServiceResult<Libro>.Fail("Libro no encontrado.");
 
-            // CU-02: Validar ISBN duplicado si el valor ha sido modificado
+            // Validar ISBN duplicado si fue modificado
             if (!string.Equals(existente.Data.ISBN, libro.ISBN, StringComparison.OrdinalIgnoreCase)
                 && await _repo.ExisteISBNAsync(libro.ISBN))
                 return ServiceResult<Libro>.Fail("El ISBN ya existe.");
 
             var e = existente.Data;
+
+            // Datos modificables
             e.Titulo = libro.Titulo;
             e.Autor = libro.Autor;
             e.ISBN = libro.ISBN;
             e.Editorial = libro.Editorial;
             e.Categoria = libro.Categoria;
             e.AnioPublicacion = libro.AnioPublicacion;
+
+
+            e.Disponible = libro.Disponible;
+            e.Activo = libro.Activo;
+
             e.FechaModificacion = DateTime.UtcNow;
 
             var update = await _repo.UpdateAsync(e);
+
             return update.Success
                 ? ServiceResult<Libro>.Ok(update.Data!, "Libro actualizado correctamente.")
                 : ServiceResult<Libro>.Fail(update.Message ?? "Error al actualizar el libro.");
         }
 
         // ============================================================================
-        // CASO DE USO: CU-03 - Buscar libro
-        // DESCRIPCIÓN: Permite a usuarios autenticados (docentes/estudiantes)
-        // realizar búsquedas por título o autor, mostrando solo libros activos.
+        // CU-03 - Buscar libro
         // ============================================================================
         public async Task<ServiceResult<IEnumerable<Libro>>> BuscarAsync(string criterio)
         {
@@ -91,9 +93,7 @@ namespace SIGEBI.Application.Services
         }
 
         // ============================================================================
-        // CASO DE USO: CU-04 - Consultar estado de libro
-        // DESCRIPCIÓN: Permite verificar si un libro se encuentra disponible
-        // para préstamo o se encuentra prestado actualmente.
+        // CU-04 - Consultar estado de disponibilidad
         // ============================================================================
         public async Task<ServiceResult<bool>> EstaDisponibleAsync(int id)
         {
@@ -102,9 +102,7 @@ namespace SIGEBI.Application.Services
         }
 
         // ============================================================================
-        // CASO DE USO: CU-04 (extensión) - Cambiar disponibilidad
-        // DESCRIPCIÓN: Cambia el estado de disponibilidad de un libro. Utilizado
-        // por otros módulos (por ejemplo, Préstamos y Devoluciones).
+        // Extensión CU-04: Cambiar disponibilidad
         // ============================================================================
         public async Task<ServiceResult> CambiarDisponibilidadAsync(int id, bool disponible)
         {
@@ -115,9 +113,7 @@ namespace SIGEBI.Application.Services
         }
 
         // ============================================================================
-        // MÉTODO AUXILIAR: Desactivar libro
-        // DESCRIPCIÓN: Realiza una desactivación lógica (soft delete) del libro,
-        // manteniendo la integridad referencial en la base de datos.
+        // Desactivar libro (Soft Delete)
         // ============================================================================
         public async Task<ServiceResult> DesactivarAsync(int id)
         {
@@ -128,8 +124,7 @@ namespace SIGEBI.Application.Services
         }
 
         // ============================================================================
-        // MÉTODO AUXILIAR: Obtener libro por ID
-        // DESCRIPCIÓN: Recupera los datos de un libro específico según su identificador.
+        // Obtener libro por ID
         // ============================================================================
         public async Task<ServiceResult<Libro>> ObtenerPorIdAsync(int id)
         {
@@ -140,8 +135,7 @@ namespace SIGEBI.Application.Services
         }
 
         // ============================================================================
-        // MÉTODO AUXILIAR: Listar todos los libros
-        // DESCRIPCIÓN: Devuelve el listado completo de libros registrados.
+        // Listar todos
         // ============================================================================
         public async Task<ServiceResult<IEnumerable<Libro>>> ListarAsync()
         {
@@ -149,6 +143,26 @@ namespace SIGEBI.Application.Services
             return all.Success
                 ? ServiceResult<IEnumerable<Libro>>.Ok(all.Data!, "Listado obtenido correctamente.")
                 : ServiceResult<IEnumerable<Libro>>.Fail(all.Message ?? "Error al listar los libros.");
+        }
+
+        // ============================================================================
+        // ACTIVAR LIBRO 
+        // ============================================================================
+        public async Task<ServiceResult> ActivarAsync(int id)
+        {
+            var libro = await _repo.GetByIdAsync(id);
+            if (!libro.Success || libro.Data == null)
+                return ServiceResult.Fail("Libro no encontrado.");
+
+            libro.Data.Activo = true;
+            libro.Data.Disponible = true;
+            libro.Data.FechaModificacion = DateTime.UtcNow;
+
+            var update = await _repo.UpdateAsync(libro.Data);
+
+            return update.Success
+                ? ServiceResult.Ok("Libro activado correctamente.")
+                : ServiceResult.Fail(update.Message);
         }
     }
 }

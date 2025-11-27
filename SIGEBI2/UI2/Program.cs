@@ -15,7 +15,7 @@ namespace UI2
             ServiceLocator.Configure();
 
             var loginForm = new LoginForm(
-                ServiceLocator.AuthAdapter,
+                ServiceLocator.AuthApiService,
                 ServiceLocator.SessionService,
                 ServiceLocator.NotificationService,
                 ServiceLocator.ValidationService);
